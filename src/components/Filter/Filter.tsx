@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { Profile } from "../../routes/model";
+import { Profile } from "../../models/model";
 import FilterContext from "./FilterContext";
 import { FilterSearch } from "./FilterSearch";
 import { FilterPromotion } from "./FilterPromotion";

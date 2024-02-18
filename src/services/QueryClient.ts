@@ -2,7 +2,7 @@ import { QueryClient } from "react-query";
 
 import { useQuery } from "react-query";
 import axios from "axios";
-import { Profile } from "../routes/model";
+import { Profile } from "../models/model";
 
 const BaseUrl = 'http://localhost:4000/api'
 
@@ -12,6 +12,8 @@ export function useProfiles() {
             `${BaseUrl}/profile/getlist`
         );
         return response.data;
+    }, {
+        staleTime: 100 * 60 // 1 minute
     });
 }
 

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Profile } from "../../routes/model";
+import { Profile } from "../../models/model";
 
 export interface FilterContextProps {
     data?: Profile[];

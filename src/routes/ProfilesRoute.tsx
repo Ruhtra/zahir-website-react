@@ -1,12 +1,12 @@
 import { Profiles } from "../components/Profiles/Profiles";
-import { Profile } from "./model";
+import { Profile } from "../models/model";
 import { useEffect, useState } from "react";
 import { Filter } from "../components/Filter/Filter";
 import { useProfiles } from "../services/QueryClient";
 import FilterContext from "../components/Filter/FilterContext";
 
 
-export function Index() {
+export function ProfilesRoute() {
     const [filtrado, setFiltrado] = useState([])
     const { data, isFetching } = useProfiles()
 
