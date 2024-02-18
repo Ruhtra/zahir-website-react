@@ -1,23 +1,21 @@
-import { useContext } from "react"
-import { ExampleContext } from "../../routes/Index"
+import { Profile } from "../../routes/model"
 
+export interface PropsProfile {
+    data?: Profile[];
+    filtrado?: Profile[];
+}
+export function Profiles({ filtrado }: PropsProfile) {
 
-export function Profiles() {
-    const { data, filtrado }  = useContext(ExampleContext)
-
+    console.log(filtrado);
     return (
+
+        
         <>
         <ul>
-        
         {
-            filtrado.length > 0
-            ? (filtrado.map(e => {
-                    return <li key={e._id}>{e.name}</li>
-            }))
-            : ( data?.map(e => {
+            filtrado?.map((e) => {
                 return <li key={e._id}>{e.name}</li>
             })
-            )
         }
         </ul>
         </>

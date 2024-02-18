@@ -1,15 +1,9 @@
-import { createContext, useState } from "react";
-import { Filter } from "../components/Filter/Filter";
 import { Profiles } from "../components/Profiles/Profiles";
 import { Profile } from "./model";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useState } from "react";
 
-interface contextProps {
-    data?: Profile[];
-    filtrado: Profile[];
-}
-export const ExampleContext = createContext<contextProps>({data: [], filtrado: []});
 
 export function Index() {
     const { data } = useQuery<Profile[]>('profiles', async () => {
@@ -19,15 +13,31 @@ export function Index() {
         
         return response.data
     })
-    const [filtrado, setFiltrado] = useState<Profile[]>([])
-    
+    const filtrado = data ? [...data] : []
+
+    const [search, setSearch] = useState('')
+    function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+        setSearch(e.target.value);
+    }
+    const [promotion, setPromotion] = useState(false)
+    function handlePromotion() {
+        setPromotion(!promotion)
+
+
+    }
+
+    const newfilter = filtrado.filter(e => e.name.toLocaleLowerCase().includes(search.toLowerCase()))
+    const filterdofilter = newfilter.filter(e => {
+        if (promotion) return Object.keys(e.promotion).length > 1
+        else return true
+    })
 
     return (
         <>
-        <ExampleContext.Provider value={{data, filtrado}}>
-            <Filter setFiltrado={setFiltrado} />
-            <Profiles />
-        </ExampleContext.Provider>
+            <input type="checkbox" checked={promotion} onChange={handlePromotion} />
+            <input type="search" value={search} onChange={handleSearch}/>
+
+            <Profiles data={data} filtrado={filterdofilter} />
         </>
     )
 }
