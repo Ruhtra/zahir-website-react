@@ -20,7 +20,6 @@ export function Index() {
 
     return (
         <>
-
             <FilterContext.Provider value={{data, onFilter: handleFilter}}>
                 {isFetching && <p>loadinnng...</p>}
 
