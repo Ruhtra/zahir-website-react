@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { LojaRoute } from "./routes/LojaRoute";
 import { AnuncieRoute } from "./routes/AnuncieRoute";
 import { ProfileRoute } from "./routes/ProfileRoute";
+import { Footer } from "./components/Footer/Footer";
 export function App() {
   
   return (
@@ -18,6 +19,8 @@ export function App() {
       <Route path="/loja" element={<LojaRoute />} />
       <Route path="/anuncie" element={<AnuncieRoute />} />
     </Routes>
+
+    <Footer />
     </>
   )
 }

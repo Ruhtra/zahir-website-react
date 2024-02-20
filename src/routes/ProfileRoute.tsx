@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useGetProfile } from "../services/QueryClient";
+import { Loading } from "../components/Loading/Loading";
+import { useGetProfile } from "../services/Querys/Profiles";
 
 
 export function ProfileRoute() {
@@ -8,16 +9,13 @@ export function ProfileRoute() {
 
     const {data, isFetching} = useGetProfile(id);
 
-    console.log('renderizei');
-    
-
 
     return (
         <>
             <h1>Profile route para o id {id}</h1>
 
             <h1>Profile</h1>
-            {isFetching && <p>Loadiiing...</p>}
+            {isFetching && <Loading />}
             {
                 data?._id
             }
