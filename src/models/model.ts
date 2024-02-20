@@ -49,4 +49,9 @@ export interface HomePage {
         Omit<Profile,
             'resume' | 'informations' | 'telephones' | 'local' | 'movie'> &
         { local: Pick<Local, 'uf' | 'city'> };
-} 
+}
+
+export interface RecentsMovies {
+    _id: string;
+    movie: string;
+}

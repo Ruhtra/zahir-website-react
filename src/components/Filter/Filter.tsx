@@ -5,6 +5,7 @@ import { FilterSearch } from "./FilterSearch";
 import { FilterPromotion } from "./FilterPromotion";
 import { FilterCategory } from "./FilterCategory";
 import { FilterCategories } from "./FilterCategories";
+import { FilterUf } from "./FilterUf";
 
 export function Filter() {
     const {data, onFilter} =  useContext(FilterContext)
@@ -12,6 +13,7 @@ export function Filter() {
     const [search, setSearch] =  useState("");
     const [promotion, setPromotion] =  useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedUf, setSelectedUf] = useState("");
     const [categoriesSelected, setCategoriesSelected] = useState([])
 
 
@@ -27,13 +29,16 @@ export function Filter() {
         if (selectedCategory) {
             filteredData = filteredData.filter(e => e.category.type == selectedCategory)
         }
+        if (selectedUf) {            
+            filteredData = filteredData.filter(e => e.local.uf == selectedUf)
+        }
         
         categoriesSelected.forEach(category => {
             filteredData = filteredData.filter(e => e.category.categories?.includes(category))
         })
 
         return filteredData;
-    }, [search, promotion, selectedCategory, categoriesSelected, data]);
+    }, [search, promotion, selectedCategory, categoriesSelected, selectedUf, data]);
 
 
 
@@ -48,6 +53,7 @@ export function Filter() {
                 <FilterPromotion onPromotionChange={setPromotion} />
                 <FilterSearch onSearchChange={setSearch} />
                 <FilterCategory onCategoryChange={setSelectedCategory} />
+                <FilterUf onUfChange={setSelectedUf} />
                 <FilterCategories onCategoriesChange={setCategoriesSelected} />
             </div>
         </>
