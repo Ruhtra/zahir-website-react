@@ -1,36 +1,45 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import FilterContext from "./FilterContext"
+import { SetURLSearchParams } from "react-router-dom";
 interface CategoriesProps {
-    onCategoriesChange: (categories: string[]) => void;
+    categories: string
+    onCategoriesChange: SetURLSearchParams;
 }
 
-export function FilterCategories({ onCategoriesChange }: CategoriesProps) {
-        const {data} = useContext(FilterContext)
-        const [categoriesSelected, setCategoriesSelected] = useState([])
+export function FilterCategories({ categories, onCategoriesChange }: CategoriesProps) {
+            const {data} = useContext(FilterContext)
 
-        function handleCategories(e: React.ChangeEvent<HTMLInputElement>) {
-            const categoryName = e.target.name;
-            const isChecked = e.target.checked;
-        
-            let updatedCategoriesSelected = [ ...categoriesSelected ];
-        
-            if (isChecked) {
-                if (!categoriesSelected.includes(categoryName))
-                    updatedCategoriesSelected.push(categoryName)
-            } else {        
-                if (categoriesSelected.includes(categoryName))
-                    updatedCategoriesSelected = updatedCategoriesSelected.filter(e => e !== categoryName);
+            const categoriesSelected = categories
+            ? (
+                categories.split(',')[0] != ''
+                ?  categories.split(',')
+                : [])
+            : []
+    
+            function handleCategories(e: React.ChangeEvent<HTMLInputElement>) {
+                const categoryName = e.target.name;
+                const isChecked = e.target.checked;
+            
+                let updatedCategoriesSelected = [ ...categoriesSelected ];
+            
+                if (isChecked) {
+                    if (!categoriesSelected.includes(categoryName))
+                        updatedCategoriesSelected.push(categoryName)
+                } else {        
+                    if (categoriesSelected.includes(categoryName))
+                        updatedCategoriesSelected = updatedCategoriesSelected.filter(e => e !== categoryName);
+                }
+            
+                // Atualize o estado das categorias selecionadas com a cópia atualizada
+                onCategoriesChange((params) => {
+                    params.set('categories', updatedCategoriesSelected.join(','))
+                    return params
+                })
             }
-        
-            // Atualize o estado das categorias selecionadas com a cópia atualizada
-            setCategoriesSelected(updatedCategoriesSelected);
-            onCategoriesChange(updatedCategoriesSelected)
-        }
-        
 
     return (
         <div>
-            <h2>categories</h2>
+            <h2>categories</h2> 
             <div className="listCategories">
             {
             [...new Set(data?.flatMap(item => item.category.categories || []))].sort().sort().map((category, index) => (

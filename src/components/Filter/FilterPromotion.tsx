@@ -1,16 +1,18 @@
-// SearchInput.tsx
-import  { useState } from "react";
+import { SetURLSearchParams } from "react-router-dom";
+
 
 interface PromotionProps {
-    onPromotionChange: (promotion: boolean) => void;
+    promotion: boolean;
+    onPromotionChange: SetURLSearchParams
 }
 
-export function FilterPromotion({ onPromotionChange }: PromotionProps) {
-    const [promotion, setPromotion] = useState(false);
+export function FilterPromotion({ promotion, onPromotionChange }: PromotionProps) {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPromotion(e.target.checked)
-        onPromotionChange(e.target.checked); 
+        onPromotionChange((params) => {
+            params.set('promotion', e.target.checked ? 'true' : 'false')
+            return params
+        })
     };
 
     return (

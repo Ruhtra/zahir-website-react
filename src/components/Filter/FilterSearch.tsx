@@ -1,17 +1,18 @@
-// SearchInput.tsx
-import  { useState } from "react";
+import { SetURLSearchParams } from "react-router-dom";
 
 interface SearchProps {
-    onSearchChange: (search: string) => void;
+    search: string | null;
+    onSearchChange: SetURLSearchParams;
 }
 
-export function FilterSearch ({ onSearchChange }: SearchProps) {
-    const [search, setSearch] = useState("");
-
+export function FilterSearch ({ search, onSearchChange }: SearchProps) {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = e.target.value;
-        setSearch(searchValue);
-        onSearchChange(searchValue); 
+        
+        onSearchChange((params) => {
+            params.set('search', searchValue)
+            return params
+        }); 
     };
 
     return (

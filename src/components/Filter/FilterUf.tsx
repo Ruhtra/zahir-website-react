@@ -1,22 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import FilterContext from "./FilterContext";
+import { SetURLSearchParams } from "react-router-dom";
 
 interface UfProps {
-    onUfChange: (uf: string) => void;
+    uf: string;
+    onUfChange: SetURLSearchParams;
 }
 
-export function FilterUf({ onUfChange }: UfProps) {
+export function FilterUf({ uf, onUfChange }: UfProps) {
     const {data} =  useContext(FilterContext)
 
-    const [selectedUf, setSelectedUf] = useState("");
 
     function handleUf(e: React.ChangeEvent<HTMLSelectElement>) {
-        setSelectedUf(e.target.value);
-        onUfChange(e.target.value)
+        onUfChange((params) => {
+            params.set('uf', e.target.value)
+            return params;
+        })
     }
 
     return (
-        <select value={selectedUf} onChange={handleUf}>
+        <select value={uf} onChange={handleUf}>
             <option value="">Todos</option>
             {
                 data?.map(e => e.local.uf)

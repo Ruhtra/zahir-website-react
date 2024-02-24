@@ -1,22 +1,24 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import FilterContext from "./FilterContext"
+import { SetURLSearchParams } from "react-router-dom";
 
 interface CategoryProps {
-    onCategoryChange: (category: string) => void;
+    category: string
+    onCategoryChange: SetURLSearchParams;
 }
 
-export function FilterCategory({ onCategoryChange }: CategoryProps) {
+export function FilterCategory({ category, onCategoryChange }: CategoryProps) {
     const {data} =  useContext(FilterContext)
 
-    const [selectedCategory, setSelectedCategory] = useState("");
-
     function handleCategory(e: React.ChangeEvent<HTMLSelectElement>) {
-        setSelectedCategory(e.target.value);
-        onCategoryChange(e.target.value)
+        onCategoryChange((params) => {
+            params.set('category', e.target.value)
+            return params
+        })
 
     }
     return (
-        <select value={selectedCategory} onChange={handleCategory}>
+        <select value={category} onChange={handleCategory}>
             <option value="">Todos</option>
             {
                 data?.map(e => e.category.type)
