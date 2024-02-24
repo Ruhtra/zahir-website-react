@@ -9,7 +9,7 @@ import { useProfiles } from "../services/Querys/Profiles";
 
 export function ProfilesRoute() {
     const [filtrado, setFiltrado] = useState([])
-    const { data, isFetching } = useProfiles()
+    const { data, isLoading } = useProfiles()
 
     useEffect(() => {
         if (data) setFiltrado(data)
@@ -19,11 +19,11 @@ export function ProfilesRoute() {
         setFiltrado(filtered);
     };
 
+    if (isLoading) return <Loading />
+
     return (
         <>
             <FilterContext.Provider value={{data, onFilter: handleFilter}}>
-                {isFetching && <Loading />}
-
                 <Filter />
                 <Profiles filtrado={filtrado} />
             </FilterContext.Provider>

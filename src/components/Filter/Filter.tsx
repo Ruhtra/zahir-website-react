@@ -12,6 +12,18 @@ export function Filter() {
     const [searchParams, setSearchParams] = useSearchParams()
     const {data, onFilter} =  useContext(FilterContext)
 
+    function clearFilter() {
+        setSearchParams(params => {
+            params.set('search', '')
+            params.set('promotion', '')
+            params.set('category', '')
+            params.set('uf', '')
+            params.set('categories', '')
+
+            return params
+        })
+    }
+
 
     const filteredData: Profile[] = useMemo(() => {
         if (!data) return
@@ -29,7 +41,7 @@ export function Filter() {
         
 
             if (search) {            
-            filteredData = filteredData.filter(e => e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+                filteredData = filteredData.filter(e => e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
             }
             if (promotion) {
                 filteredData = filteredData.filter(e => Object.keys(e.promotion).length > 1);
@@ -52,7 +64,7 @@ export function Filter() {
 
     useEffect(() => {
         onFilter(filteredData)
-    }, [filteredData]);
+    }, [filteredData, onFilter]);
 
     return (
         <>
@@ -62,6 +74,8 @@ export function Filter() {
                 <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
                 <FilterUf uf={searchParams.get("uf") ?? ''} onUfChange={setSearchParams} />
                 <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
+               
+                <button onClick={clearFilter}>clear</button>
             </div>
         </>
     )

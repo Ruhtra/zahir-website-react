@@ -4,14 +4,14 @@ import { useRecents } from "../services/Querys/Profiles";
 
 
 export function Index() {
-    const {data, isFetching} = useCarousel(true)
-    const {data: dataRecents, isFetching: isFetchingRecents} = useRecents()
+    const {data, isLoading} = useCarousel(true)
+    const {data: dataRecents, isLoading: isLoadingRecents} = useRecents()
     
 
     return (
         <>
         <h1>Carousel</h1>
-            {isFetching && <Loading />}
+            {isLoading && <Loading />}
              {
                 data?.map(e => {
                     return <h1 key={e.profile._id}>{e.profile._id}</h1>
@@ -20,7 +20,7 @@ export function Index() {
 
             <h1>Recents</h1>
 
-            {isFetchingRecents && <Loading />}
+            {isLoadingRecents && <Loading />}
             {
                 dataRecents?.map(e => {
                     return <h1 key={e._id}>{e._id}</h1>
