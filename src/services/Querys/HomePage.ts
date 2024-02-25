@@ -17,13 +17,15 @@ function shuffleArray(array) {
 
 
 export function useCarousel(isShuffle: boolean | null = null) {
-    return useQuery<HomePage[]>('carousel', async () => {
-        const response = await axios.get<HomePage[]>(
-            `${PathUrl}/getAll`
-        );
-        if (isShuffle) return shuffleArray(response.data);
-        return response.data
-    }, {
-        staleTime: 1000 * 5 // 1 minute
-    });
+    return useQuery<HomePage[]>({
+        queryKey: ['carousel'],
+        queryFn: async () => {
+            const response = await axios.get<HomePage[]>(
+                `${PathUrl}/getAll`
+            );
+            if (isShuffle) return shuffleArray(response.data);
+            return response.data
+        },
+        staleTime: 1000 * 60 // 1 minute
+    })
 }
