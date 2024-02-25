@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, createBrowserRouter } from "react-router-dom";
 import { Index } from "./routes/Index/IndexRoute";
 import { ProfilesRoute } from "./routes/ProfilesRoute";
 import { NavBar } from "./components/NavBar/NavBar";
@@ -8,20 +8,33 @@ import { ProfileRoute } from "./routes/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";
+import NavigationMenuDemo from "./components/NavRadix";
+import { MyNavigationMenu } from "./components/MyNavigationMenu";
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+]);
 
 export function App() {
   
   return (
     <>
-    <NavBar />
+    {/* <NavigationMenuDemo></NavigationMenuDemo> */}
+    <MyNavigationMenu />
+    {/* <NavBar /> */}
 
-    <Routes>
+    {/* <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/profiles" element={<ProfilesRoute />} />
         <Route path="/profile/:id" element={<ProfileRoute />} />
       <Route path="/loja" element={<LojaRoute />} />
       <Route path="/anuncie" element={<AnuncieRoute />} />
-    </Routes>
+    </Routes> */}
 
     <Footer />
     </>

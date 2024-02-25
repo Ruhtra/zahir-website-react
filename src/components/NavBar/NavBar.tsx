@@ -4,7 +4,7 @@ import './NavBar.css'
 
 export function NavBar() {
     return (
-        <nav >
+        <nav>
             <div className="nav desktop">
                 <div className="logo">
                     <Link to="/">
@@ -28,6 +28,27 @@ export function NavBar() {
                         <li key={'Anuncie'}>
                             <Link className="item" to={'/anuncie'}>Anuncie</Link>
                         </li>
+
+                        {/* <li>
+                            <input type="checkbox" id="cb_sidebar_config" style="display: none;">
+                            <label for="cb_sidebar_config">
+                                <a class="config dropdown <% if (active == 'config/homePage' || active == 'config/profiles') { %>active<% } %>">
+                                    <%- include('./icons/config.ejs') %>
+                                    • Config
+                                    <%- include('./icons/arrow.ejs') %>
+                                </a>
+                            </label>
+                            <ul class="content links">
+                                <li><a href="/config/profiles" class="reviews <% if (active == 'config/profiles') { %>active<% } %>">
+                                        <%- include('./icons/movieConfig.ejs') %>
+                                        • Reviews
+                                </a></li>
+                                <li><a href="/config/homepage" class="homepage <% if (active == 'config/homePage') { %>active<% } %>">
+                                    <%- include('./icons/tripleStar.ejs') %>
+                                    • Destaques
+                                </a></li>
+                            </ul>
+                        </li> */}
                     </ul>
                 </div>
 

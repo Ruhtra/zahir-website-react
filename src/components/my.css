@@ -1,0 +1,102 @@
+nav * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    position: relative;
+
+    padding: var(--nav-padding);
+    background-color: var(--color-1);
+    background-image: url('/images/back_50.png');
+    background-size: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Globals */
+nav li { list-style: none; }
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* nav */
+    .nav {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+
+        width: 100%;
+        height: var(--nav-heigth);
+        max-width: 1200px;
+
+        margin: 0 auto;
+
+        font-size: var(--nav-font-size);
+    }
+     /* logo */
+        .nav .logo  { height: inherit; }
+        .nav .logo a {
+            display: block;
+            height: 100%;
+        }
+        .nav .logo a img { height: inherit; }
+
+        /* center */
+            .nav.desktop .links-block {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav.desktop .links-block ul.links {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+
+                width: max-content;
+                height: max-content;
+
+                font-size: 1.3em;
+                font-weight: 900;
+            }
+
+            
+            .nav.desktop .links-block ul.links li { position: relative; }
+            .nav.desktop .links-block ul.links li.line {
+                width: .2em;
+                height: 1.5em;
+                background-color: var(--color-4);
+            }
+
+            /* items */
+                .nav.desktop .links-block ul.links li a.item {
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+
+                    padding: .2em .5em;
+                    
+                    font-size: 1em;
+                    text-align: center;
+                    border-radius: .3em;
+                    
+                    transition: background-color 300ms, font-size 300ms;
+                    transform-origin: center;
+                }
+                .nav.desktop .links-block ul.links li a.item[data-active] { background-color: var(--nav-active); }
+                .nav.desktop .links-block ul.links li a.item:hover {
+                    font-size: 1.25em;
+                    background-color: rgba(0, 0, 0, .3);
+                }
+
+
+
+@media screen and (max-width: 800px) {
+    :root { --nav-padding: .5rem .5rem; }
+
+    .nav.desktop { display: none; }
+    .nav.mobile { display: flex; }
+}
