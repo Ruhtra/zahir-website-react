@@ -1,6 +1,6 @@
-import { Loading } from "../components/Loading/Loading";   
-import { useCarousel } from "../services/Querys/HomePage";
-import { useRecents } from "../services/Querys/Profiles";
+import { Loading } from "../../components/Loading/Loading";   
+import { useCarousel } from "../../services/Querys/HomePage";
+import { useRecents } from "../../services/Querys/Profiles";
 
 
 export function Index() {

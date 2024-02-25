@@ -1,11 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import { Index } from "./routes/IndexRoute";
+import { Index } from "./routes/Index/IndexRoute";
 import { ProfilesRoute } from "./routes/ProfilesRoute";
 import { NavBar } from "./components/NavBar/NavBar";
 import { LojaRoute } from "./routes/LojaRoute";
 import { AnuncieRoute } from "./routes/AnuncieRoute";
 import { ProfileRoute } from "./routes/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
+
+import "./App.css";
+
 export function App() {
   
   return (
