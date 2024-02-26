@@ -1,62 +1,172 @@
-import { Link } from "react-router-dom";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { Link, useLocation } from "react-router-dom";
+import * as Dialog from '@radix-ui/react-dialog';
 
+import { HamburgerMenuIcon, Cross1Icon, HomeIcon, VideoIcon, CardStackIcon, GlobeIcon } from "@radix-ui/react-icons";
 import './NavBar.css'
 
 export function NavBar() {
+    const location = useLocation();
+
     return (
-        <nav>
+        <NavigationMenu.Root className="navbar" orientation="horizontal">
             <div className="nav desktop">
                 <div className="logo">
                     <Link to="/">
                         <img src="/images/icon.png" alt="" />
                     </Link>
                 </div>
+    
                 <div className="links-block">
-                    <ul className="links">
-                        <li key={'Home'}>
-                            <Link className="item" to={'/'}>Home</Link>
-                        </li>
-                        <li className="line"></li>
-                        <li key={'Reviews'}>
-                            <Link className="item" to={'/profiles'}>Reviews</Link>
-                        </li>
-                        <li className="line"></li>
-                        <li key={'Loja'}>
-                            <Link className="item" to={'/loja'}>Loja</Link>
-                        </li>
-                        <li className="line"></li>
-                        <li key={'Anuncie'}>
-                            <Link className="item" to={'/anuncie'}>Anuncie</Link>
-                        </li>
+                    <NavigationMenu.List className="links">
+                        <NavigationMenu.Item>
+                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
+                                <Link className="item" to={'/'}>index</Link>
+                            </NavigationMenu.Link>
+                        </NavigationMenu.Item>
+        
+                        <NavigationMenu.Item className="line" />
+                        
+                        <NavigationMenu.Item>
+                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/profiles'}>
+                                <Link className="item" to={'/profiles'}>Reviews</Link>
+                            </NavigationMenu.Link>
+                        </NavigationMenu.Item>
+                        
+                        <NavigationMenu.Item className="line" />
 
-                        {/* <li>
-                            <input type="checkbox" id="cb_sidebar_config" style="display: none;">
-                            <label for="cb_sidebar_config">
-                                <a class="config dropdown <% if (active == 'config/homePage' || active == 'config/profiles') { %>active<% } %>">
-                                    <%- include('./icons/config.ejs') %>
-                                    • Config
-                                    <%- include('./icons/arrow.ejs') %>
-                                </a>
-                            </label>
-                            <ul class="content links">
-                                <li><a href="/config/profiles" class="reviews <% if (active == 'config/profiles') { %>active<% } %>">
-                                        <%- include('./icons/movieConfig.ejs') %>
-                                        • Reviews
-                                </a></li>
-                                <li><a href="/config/homepage" class="homepage <% if (active == 'config/homePage') { %>active<% } %>">
-                                    <%- include('./icons/tripleStar.ejs') %>
-                                    • Destaques
-                                </a></li>
-                            </ul>
-                        </li> */}
-                    </ul>
+                        <NavigationMenu.Item>
+                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/loja'}>
+                                <Link className="item" to={'/loja'}>Loja</Link>
+                            </NavigationMenu.Link>
+                        </NavigationMenu.Item>
+                        
+                        <NavigationMenu.Item className="line" />
+
+                        <NavigationMenu.Item>
+                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/anuncie'}>
+                                <Link className="item" to={'/anuncie'}>Anuncie</Link>
+                            </NavigationMenu.Link>
+                        </NavigationMenu.Item>
+                    </NavigationMenu.List>
+                </div>            
+            </div>
+            <div className="nav mobile">
+                <div className="logo">
+                    <Link to="/">
+                        <img src="/images/icon.png" alt="" />
+                    </Link>
                 </div>
 
-                {/* <div className="btns">
-                    <Link to={'#'} className="login" >Log in</Link>
-                    <Link to={'#'} className="register" >Regristre-se</Link>
-                </div> */}
+                <Dialog.Root>
+                    <Dialog.Trigger asChild>
+                            <HamburgerMenuIcon color="white" width={'auto'} height={'auto'} className={'HamburguerMenu'} aria-hidden />
+
+                    </Dialog.Trigger>
+                        <Dialog.Overlay className="overlay">
+                            <Dialog.Content className="content">
+                                <Dialog.Title asChild>
+                                    <div className="title">
+                                    <h2 className="text">Menu Bar</h2>
+                                        <Dialog.Close asChild>
+                                            <Cross1Icon color="white" width={'auto'} height={'auto'} className="Cross1Icon" />
+                                        </Dialog.Close>
+                                    </div>
+                                </Dialog.Title>
+                                <Dialog.Description>
+                                    <NavigationMenu.List className="links">
+                                        <NavigationMenu.Item>
+                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
+                                                <Link className="item" to={'/'}>
+                                                    <HomeIcon width={'1em'} height={'auto'} className="Home" color="white" />
+                                                    • index
+                                                </Link>
+                                            </NavigationMenu.Link>
+                                        </NavigationMenu.Item>
+                        
+                                        <NavigationMenu.Item className="line" />
+                                        
+                                        <NavigationMenu.Item>
+                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/profiles'}>
+                                                <Link className="item" to={'/profiles'}>
+                                                    <VideoIcon width={'1em'} height={'auto'} className="Video" color="white" />
+                                                    • Reviews
+                                                </Link>
+                                            </NavigationMenu.Link>
+                                        </NavigationMenu.Item>
+                                        
+                                        <NavigationMenu.Item className="line" />
+
+
+                                        <NavigationMenu.Item>
+                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/loja'}>
+                                                <Link className="item" to={'/loja'}>
+                                                    <CardStackIcon width={'1em'} height={'auto'} className="CardStack" color="white" />
+                                                    • Loja
+                                                </Link>
+                                            </NavigationMenu.Link>
+                                        </NavigationMenu.Item>
+                                        
+                                        <NavigationMenu.Item className="line" />
+
+                                        <NavigationMenu.Item>
+                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/anuncie'}>
+                                                <Link className="item" to={'/anuncie'}>
+                                                    <GlobeIcon width={'1em'} height={'auto'} className="Globe" color="white" />
+                                                    • Anuncie
+                                                </Link>
+                                            </NavigationMenu.Link>
+                                        </NavigationMenu.Item>
+                                        
+                                        <NavigationMenu.Item className="line" />
+                                    </NavigationMenu.List>
+                                </Dialog.Description>
+                            </Dialog.Content>
+                        </Dialog.Overlay>
+                </Dialog.Root>
             </div>
-        </nav>
-    ) 
+        </NavigationMenu.Root> 
+    )
 }
+
+
+
+
+
+ {
+    
+    //config
+    
+    /* <NavigationMenu.Item>
+                        <NavigationMenu.Item className="line" />
+                        <NavigationMenu.Trigger asChild>
+                            <NavigationMenu.Link className="item_link" asChild active={
+                                    location.pathname === '/config/profiles' ||
+                                    location.pathname === '/config/homePage'
+                                }
+                            >
+                                <Link className="item" to={'#'}>
+                                    Config  <CaretDownIcon className="CaretDown" aria-hidden />
+                                </Link>
+                            </NavigationMenu.Link>
+                                
+                        </NavigationMenu.Trigger>
+                        <NavigationMenu.Content className="contesnt">
+                            <NavigationMenu.Sub orientation="vertical">
+                                <NavigationMenu.List>
+                                    <NavigationMenu.Item>
+                                        <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/config/profiles'}>
+                                            <Link className="item" to={'/config/profiles'}>Profiles</Link>
+                                        </NavigationMenu.Link>
+                                    </NavigationMenu.Item>
+
+                                    <NavigationMenu.Item>
+                                        <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/config/homePage'}>
+                                            <Link className="item" to={'/config/homePage'}>HomePage</Link>
+                                        </NavigationMenu.Link>
+                                    </NavigationMenu.Item>
+                                </NavigationMenu.List>
+                                <NavigationMenu.Viewport />
+                            </NavigationMenu.Sub>
+                        </NavigationMenu.Content>
+                    </NavigationMenu.Item> */}
