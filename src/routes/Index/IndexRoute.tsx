@@ -1,4 +1,4 @@
-import { Loading } from "../../components/Loading/Loading";   
+import { Loading } from "../../components/Loading/Loading";
 import { useCarousel } from "../../services/Querys/HomePage";
 import { useRecents } from "../../services/Querys/Profiles";
 
@@ -18,72 +18,60 @@ import './styles.css'
 import { EffectCoverflow, Keyboard, Navigation, Pagination } from 'swiper/modules';
 
 export function Index() {
-    const {data, isLoading} = useCarousel(true)
-    const {data: dataRecents, isLoading: isLoadingRecents} = useRecents()
-    
+    const { data, isLoading } = useCarousel(true)
+    const { data: dataRecents, isLoading: isLoadingRecents } = useRecents()
+
 
     return (
         <>
-          <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            loop={true}
-            centeredSlides={true}
-            slidesPerView={'auto'}
-            coverflowEffect={{
-                rotate: 40,
-                stretch: 40,
-                depth: 100,
-                modifier: .8,
-                scale: 0.8,
-                slideShadows: true,
-            }}
-            // spaceBetween={-20}
-            pagination={true}
-            navigation={true}
-            keyboard={{
-                enabled: true,
-              }}
-            modules={[Keyboard, EffectCoverflow, Pagination, Navigation]}
-            className="mySwiper"
-            
-        >
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-            </SwiperSlide>
-        </Swiper>
+            {
+                isLoading ? <Loading /> :
+                    <Swiper
+                        effect={'coverflow'}
+                        grabCursor={true}
+                        loop={true}
+                        centeredSlides={true}
+                        
+                        slidesPerView={'auto'}
+                        coverflowEffect={{
+                            rotate: 40,
+                            stretch: 40,
+                            depth: 100,
+                            modifier: .8,
+                            scale: 0.8,
+                            slideShadows: true,
+                        }}
+                        initialSlide={data ? Math.floor(data.length / 2) : 0}
+                        // spaceBetween={-20}
+                        pagination={true}
+                        navigation={true}
+                        keyboard={{
+                            enabled: true,
+                        }}
+                        modules={[Keyboard, EffectCoverflow, Pagination, Navigation]}
+                        className="mySwiper"
 
+                    >
+                        {
+                            data?.map(e => {
+                                return (
+                                    <SwiperSlide>
+                                        <div className="card">
+                                            <div className="promotion">
+                                                <div className="text">{e.profile.promotion.title}</div>
 
-        <h1>Carousel</h1>
-            {isLoading && <Loading />}
-             {
-                data?.map(e => {
-                    return <h1 key={e.profile._id}>{e.profile._id}</h1>
-                })
+                                            </div>
+                                            <div className="informations">
+                                                <span className="name">{e.profile.name}</span>
+                                                <span className="local">{e.profile.local.uf} - {e.profile.local.city}</span>
+                                            </div>
+                                            <img src={e.profile.picture} />
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })
+                        }
+                    </Swiper>
             }
 
             <h1>Recents</h1>
