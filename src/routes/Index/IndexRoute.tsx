@@ -2,7 +2,7 @@ import { Loading } from "../../components/Loading/Loading";
 import { useCarousel } from "../../services/Querys/HomePage";
 import { useRecents } from "../../services/Querys/Profiles";
 
-import React, { useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,7 +12,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles.css'
+import './IndexRoute.css'
 
 // import required modules
 import { EffectCoverflow, Keyboard, Navigation, Pagination } from 'swiper/modules';
@@ -28,7 +28,6 @@ export function Index() {
                 isLoading ? <Loading /> :
                     <Swiper
                         effect={'coverflow'}
-                        grabCursor={true}
                         loop={true}
                         centeredSlides={true}
                         
