@@ -24,22 +24,23 @@ export function Index() {
 
     return (
         <>
+             <h1 className="titulo">Promoções</h1>
             {
                 isLoading ? <Loading /> :
                     <Swiper
                         effect={'coverflow'}
                         loop={true}
                         centeredSlides={true}
-                        
                         slidesPerView={'auto'}
                         coverflowEffect={{
-                            rotate: 40,
-                            stretch: 40,
-                            depth: 100,
-                            modifier: .8,
-                            scale: 0.8,
-                            slideShadows: true,
+                            rotate: 0,
+                            stretch: 0,
+                            depth: 150,
+                            modifier: 1,
+                            scale: 1,
+                            slideShadows: false,
                         }}
+                        spaceBetween={0}
                         initialSlide={data ? Math.floor(data.length / 2) : 0}
                         // spaceBetween={-20}
                         pagination={true}
