@@ -74,6 +74,12 @@ export function Index() {
                     </Swiper>
             }
 
+            <div className="bloco">
+                <div className="img">
+                </div>
+                    <div className="texto"></div>
+            </div>
+
             <h1>Recents</h1>
 
             {isLoadingRecents && <Loading />}
