@@ -130,9 +130,10 @@
 
     .bloco {
       margin: auto auto;
-      width: 100%;
-      max-width: 1000px;
-      font-size: 1em;
+      font-size: clamp(.4em, 1.5vw, 1em);
+      /* font-size: clamp(1em, 2vw, 10);      ; */
+      /* width: 65em; */
+      max-width: 1100px;
       background-color: green;
       position: relative;
       padding: 5em;
@@ -150,22 +151,27 @@
       left: 15em;
       transform: translateY(-50%);
       position: absolute;
-      width: calc(100% - 15em - 10em);
-      height: 70%;
+      width: calc(100% - 15em - 5em);
+      /* height: 70%; */
+      padding: 2em 2em 2em 12em;
       background-color: rgba(0,0,0,.8);
+    }
+    .bloco .texto .msg {
+      color: white;
+      font-size: 1.5em;
     }
 
     
 @media (max-width: 600px) {
+  .bloco {
+    margin: 5em auto;
+    /* font-size: .5em; */
+  }
   .bloco .img {
     width: 23em;
   }
-  .bloco {
-    margin: 5em auto;
-    font-size: .5em;
-  }
   .bloco .texto {
-    height: 120%;
+    /* height: 120%; */
     top: 50%;
     left: 20em;
   }
