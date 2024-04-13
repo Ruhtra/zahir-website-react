@@ -1,0 +1,135 @@
+
+
+.swiper {
+    width: 100%; 
+    max-width: 1069px;
+    padding-top: 2em;
+    padding-bottom: 60px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 400px;
+    height: 350px;
+    font-size: 1em;
+  }
+  
+  @media (max-width: 600px) {
+    .swiper-slide {
+      font-size: min(2em, 2.5vw);
+      width: 25em;
+      height: 25em;
+    }
+  }
+  .swiper-slide-active img {
+    outline: .5em solid var(--color-4);
+  }
+  .swiper-slide-active .card .informations,
+  .swiper-slide-active .card .promotion {
+    opacity: 1;
+  }
+  
+  /* ANIMAÇÃO DE ZOOM AO PASSAR O MOUSE EM CIMA */
+  .swiper-slide-active .card{
+    transition: .5s;
+    cursor: pointer;
+  }
+  .swiper-slide-active .card:hover{
+    /* transform: scale(1.1); */
+    /* width: 400px;
+    height: 400px; */
+    /* margin-left: -25px;
+    margin-top: -25px; */
+    box-shadow: 0 0 30px .25em var(--color-4);
+  }
+  
+  
+  
+  /* card */
+    .card {
+      width: inherit;
+      height: inherit;
+      position: relative;
+  
+      border-radius: 1em;
+  
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%);
+      border-radius: inherit;
+    }
+    /* promotion */
+      .card .promotion {
+        transition: opacity .5s;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.3em;
+        border-radius: .6em;
+        margin: 1em;
+        opacity: 0;
+        font-family: 'Adigiana-Toybox-Regular';
+      }
+      .card .promotion::after {
+        content: '';
+        position: absolute;
+        bottom: -.5em;
+        left: 0em;
+        width: 100%;
+        border-radius: inherit;
+        height: 100%;
+        background-color: var(--color-2);
+        z-index: 99;
+      }
+      /* text */
+        .card .promotion .text {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: .6em .6em;
+          border-radius: inherit;
+  
+          background-color: white;
+          z-index: 100;
+        }
+  
+    /* informations */
+      .card .informations {
+        transition: opacity .5s;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1em;
+        color: white;
+        z-index: 1;
+        opacity: 0;
+        font-family: 'Adigiana-Toybox-Regular';
+      }
+      .card .informations .name {
+        font-size: 2em;
+      }
+      .card .informations .local {
+        font-size: 1em;
+      }
+    /* back */
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        /* box-shadow: 0px 0px 15px black; */
+        border-radius: inherit;
+        object-fit: cover;
+      }
+    
+  

@@ -1,0 +1,13 @@
+.followers {
+    text-align: center;
+    color: var(--color-2);
+    margin: 2em;
+    font-size: max(1em, 2vw);
+}
+
+.followers .items {
+    margin-top: 1em;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}

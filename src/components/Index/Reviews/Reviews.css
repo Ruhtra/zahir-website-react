@@ -1,0 +1,65 @@
+
+
+
+/* reviews */
+.reviews {
+    box-sizing: content-box;
+  
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+  
+    width: 100%;
+    max-width: 2000px;
+    height: calc(630px + 1em);
+  
+  
+    margin: 0 auto;
+    
+    overflow: hidden;
+    border-radius: 1em;
+  }
+  
+  .reviews .movie {
+    transition: .5s;
+    position: relative;
+    outline: .3em solid var(--color-4);
+    border-radius: inherit;
+    margin: 1em 0;
+  }
+  .reviews .movie:hover {
+    outline: 1em solid var(--color-4);
+  }
+  
+  .reviews .movie .inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: fit-content;
+    height: fit-content;
+    
+    overflow: hidden;
+    
+    border-radius: inherit;
+    /* border: .3em solid var(--color-4); */
+    /* outline: .3em solid var(--color-4); */
+    position: relative;
+  }
+  .reviews .movie::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .reviews .movie .inside:hover::before {
+    background-color: red;
+  }
+  
+  .reviews .movie .inside .img {
+    object-fit: cover;
+    width: 100%;
+  }
