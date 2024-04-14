@@ -191,7 +191,7 @@ to {
     justify-content: center;
     align-items: center;
     height: var(--nav-heigth);
-    padding: var(--nav-padding);
+    padding: var(--nav-padding-y);
     box-sizing: content-box;
 }
 
