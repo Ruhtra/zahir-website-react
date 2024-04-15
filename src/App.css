@@ -14,6 +14,9 @@
         --color-3: rgba(40, 171, 201, 1);
         --color-4: rgba(237, 171, 74, 1);
 
+
+        --color-10: rgba(250, 213, 80, 1);
+
     /* index */
         /* infos */
             --infos-font-size: clamp(.1rem, 2.2vw, 1.4rem);
@@ -51,4 +54,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 200px;
     border: 2px solid var(--color-4);
 }
-section:not(:nth-child(1)) { margin-top: 50px; }
+/* section:not(:nth-child(1)) { margin-top: 50px; } */
+
+html, #root, body {
+    height: 100vh;
+}

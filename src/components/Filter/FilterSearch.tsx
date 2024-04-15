@@ -1,11 +1,11 @@
 import { SetURLSearchParams } from "react-router-dom";
 
-interface SearchProps {
+interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
     search: string | null;
     onSearchChange: SetURLSearchParams;
 }
 
-export function FilterSearch ({ search, onSearchChange }: SearchProps) {
+export function FilterSearch ({ search, onSearchChange, ...rest }: SearchProps) {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = e.target.value;
         
@@ -21,6 +21,7 @@ export function FilterSearch ({ search, onSearchChange }: SearchProps) {
             value={search}
             onChange={handleInputChange}
             placeholder="Search..."
+            {...rest}
         />
     );
 }

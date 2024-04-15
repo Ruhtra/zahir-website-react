@@ -1,0 +1,169 @@
+.search,
+.dropDown {
+    display: flex;
+
+    gap: .4em;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.5em;
+}
+.search .searchIcon {
+    width: auto;
+    height: 1.5em;
+    aspect-ratio: 1;
+    background-color: f;
+}
+.search input[type=search] {
+    all: unset;
+    font-size: 1em;
+    line-height: 1.5em;
+    height: 1.5em;
+    width: 100%;
+}
+
+.dropDown .dropdownIcon {
+    cursor: pointer;
+    width: auto;
+    height: 1.5em;
+    aspect-ratio: 1;
+    transition: .5s;
+}
+.dropDown[data-state="open"] .dropdownIcon{
+    transform: rotate(45deg);
+}
+
+
+.NavigationMenuRoot {
+    width: 80vw;
+    max-width: 960px;
+    margin: 3em auto 0 auto;
+    background-color: var(--color-10);
+    color: var(--color-2);
+    border-radius: 30px;
+}
+.NavigationMenuList {
+    display: grid;
+    gap: .5em;
+    grid-template-columns: 1fr auto;
+    padding: .5em 1em; 
+    list-style: none;
+}
+
+.NavigationMenuRoot .content {
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.5em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-10);
+    width: 100%;
+    padding: 1em 1em;
+    height: fit-content;
+}
+
+.ViewportPosition {
+    margin-top: 1em;
+    width: 100%;
+    position: relative;
+    transform-origin: top center;
+    text-align: center;
+    z-index: 1;
+
+}
+section {
+    width:100%;
+}
+.itenss {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5em 1em;
+    width: 100%;
+}
+.mybtn {
+    text-wrap: nowrap;
+    font-size: 1.25em;
+    padding: .2em 1em;
+    border-radius: 10em;
+    border: 0;
+    border: .3em solid var(--color-2);
+    transition: .2s;
+    cursor: pointer;
+    color: var(--color-2);
+    background-color: rgba(255, 255, 255, 0);
+    /* outline: .5em solid green; */
+}
+
+
+.mybtn.active,
+.mybtn:hover {
+    color: var(--color-10);
+    background-color: var(--color-2);
+}
+
+
+
+.mybtn-2 {
+    text-wrap: nowrap;
+    font-size: 1.25em;
+    padding: .5em 1em ;
+    border-radius: .75em;
+    border: 0;
+    transition: .2s linear;
+    cursor: pointer;
+    color: var(--color-2);
+    background-color: var(--color-4);
+}
+.mybtn-2:hover {
+    outline: .3em solid var(--color-2);
+}
+
+
+.options {
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+.NavigationMenuViewport[data-state='open'] {
+    animation: scaleIn .2s ease;
+  }
+  .NavigationMenuViewport[data-state='closed'] {
+    animation: scaleOut .2s ease;
+  }
+
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-30deg) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+  }
+  
+  @keyframes scaleOut {
+    from {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: rotateX(-10deg) scale(0.95);
+    }
+  }

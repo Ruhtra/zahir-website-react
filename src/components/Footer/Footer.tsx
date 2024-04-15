@@ -7,4 +7,4 @@ export function Footer() {
             <p>Todos os direito reservados</p>
         </footer>
     )
-}''
+}

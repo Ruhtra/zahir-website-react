@@ -1,0 +1,60 @@
+
+
+.profiles {
+    font-size: clamp(0.1em, 2.9vw, 1em);
+    max-width: 960px;
+    margin: 3em auto;
+    padding: 1em 1em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* background-color: red; */
+    list-style: none;
+    gap: 3em 1.5em;
+}
+
+.profiles li {
+    position: relative;
+    /* background-color: green; */
+}
+.profiles li .card {
+    /* background-color: pink; */
+    width: 14em;
+    padding: 1em 1em .5em 1em;
+    border-radius: 1em;
+    outline: .5em solid var(--color-2);
+    background-color: var(--color-4);
+    aspect-ratio: 1;
+    transition: .25s transform linear;
+    cursor: pointer;
+}
+.profiles li .card:hover {
+    transform: scale(1.05);
+    /* outline: .8em solid var(--color-2); */
+}
+.profiles li .card img {
+    border-radius: inherit;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    outline: .5em solid var(--color-2);
+    object-fit: cover;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: calc(.5em + .5em);
+    /* background-color: goldenrod; */
+    /* height: ; */
+}
+.name {
+    text-align: center;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
