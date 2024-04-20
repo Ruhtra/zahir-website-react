@@ -3,7 +3,7 @@ import { Index } from "./routes/Index/IndexRoute";
 import { ProfilesRoute } from "./routes/ProfilesRoute";
 import { LojaRoute } from "./routes/LojaRoute";
 import { NavBar } from "./components/NavBar/NavBar";
-import { AnuncieRoute } from "./routes/AnuncieRoute";
+import { AnuncieRoute } from "./routes/Anuncie/AnuncieRoute";
 import { ProfileRoute } from "./routes/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 

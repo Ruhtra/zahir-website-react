@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@font-face {
+  font-family: 'Adigiana-Toybox-Regular';
+  src:url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.woff') format('woff'),
+      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.svg#Adigiana-Toybox-Regular') format('svg'),
+      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot'),
+      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+}    
+
+
 
 
 /* VARIABLES */
@@ -53,6 +66,9 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--color-1);
     border-radius: 200px;
     border: 2px solid var(--color-4);
+}
+body {
+    font-family:  "Bree Serif", 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
 }
 /* section:not(:nth-child(1)) { margin-top: 50px; } */
 

@@ -1,0 +1,157 @@
+input, textarea {
+    all: unset;
+}
+
+/* top */
+    .top {
+        margin: 2rem;
+        font-size: min(10vw, 5em);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .4em;
+    }
+    .top h1 {
+        font-size: 1em;
+        font-family: 'Adigiana-Toybox-Regular';
+        color: var(--color-4);
+
+        line-height: 1em;
+        max-width: 8em;
+
+        letter-spacing: .05em;
+        -webkit-text-stroke: .04em var(--color-2);
+    }
+    .top h3 {
+        color: var(--color-2);
+        width: 65%;
+        font-size: .3em;
+    }
+
+    section.formSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+/* form */
+    .formulario {
+        font-size: min(3vw, 1em);
+        margin: 1em;
+        display: grid;
+        grid-template: auto 1fr 1fr auto / repeat(12, 1fr);
+        gap: 1.2em;
+        /* background-color: whit; */
+        max-width: 900px;
+        border-radius: 1em;
+        padding: 1em;
+        height: auto;
+        outline: .75em solid var(--color-4);
+
+        grid-template-areas:
+            "titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo"
+            "nome nome nome nome nome nome nome nome nome nome arroba arroba"
+            "email email email email email email email email email email email numero"
+            "mensagem mensagem mensagem mensagem mensagem mensagem mensagem mensagem mensagem mensagem mensagem mensagem"
+        ;
+    }
+    .formulario h3 {
+        text-align: center;
+
+        font-size: 2.3em;
+        color: var(--color-1);
+
+        line-height: 1em;
+
+        letter-spacing: .05em;
+        font-weight: 900;
+        -webkit-text-stroke: .01em var(--color-10);
+        padding: .5em;
+    }
+
+    .formulario > .titulof {
+        grid-area: titulo;
+    }
+    .formulario > .nome {
+        grid-area: nome;
+    }
+    .formulario > .arroba {
+        grid-area: arroba;
+    }
+    .formulario > .email {
+        grid-area: email;
+    }
+    .formulario > .numero {
+        grid-area: numero;
+    }
+    .formulario > .mensagem {
+        grid-area: mensagem;
+        min-height: 5em;
+        white-space: wrap;
+        overflow-wrap: break-word;
+        overflow: hidden;
+        resize: none;
+        height: auto;
+        padding: 1em;
+    }
+
+    .formulario > .item {
+        display: block;
+        padding: .5em;
+        outline: .5em solid var(--color-4);
+        line-height: 1em;
+        border-radius: inherit;
+        color: white;
+        text-indent: .5em;
+        background-color: var(--color-1);
+        /* background-color: green; */
+    }
+    .formulario > .item::placeholder {
+        color: white;
+    }
+
+
+
+
+/* info */
+    .infos {
+        font-size: min(2.5vw, 1em);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1em;
+    }
+    .infos .email {
+        font-weight: 900;
+        font-size: 1.5em;
+    }
+
+
+
+/* images */
+    .images {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .5em;
+        justify-content: space-between;
+        max-width: 960px;
+    }
+
+    .images img {
+        width: calc(25% - .5em);
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+
+
+    @media (max-width: 600px) {
+        .images img {
+            width: calc(50% - .5em);
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+    }

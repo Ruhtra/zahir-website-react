@@ -1,22 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-@font-face {
-  font-family: 'Adigiana-Toybox-Regular';
-  src:url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.woff') format('woff'),
-      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.svg#Adigiana-Toybox-Regular') format('svg'),
-      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot'),
-      url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  font-family:  "Bree Serif", 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
-}
-
-
-
-
 .titulo {
   text-align: center;
   margin-top: 1.5rem;
