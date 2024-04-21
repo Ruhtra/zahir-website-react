@@ -4,7 +4,7 @@ import { ProfilesRoute } from "./routes/ProfilesRoute";
 import { LojaRoute } from "./routes/LojaRoute";
 import { NavBar } from "./components/NavBar/NavBar";
 import { AnuncieRoute } from "./routes/Anuncie/AnuncieRoute";
-import { ProfileRoute } from "./routes/ProfileRoute";
+import { ProfileRoute } from "./routes/Profile/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";

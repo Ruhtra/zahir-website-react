@@ -4,15 +4,15 @@
     font-size: clamp(.4em, 1.5vw, 1em);
   }
 .info .block {
-margin: auto auto;
-/* font-size: clamp(1em, 2vw, 10);      ; */
-/* width: 65em; */
-max-width: 1100px;
-/* background-color: green; */
-position: relative;
-padding: 5em 5em;
-border-radius: 1.5em;
-/* margin: 5em; */
+    margin: auto auto;
+    /* font-size: clamp(1em, 2vw, 10);      ; */
+    /* width: 65em; */
+    max-width: 1100px;
+    /* background-color: green; */
+    position: relative;
+    padding: 5em 5em;
+    border-radius: 1.5em;
+    /* margin: 5em; */
 }
 
 /* img */

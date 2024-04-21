@@ -2,15 +2,15 @@ import { useContext, useEffect, useMemo } from "react";
 import { Profile } from "../../models/model";
 import FilterContext from "./FilterContext";
 import { FilterSearch } from "./FilterSearch";
-import { FilterPromotion } from "./FilterPromotion";
-import { FilterCategory } from "./FilterCategory";
-import { FilterCategories } from "./FilterCategories";
-import { FilterUf } from "./FilterUf";
+// import { FilterPromotion } from "./FilterPromotion";
+// import { FilterCategory } from "./FilterCategory";
+// import { FilterCategories } from "./FilterCategories";
+// import { FilterUf } from "./FilterUf";
 import { useSearchParams } from "react-router-dom";
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import "./Filter.css"
-import { HamburgerMenuIcon, MagnifyingGlassIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import {  MagnifyingGlassIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 export function Filter() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -18,17 +18,17 @@ export function Filter() {
 
     // logica {
 
-    function clearFilter() {
-        setSearchParams(params => {
-            params.set('search', '')
-            params.set('promotion', '')
-            params.set('category', '')
-            params.set('uf', '')
-            params.set('categories', '')
+    // function clearFilter() {
+    //     setSearchParams(params => {
+    //         params.set('search', '')
+    //         params.set('promotion', '')
+    //         params.set('category', '')
+    //         params.set('uf', '')
+    //         params.set('categories', '')
 
-            return params
-        })
-    }
+    //         return params
+    //     })
+    // }
 
     const filteredData: Profile[] = useMemo(() => {
         if (!data) return
