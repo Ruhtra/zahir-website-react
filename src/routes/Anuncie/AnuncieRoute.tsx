@@ -8,7 +8,7 @@ export function AnuncieRoute() {
                 <h3>Conta mais sobre o que você precisa para entrarmos em contato com você!</h3>
             </div>
 
-            <section>
+            <section className="formSection">
                 <form action="#" className="formulario">
                     <h3 className="titulof">Formulário de Contato do Site do Zahir</h3>
 
