@@ -21,6 +21,9 @@
     height: 1.5em;
     width: 100%;
 }
+.search input[type=search]::placeholder {
+    color: var(--color-5);
+}
 
 .dropDown .dropdownIcon {
     cursor: pointer;
@@ -39,7 +42,7 @@
     max-width: 960px;
     margin: 3em auto 0 auto;
     background-color: var(--color-10);
-    color: var(--color-2);
+    color: var(--color-5);
     border-radius: 30px;
 }
 .NavigationMenuList {
@@ -94,10 +97,10 @@ section {
     padding: .2em 1em;
     border-radius: 10em;
     border: 0;
-    border: .3em solid var(--color-2);
+    border: .3em solid var(--color-5);
     transition: .2s;
     cursor: pointer;
-    color: var(--color-2);
+    color: var(--color-5);
     background-color: rgba(255, 255, 255, 0);
     /* outline: .5em solid green; */
 }
@@ -106,7 +109,7 @@ section {
 .mybtn.active,
 .mybtn:hover {
     color: var(--color-10);
-    background-color: var(--color-2);
+    background-color: var(--color-5);
 }
 
 
@@ -119,11 +122,11 @@ section {
     border: 0;
     transition: .2s linear;
     cursor: pointer;
-    color: var(--color-2);
-    background-color: var(--color-4);
+    color: var(--color-5);
+    background-color: var(--color-6);
 }
 .mybtn-2:hover {
-    outline: .3em solid var(--color-2);
+    outline: .3em solid var(--color-5);
 }
 
 

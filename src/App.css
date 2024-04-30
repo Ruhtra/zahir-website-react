@@ -30,7 +30,9 @@
         /* novas */
         --color-5: rgba(214, 37, 34, 1);
         --color-6: rgba(251, 185, 62, 1);
-
+        --color-7: rgba(108, 70, 203, 1);
+        --color-8: rgba(244, 240, 255, 1);
+        
         --color-10: rgba(250, 213, 80, 1);
 
     /* index */
@@ -63,15 +65,16 @@
 
 /* scroll bar */
 body::-webkit-scrollbar {  width: 12px; }
-body::-webkit-scrollbar-track { background: var(--color-4); }
+body::-webkit-scrollbar-track { background: var(--color-6); }
 
 body::-webkit-scrollbar-thumb {
-    background-color: var(--color-1);
+    background-color: var(--color-7);
     border-radius: 200px;
-    border: 2px solid var(--color-4);
+    border: 2px solid var(--color-6);
 }
 body {
     font-family:  "Bree Serif", 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
+    background-color: var(--color-8);
 }
 /* section:not(:nth-child(1)) { margin-top: 50px; } */
 

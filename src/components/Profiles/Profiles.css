@@ -24,22 +24,22 @@
     width: 14em;
     padding: 1em 1em .5em 1em;
     border-radius: 1em;
-    outline: .5em solid var(--color-2);
-    background-color: var(--color-4);
+    outline: .5em solid var(--color-5);
+    background-color: var(--color-6);
     aspect-ratio: 1;
     transition: .25s transform linear;
     cursor: pointer;
 }
 .profiles li .card:hover {
     transform: scale(1.05);
-    /* outline: .8em solid var(--color-2); */
+    /* outline: .8em solid var(--color-5); */
 }
 .profiles li .card img {
     border-radius: inherit;
     display: block;
     width: 100%;
     aspect-ratio: 1;
-    outline: .5em solid var(--color-2);
+    outline: .5em solid var(--color-5);
     object-fit: cover;
 }
 

@@ -4,9 +4,9 @@
   font-size: 5em;
   font-family: 'Adigiana-Toybox-Regular';
   
-  color: var(--color-4);
+  color: var(--color-6);
   letter-spacing: .1em;
-  -webkit-text-stroke: .04em var(--color-2);
+  -webkit-text-stroke: .04em var(--color-5);
 }
 
 

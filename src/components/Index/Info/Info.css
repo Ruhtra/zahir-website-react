@@ -19,9 +19,9 @@
     .info .block .img {
         width: 20em;
         aspect-ratio: 2/3;
-        background-color: red;
+        background-color: var(--color-5);
         border-radius: inherit;
-        outline: 1em solid var(--color-4);
+        outline: 1em solid var(--color-6);
     }
 /* text */
     .info .block .texto {
@@ -34,7 +34,7 @@
         padding: 2em 2em 2em 12em;
         background-color: rgba(0,0,0,.8);
         border-radius: inherit;
-        outline: 1em solid var(--color-4);
+        outline: 1em solid var(--color-6);
         z-index: -1;
     }
     .info .block .texto .msg {
@@ -51,7 +51,7 @@
         aspect-ratio: 3 / 2;
         transform: translate(-50%, -50%) rotate(-30deg);
         border-radius: inherit;
-        outline: 1em solid var(--color-4);
+        outline: 1em solid var(--color-6);
     }
     .info .block .back::after, 
     .info .block .back::before {

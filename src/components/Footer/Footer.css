@@ -4,8 +4,8 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: min(1.3em, 4vw);
-    background-color: var(--color-1);
+    background-color: var(--color-7);
     width: 100%;
     padding: 2em 2em 1em 2em;
-    color: rgba(255, 255, 255, .78);
+    color: var(--color-8);
 }

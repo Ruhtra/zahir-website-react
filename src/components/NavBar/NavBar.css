@@ -7,7 +7,7 @@
     position: relative;
 
     padding: var(--nav-padding);
-    background-color: var(--color-1);
+    background-color: var(--color-7);
     background-image: url('/images/back_50.png');
     background-size: 50%;
     position: relative;
@@ -67,7 +67,7 @@
             .nav.desktop .links-block ul.links li.line {
                 width: .2em;
                 height: 1.5em;
-                background-color: var(--color-4);
+                background-color: var(--color-6);
             }
 
             /* items */
@@ -176,7 +176,7 @@ to {
     right: 0;
     width: 50vw;
     height: 100vh;
-    background-color: var(--color-1);
+    background-color: var(--color-7);
     z-index: 3;
     box-shadow: -5vw 0 20px rgba(0, 0, 0, .4);
 }
@@ -204,6 +204,8 @@ to {
 
 .HamburguerMenu, .Cross1Icon  {
     width: auto;
+    height: 100%;
+    aspect-ratio: 1;
     justify-self: right;
     cursor: pointer;
     background-color: rgba(48, 47, 47, 0.3);

@@ -21,12 +21,12 @@
   .reviews .grid .movie {
     transition: .5s;
     position: relative;
-    outline: .3em solid var(--color-4);
+    outline: .3em solid var(--color-6);
     border-radius: inherit;
     margin: 1em 0;
   }
   .reviews .grid .movie:hover {
-    outline: 1em solid var(--color-4);
+    outline: 1em solid var(--color-6);
   }
   
   .reviews .grid .movie .inside {
@@ -40,8 +40,8 @@
     overflow: hidden;
     
     border-radius: inherit;
-    /* border: .3em solid var(--color-4); */
-    /* outline: .3em solid var(--color-4); */
+    /* border: .3em solid var(--color-6); */
+    /* outline: .3em solid var(--color-6); */
     position: relative;
   }
   .reviews .grid .movie::before {
@@ -72,7 +72,7 @@
     }
     /* center */
       .reviews .swiper-slide-active.movie {
-        outline: .8em solid var(--color-4);
+        outline: .8em solid var(--color-6);
       }
 
     /* buttons */
@@ -112,8 +112,8 @@
     overflow: hidden;
     
     border-radius: inherit;
-    /* border: .3em solid var(--color-4); */
-    /* outline: .3em solid var(--color-4); */
+    /* border: .3em solid var(--color-6); */
+    /* outline: .3em solid var(--color-6); */
     position: relative;
   }
   .reviews .carousel .movie .inside img {

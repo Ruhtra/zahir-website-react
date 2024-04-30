@@ -1,5 +1,5 @@
 .followers {
-    color: var(--color-2);
+    color: var(--color-5);
     margin: 2em;
     font-size: max(1em, 2vw);
 }
@@ -24,7 +24,7 @@
         margin: 0 auto;
         max-width: 400px;
         padding: .4em .4em .4em .75em;
-        box-shadow: .2em .35em 0 var(--color-4);
+        box-shadow: .2em .35em 0 var(--color-6);
         border-radius: 1em;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -51,7 +51,7 @@
             list-style-type: none;
         }
         .followers .mobile ul.icons li {
-            background-color: var(--color-2);
+            background-color: var(--color-5);
             width: 1em;
             aspect-ratio: 1;
 

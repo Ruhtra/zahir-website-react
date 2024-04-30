@@ -16,16 +16,16 @@ input, textarea {
     .top h1 {
         font-size: 1em;
         font-family: 'Adigiana-Toybox-Regular';
-        color: var(--color-4);
+        color: var(--color-6);
 
         line-height: 1em;
         max-width: 8em;
 
         letter-spacing: .05em;
-        -webkit-text-stroke: .04em var(--color-2);
+        -webkit-text-stroke: .04em var(--color-5);
     }
     .top h3 {
-        color: var(--color-2);
+        color: var(--color-5);
         width: 65%;
         font-size: .3em;
     }
@@ -47,7 +47,7 @@ input, textarea {
         border-radius: 1em;
         padding: 1em;
         height: auto;
-        outline: .75em solid var(--color-4);
+        outline: .75em solid var(--color-6);
 
         grid-template-areas:
             "titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo"
@@ -60,7 +60,7 @@ input, textarea {
         text-align: center;
 
         font-size: 2.3em;
-        color: var(--color-1);
+        color: var(--color-7);
 
         line-height: 1em;
 
@@ -99,16 +99,17 @@ input, textarea {
     .formulario > .item {
         display: block;
         padding: .5em;
-        outline: .5em solid var(--color-4);
+        outline: .5em solid var(--color-6);
         line-height: 1em;
         border-radius: inherit;
-        color: white;
+        color: var(--color-8);
         text-indent: .5em;
-        background-color: var(--color-1);
+        background-color: var(--color-7);
         /* background-color: green; */
     }
     .formulario > .item::placeholder {
-        color: white;
+        color: var(--color-8);
+        opacity: .6;
     }
 
 
