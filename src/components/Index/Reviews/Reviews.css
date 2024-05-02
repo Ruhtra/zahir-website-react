@@ -62,6 +62,46 @@
   }
 
 /* carousel */
+  /* lastReviews */
+  .lastReviews {
+    display: block;
+    background-color: var(--color-5);
+    margin: 2.5em auto 1em auto;
+    font-size: 1.5em;
+    padding: .5em;
+    border-radius: .6em;
+    color: var(--color-6);
+    position: relative;
+  }
+  .lastReviews .stars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: absolute;
+    top: -.4em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 2em;
+  }
+  .lastReviews .stars .icon {
+    width: 1em;
+    aspect-ratio: 1;
+    background-color: yellow;
+  }
+  .lastReviews .stars .icon:nth-child(1),
+  .lastReviews .stars .icon:nth-child(5) {
+    width: .7em;
+  }
+  .lastReviews .stars .icon:nth-child(2),
+  .lastReviews .stars .icon:nth-child(4) {
+    width: 1.2em;
+  }
+  .lastReviews .stars .icon:nth-child(3) {
+    width: 1.7em;
+  }
+
+
   /*  swiper */  
     .reviews .swiper {
       padding: 2em 0 0 0;

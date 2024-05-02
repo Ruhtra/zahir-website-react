@@ -19,7 +19,19 @@ export function Reviews() {
     const { data: dataRecents, isLoading: isLoadingRecents } = useRecents()
 
     return (<>
-        
+        <button className="lastReviews">
+            <div className="stars">
+                {
+                    [0, 1, 2, 3, 4].map(e => {
+                        return <>
+                            <div className="icon"></div>
+                        </>
+                    })
+                }
+            </div>
+            Últimos Reviews
+        </button>
+
         <div className="reviews">
             <div className="grid">
                 {isLoadingRecents ? <Loading /> :
