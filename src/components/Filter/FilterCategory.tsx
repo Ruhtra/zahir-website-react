@@ -10,23 +10,52 @@ interface CategoryProps {
 export function FilterCategory({ category, onCategoryChange }: CategoryProps) {
     const {data} =  useContext(FilterContext)
 
-    function handleCategory(e: React.ChangeEvent<HTMLSelectElement>) {
-        onCategoryChange((params) => {
-            params.set('category', e.target.value)
-            return params
-        })
+    
+    const categorySelected = category
+    ? (
+        category.split(',')[0] != ''
+        ?  category.split(',')
+        : [])
+    : []
 
+
+    function handleCategory(e: React.ChangeEvent<HTMLInputElement>) {
+
+        const categoryName = e.target.name;
+        const isChecked = e.target.checked;
+    
+        let updatedCategorySelected = [ ...categorySelected ];
+    
+        if (isChecked) {
+            if (!categorySelected.includes(categoryName))
+                updatedCategorySelected.push(categoryName)
+        } else {        
+            if (categorySelected.includes(categoryName))
+                updatedCategorySelected = updatedCategorySelected.filter(e => e !== categoryName);
+        }
+
+        // Atualize o estado da Category selecionadas com a cópia atualizada
+        onCategoryChange((params) => {
+            params.set('category', updatedCategorySelected.join(','))
+            return params;
+        })
     }
     return (
-        <select value={category} onChange={handleCategory}>
-            <option value="">Todos</option>
+        <div className="itenss">
             {
-                data?.map(e => e.category.type)
-                    .filter((value, index, self) => self.indexOf(value) === index) 
-                    .map(a => (
-                        <option key={a} value={a}>{a}</option>
-                    ))
+            [...new Set(data?.flatMap(item => item.category.type || []))].sort().sort().map((category, index) => (
+                <button key={index} className="mybtn">
+                <input
+                        type="checkbox"
+                        id={category}
+                        name={category}
+                        checked={categorySelected.includes(category) ? true : false}
+                        onChange={handleCategory}
+                    />
+                    <label htmlFor={category}>{category}</label>
+                </button>
+            ))
             }
-        </select>
+        </div>
     )
 }

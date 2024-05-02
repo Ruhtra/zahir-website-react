@@ -92,22 +92,32 @@ section {
     width: 100%;
 }
 .mybtn {
-    text-wrap: nowrap;
-    font-size: 1.25em;
-    padding: .2em 1em;
-    border-radius: 10em;
+    position: relative;
     border: 0;
+    font-size: 1.25em;
     border: .3em solid var(--color-5);
+    border-radius: 10em;
+}
+.mybtn label {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: .2em 1em;
+    font-size: 1em;
+    text-wrap: nowrap;
     transition: .2s;
-    cursor: pointer;
     color: var(--color-5);
     background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
     /* outline: .5em solid green; */
+}
+.mybtn input[type=checkbox] {
+    display: none;
 }
 
 
-.mybtn.active,
-.mybtn:hover {
+.mybtn input[type=checkbox]:checked ~ label,
+.mybtn label:hover {
     color: var(--color-10);
     background-color: var(--color-5);
 }

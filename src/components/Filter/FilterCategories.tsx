@@ -38,12 +38,10 @@ export function FilterCategories({ categories, onCategoriesChange }: CategoriesP
             }
 
     return (
-        <div>
-            <h2>categories</h2> 
-            <div className="listCategories">
+        <div className="itenss">
             {
             [...new Set(data?.flatMap(item => item.category.categories || []))].sort().sort().map((category, index) => (
-                <div key={index}>
+                <button key={index} className="mybtn">
                 <input
                         type="checkbox"
                         id={category}
@@ -52,11 +50,9 @@ export function FilterCategories({ categories, onCategoriesChange }: CategoriesP
                         onChange={handleCategories}
                     />
                     <label htmlFor={category}>{category}</label>
-                </div>
+                </button>
             ))
             }
-
-            </div>
         </div>
     )
 }
