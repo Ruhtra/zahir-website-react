@@ -77,10 +77,12 @@ export function NavBar() {
                                     <NavigationMenu.List className="links">
                                         <NavigationMenu.Item>
                                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
-                                                <Link className="item" to={'/'}>
-                                                    <HomeIcon width={'1em'} height={'auto'} className="Home" color="white" />
-                                                    • index
-                                                </Link>
+                                                <Dialog.DialogClose asChild>
+                                                    <Link className="item" to={'/'}>
+                                                            <HomeIcon width={'1em'} height={'auto'} className="Home" color="white" />
+                                                            index
+                                                    </Link>
+                                                </Dialog.DialogClose>
                                             </NavigationMenu.Link>
                                         </NavigationMenu.Item>
                         
@@ -88,10 +90,12 @@ export function NavBar() {
                                         
                                         <NavigationMenu.Item>
                                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/profiles'}>
-                                                <Link className="item" to={'/profiles'}>
-                                                    <VideoIcon width={'1em'} height={'auto'} className="Video" color="white" />
-                                                    • Reviews
-                                                </Link>
+                                                <Dialog.DialogClose asChild>
+                                                    <Link className="item" to={'/profiles'}>
+                                                            <VideoIcon width={'1em'} height={'auto'} className="Video" color="white" />
+                                                            Reviews
+                                                    </Link>
+                                                </Dialog.DialogClose>
                                             </NavigationMenu.Link>
                                         </NavigationMenu.Item>
                                         
@@ -100,10 +104,12 @@ export function NavBar() {
 
                                         <NavigationMenu.Item>
                                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/loja'}>
-                                                <Link className="item" to={'/loja'}>
-                                                    <CardStackIcon width={'1em'} height={'auto'} className="CardStack" color="white" />
-                                                    • Loja
-                                                </Link>
+                                                <Dialog.DialogClose asChild>
+                                                    <Link className="item" to={'/loja'}>
+                                                            <CardStackIcon width={'1em'} height={'auto'} className="CardStack" color="white" />
+                                                            Loja
+                                                    </Link>
+                                                </Dialog.DialogClose>
                                             </NavigationMenu.Link>
                                         </NavigationMenu.Item>
                                         
@@ -111,10 +117,12 @@ export function NavBar() {
 
                                         <NavigationMenu.Item>
                                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/anuncie'}>
-                                                <Link className="item" to={'/anuncie'}>
-                                                    <GlobeIcon width={'1em'} height={'auto'} className="Globe" color="white" />
-                                                    • Anuncie
-                                                </Link>
+                                                <Dialog.DialogClose asChild>
+                                                    <Link className="item" to={'/anuncie'}>
+                                                            <GlobeIcon width={'1em'} height={'auto'} className="Globe" color="white" />
+                                                            Anuncie
+                                                    </Link>
+                                                </Dialog.DialogClose>
                                             </NavigationMenu.Link>
                                         </NavigationMenu.Item>
                                         

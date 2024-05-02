@@ -264,9 +264,6 @@ section {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       cursor: pointer;
     }
-    .SwitchRoot:focus {
-      /* box-shadow: 0 0 0 2px black; */
-    }
     .SwitchRoot[data-state='checked'] {
       background-color: green;
     }

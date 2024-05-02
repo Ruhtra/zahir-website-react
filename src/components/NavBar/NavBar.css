@@ -96,15 +96,23 @@
                 display: none;
                 grid-template-columns: 1fr 1fr;
                 justify-content: space-between;
+                font-size: 1em;
             }
 
             /* links */ 
+                .nav.mobile p#radix-\:ra\:, .nav.mobile p#radix-\:ra\: > div {
+                    height: 100%;
+                }
                 .nav.mobile .links {
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
                     gap: .4em;
 
-                    padding: .5em;
+                    padding: 1em 0 4em 0;
+                    font-size: 2em;
+                    height: 100%;
                 }
                 .nav.mobile .links a {
                     display: grid;
@@ -124,30 +132,30 @@
 
 @keyframes fadeIn {
     from {
-        right: -50vw;
+        top: -100vh;
     }
     to {
-        right: 0;
+        top: 0;
     }
-    }
+}
     
 @keyframes fadeOut {
 from {
-    right: 0;
+    top: 0;
 }
 to {
-    right: -50vw;
+    top: -100vh;
 }
 }
     
 .overlay[data-state='open'],
 .content[data-state='open'] {
-    animation: fadeIn 300ms ease-out;
+    animation: fadeIn 500ms ease-out;
 }
     
 .overlay[data-state='closed'],
 .content[data-state='closed'] {
-    animation: fadeOut 300ms ease-in;
+    animation: fadeOut 500ms ease-in;
 }
 
 @media screen and (max-width: 800px) {
@@ -174,7 +182,7 @@ to {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50vw;
+    width: 100vw;
     height: 100vh;
     background-color: var(--color-7);
     z-index: 3;
