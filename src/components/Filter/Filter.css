@@ -149,34 +149,77 @@ section {
 }
 
 
-
-
+/* 
 .NavigationMenuViewport[data-state='open'] {
     animation: scaleIn .2s ease;
   }
   .NavigationMenuViewport[data-state='closed'] {
     animation: scaleOut .2s ease;
-  }
+  } */
 
 
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: rotateX(-30deg) scale(0.9);
+      transform: translateX(-50%) rotateX(-30deg) scale(0.9);
     }
     to {
       opacity: 1;
-      transform: rotateX(0deg) scale(1);
+      transform: translateX(-50%) rotateX(0deg) scale(1);
     }
   }
   
   @keyframes scaleOut {
     from {
       opacity: 1;
-      transform: rotateX(0deg) scale(1);
+      transform: translateX(-50%) rotateX(0deg) scale(1);
     }
     to {
       opacity: 0;
-      transform: rotateX(-10deg) scale(0.95);
+      transform: translateX(-50%) rotateX(-10deg) scale(0.95);
     }
+  }
+
+
+
+  .DialogOverlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+  }
+
+  
+    .DialogContent h3 {
+        text-align: center;
+    }
+
+  
+  .DialogContent {
+    color: var(--color-5);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    max-width: 960px;
+
+    gap: 1.5em;
+
+    position: absolute;
+    /* top: 45%; */
+    margin-top: 12em;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-10);
+    padding: 1em 1em;
+    height: fit-content;
+    box-shadow: 0 0 1em black;
+    animation: scaleIn .2s cubic-bezier(0.16, 1, 0.3, 1); 
+    z-index: 3;
+  }
+
+  .DialogContent:focus {
+    outline: none;
   }

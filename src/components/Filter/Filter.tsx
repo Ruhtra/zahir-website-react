@@ -8,7 +8,8 @@ import { FilterCategories } from "./FilterCategories";
 import { FilterUf } from "./FilterUf";
 import { useSearchParams } from "react-router-dom";
 
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+// import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import * as Dialog from '@radix-ui/react-dialog';
 import "./Filter.css"
 import {  MagnifyingGlassIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
@@ -75,72 +76,65 @@ export function Filter() {
 
     return (
         <>
+        
             <div>
-                <NavigationMenu.Root className="NavigationMenuRoot" >
-                    <NavigationMenu.List className="NavigationMenuList">
-                        <NavigationMenu.Item className="searchList">
+                <div className="NavigationMenuRoot" >
+                    <ul className="NavigationMenuList">
+                        <li className="searchList">
                             <div className="search">
                                 <MagnifyingGlassIcon className="searchIcon" />
                                 <FilterSearch search={searchParams.get('search') ?? ''} onSearchChange={setSearchParams} placeholder="Pesquise" />
                             </div>
-                        </NavigationMenu.Item>
-
-                        <NavigationMenu.Item>
-                            <NavigationMenu.Trigger asChild
-                                onPointerMove={(e => e.preventDefault())}
-                                onPointerLeave={(e) => e.preventDefault()}
-                            >
+                        </li>
+                        <li>
+                            <Dialog.Root>
+                                <Dialog.Trigger asChild>
                                 <div className="dropDown">
                                     <PlusCircledIcon className="dropdownIcon" /> 
                                 </div>
-                            </NavigationMenu.Trigger>
-                            <NavigationMenu.Content
-                                className="content"
-                                onPointerEnter={(e) => e.preventDefault()}
-                                onPointerLeave={(e) => e.preventDefault()}
-                            >
-                                <section>
-                                    <h2>Filtros</h2>
-                                </section>
-                                <section>
-                                    <h3>Organizaro por</h3>
-                                    <div className="itenss">
-                                        <button className="mybtn">preço u</button>
-                                        <button className="mybtn">preço d</button>
-                                    </div>
-                                </section>
-                                <section>
-                                    <h3>Região</h3>
-                                    <FilterUf uf={searchParams.get("uf") ?? ''} onUfChange={setSearchParams} />
-                                </section>
-                                <section>
-                                    <h3>Locais</h3>
-                                    <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
-                                </section>
-                                <section>
-                                    <h3>Categorias</h3>                                 
-                                    <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
-                                </section>
+                                </Dialog.Trigger>
+                                <Dialog.Portal>
+                                    <Dialog.Overlay className="DialogOverlay" />
 
-                                <section>
-                                    <div className="options">
-                                        
-                                        <button className="mybtn-2" onClick={clearFilter}>Limpar</button>
-                                        <button className="mybtn-2" onClick={() => console.log()}>Aplicar</button>
-                                    </div>
-                                </section>
-                            </NavigationMenu.Content>
-                        </NavigationMenu.Item>
+                                    <Dialog.Content className="DialogContent">
+                                        <Dialog.Title>Filtro</Dialog.Title>
+                                        <section>
+                                            <h3>Apenas Promocional</h3>
+                                        </section>
+                                        {/* <section>
+                                            <h3>Organizaro por</h3>
+                                            <div className="itenss">
+                                                <button className="mybtn">preço u</button>
+                                                <button className="mybtn">preço d</button>
+                                            </div>
+                                        </section> */}
+                                        <section>
+                                            <h3>Região</h3>
+                                            <FilterUf uf={searchParams.get("uf") ?? ''} onUfChange={setSearchParams} />
+                                        </section>
+                                        <section>
+                                            <h3>Locais</h3>
+                                            <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
+                                        </section>
+                                        <section>
+                                            <h3>Categorias</h3>                                 
+                                            <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
+                                        </section>
 
-                        {/* <NavigationMenu.Indicator className="NavigationMenuIndicator">
-                            <div className="Arrow" />
-                        </NavigationMenu.Indicator> */}
-                    </NavigationMenu.List>
-
-                    <div className="ViewportPosition">
-                        <NavigationMenu.Viewport className="NavigationMenuViewport" />
-                    </div>
-                </NavigationMenu.Root>
+                                        <section>
+                                            <div className="options">
+                                                <button className="mybtn-2" onClick={clearFilter}>Limpar</button>
+                                                <Dialog.Close asChild>
+                                                    <button className="mybtn-2" onClick={() => console.log()}>Aplicar</button>
+                                                </Dialog.Close>
+                                            </div>
+                                        </section>
+                                    </Dialog.Content>
+                                </Dialog.Portal>
+                            </Dialog.Root>
+                        </li>
+                    </ul>
+                </div>
                 
 
                 {/* <FilterPromotion promotion={searchParams.get('promotion') == 'true'? true : false } onPromotionChange={setSearchParams} /> */}
