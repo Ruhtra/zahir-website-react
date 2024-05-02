@@ -8,10 +8,11 @@ import { FilterCategories } from "./FilterCategories";
 import { FilterUf } from "./FilterUf";
 import { useSearchParams } from "react-router-dom";
 
-// import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import * as Dialog from '@radix-ui/react-dialog';
 import "./Filter.css"
 import {  MagnifyingGlassIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+
+import * as Switch from "@radix-ui/react-switch";
 
 export function Filter() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -98,8 +99,11 @@ export function Filter() {
 
                                     <Dialog.Content className="DialogContent">
                                         <Dialog.Title>Filtro</Dialog.Title>
-                                        <section>
-                                            <h3>Apenas Promocional</h3>
+                                        <section className="promotion">
+                                            <label htmlFor="promotionCheck">Apenas Promocional</label>
+                                            <Switch.Root id="promotionCheck" checked={searchParams.get('promotion') == 'true' ? true : false} onCheckedChange={(checked) => setSearchParams((params) => {params.set("promotion", `${checked}`); return params})} className="SwitchRoot">
+                                                <Switch.Thumb className="SwitchThumb" />
+                                            </Switch.Root>
                                         </section>
                                         {/* <section>
                                             <h3>Organizaro por</h3>
@@ -136,10 +140,7 @@ export function Filter() {
                     </ul>
                 </div>
                 
-
                 {/* <FilterPromotion promotion={searchParams.get('promotion') == 'true'? true : false } onPromotionChange={setSearchParams} /> */}
-
-                
             </div>
         </>
     )
