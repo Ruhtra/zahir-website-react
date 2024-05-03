@@ -6,7 +6,7 @@ import { Loading } from "../../Loading/Loading";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
-import { EffectCoverflow, Keyboard, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Keyboard, Navigation, Pagination } from 'swiper/modules';
 
 
 // Import Swiper styles
@@ -24,41 +24,46 @@ export function Carousel() {
     const { data, isLoading } = useCarousel(true)
     const swiperRef = useRef(null)
 
-    return <>{
+    return <>
+    {
         isLoading ? <Loading /> :
-            <Swiper
-                effect={'coverflow'}
-                loop={true}
-                centeredSlides={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 150,
-                    modifier: 1,
-                    scale: 1,
-                    slideShadows: false,
-                }}
-                spaceBetween={0}
-                initialSlide={data ? Math.floor(data.length / 2) : 0}
-                // spaceBetween={-20}
-                pagination={true}
-                navigation={false}
-                onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                  }}
-                keyboard={{
-                    enabled: true,
-                }}
-                modules={[Keyboard, EffectCoverflow, Pagination, Navigation]}
-                className="mySwiper"
-
+        <Swiper
+            effect={'coverflow'}
+            loop={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 150,
+                modifier: 1,
+                scale: 1,
+                slideShadows: false,
+            }}
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+            }}
+            spaceBetween={0}
+            initialSlide={data ? Math.floor(data.length / 2) : 0}
+            // spaceBetween={-20}
+            pagination={true}
+            navigation={false}
+            onBeforeInit={(swiper) => {
+                swiperRef.current = swiper;
+            }}
+            keyboard={{
+                enabled: true,
+            }}
+            modules={[Keyboard, EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="mySwiper"
+            
             >
                 {
                     data?.map(e => {
                         return (
-                            <SwiperSlide key={e.profile._id}>
-                                <Link to={`/profile/${e.profile._id}`} style={{all: "inherit"}} >
+                            <SwiperSlide className="swiper-slide" key={e.profile._id}>
+                                <Link to={`/profile/${e.profile._id}`} >
                                     <div className="card">
                                         <div className="promotion">
                                             <div className="text">{e.profile.promotion.title}</div>

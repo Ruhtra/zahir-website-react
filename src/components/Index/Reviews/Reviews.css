@@ -64,6 +64,8 @@
 /* carousel */
   /* lastReviews */
   .lastReviews {
+    all: unset;
+    width: max-content;
     display: block;
     background-color: var(--color-5);
     margin: 2.5em auto 1em auto;
@@ -72,6 +74,7 @@
     border-radius: .6em;
     color: var(--color-6);
     position: relative;
+    cursor: pointer;
   }
   .lastReviews .stars {
     display: flex;

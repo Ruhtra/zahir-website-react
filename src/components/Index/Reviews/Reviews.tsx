@@ -13,24 +13,25 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { Navigation } from 'swiper/modules';
+import { NavLink } from "react-router-dom";
 
 
 export function Reviews() {
     const { data: dataRecents, isLoading: isLoadingRecents } = useRecents()
 
     return (<>
-        <button className="lastReviews">
-            <div className="stars">
-                {
-                    [0, 1, 2, 3, 4].map(e => {
-                        return <>
-                            <div className="icon"></div>
-                        </>
-                    })
-                }
-            </div>
-            Últimos Reviews
-        </button>
+        <NavLink to={"/profiles"} className={"lastReviews"}>
+                <div className="stars">
+                    {
+                        [... Array(5).keys()].map(() => {
+                            return <>
+                                <div className="icon"></div>
+                            </>
+                        })
+                    }
+                </div>
+                Últimos Reviews
+        </NavLink>
 
         <div className="reviews">
             <div className="grid">

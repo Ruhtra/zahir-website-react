@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Index } from "./routes/Index/IndexRoute";
 import { ProfilesRoute } from "./routes/ProfilesRoute";
-import { LojaRoute } from "./routes/LojaRoute";
+import { LojaRoute } from "./routes/Loja/LojaRoute";
 import { NavBar } from "./components/NavBar/NavBar";
 import { AnuncieRoute } from "./routes/Anuncie/AnuncieRoute";
 import { ProfileRoute } from "./routes/Profile/ProfileRoute";
@@ -18,7 +18,7 @@ export function App() {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/profiles" element={<ProfilesRoute />} />
-        <Route path="/profile/:id" element={<ProfileRoute />} />
+      <Route path="/profile/:id" element={<ProfileRoute />} />
       <Route path="/loja" element={<LojaRoute />} />
       <Route path="/anuncie" element={<AnuncieRoute />} />
     </Routes>

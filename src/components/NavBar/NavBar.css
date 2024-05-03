@@ -87,7 +87,7 @@
                 }
                 .nav.desktop .links-block ul.links li a.item[data-active] { background-color: var(--nav-active); }
                 .nav.desktop .links-block ul.links li a.item:hover {
-                    font-size: 1.25em;
+                    /* font-size: 1.25em; */
                     background-color: rgba(0, 0, 0, .3);
                 }    
                 
@@ -161,6 +161,7 @@ to {
 @media screen and (max-width: 800px) {
     :root { --nav-padding: .5rem .5rem; }
 
+    .navbar { border-radius: 0 0 1em 1em; }
     .nav.desktop { display: none; }
     .nav.mobile { display: grid; }
 }
@@ -175,18 +176,18 @@ to {
     position: absolute;
     top: 0;
     right: 0;
-
 }
 
 .content {
     position: absolute;
-    top: 0;
+    top: auto;
     right: 0;
     width: 100vw;
     height: 100vh;
     background-color: var(--color-7);
     z-index: 3;
     box-shadow: -5vw 0 20px rgba(0, 0, 0, .4);
+    border-radius: 0 0 1em 1em;
 }
 .content:focus-visible {
     outline: none;
