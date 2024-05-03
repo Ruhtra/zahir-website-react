@@ -5,9 +5,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1em;
+    font-size: min(1em, 2.5vw);
     display: flex;
-    gap: 2em;
+    gap: 1em;
     align-items: flex-start;
     position: relative;
     padding: 1em 1em 1.5em 1em ;
@@ -17,9 +17,10 @@
 /* left */
     .up .left {  
         width: 23em;
-        aspect-ratio: 3/2;
+        height: calc((23em* 2) / 3); /* aspect-ratio: 3/2; */
         border-radius: inherit;
         background-color: var(--color-6);
+        font-size: 1em;
         box-shadow: -.5em .5em 0 var(--color-5);
     }
     .up .left img {
@@ -47,18 +48,17 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-        font-size: 1em;
         margin-top: 3em;
         text-align: center;
         padding: 1em;
         width: 23em;
-        min-height: calc((23em * 2)/ 3 - 2.5em);
+        min-height: calc((23em * 2)/ 3 - 1em);
         border-radius: inherit;
         background-color: var(--color-6);
         box-shadow: .5em .5em 0 var(--color-5);
     }
     .up .rigth > div {
-        font-size: 1.1em;
+        font-size: min(1.4em);
     }
 
 /* middle */
@@ -80,15 +80,11 @@
     }
     /* movie */
         .bottom .movie {
-            border-radius: 1em;
-            /* transition: .5s;
-            position: relative;
-            padding: 0;
-            text-align: center; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
             grid-area: 1 / 1 / 3 / 2;
+            
+            margin: 0 auto;
+            border-radius: 1em;
+
             background-color: var(--color-7);
         }
         .bottom .movie .inside {
@@ -148,6 +144,20 @@
             }
 
         @media screen and (max-width: 800px) {
+            .up {
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+            }
+            .up .back {
+                width: 45%;
+            }
+            .up .rigth {
+                margin-top: auto;
+                align-self: flex-end;
+            }
+
+
             .bottom {
                 gap: 2em;
                 grid-template: auto auto 1fr / 1fr;
