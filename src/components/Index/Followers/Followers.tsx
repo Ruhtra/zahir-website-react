@@ -1,5 +1,7 @@
 import "./Followers.css"
 
+import { Instagram, Tiktok, Youtube } from "../../../assets/Icons/Icons"
+
 export function Followers() {
     return (<>
     <div className="followers">
@@ -7,15 +9,15 @@ export function Followers() {
             <h2>Nossos Números</h2>
             <ul className="items">
                 <li className="tiktok">
-                    <div className="icon"></div>
+                    <Tiktok className="icon icon-tiktok"></Tiktok>
                     <div className="number">274,5k</div>
                 </li>
                 <li className="instagram">
-                    <div className="icon"></div>
+                    <Instagram className="icon icon-instagram"></Instagram>
                     <div className="number">111 k</div>
                 </li>
                 <li className="youtube">
-                    <div className="icon"></div>
+                    <Youtube className="icon icon-youtube"></Youtube>
                     <div className="number">87,5 k</div>
                 </li>
             </ul>
@@ -24,9 +26,15 @@ export function Followers() {
             <span>Olha só quantos já somos!</span> 
             <p className="total">509,7k</p>
             <ul className="icons">
-                <li className="tiktok"></li>
-                <li className="instagram"></li>
-                <li className="youtube"></li>
+                <li className="tiktok">
+                    <Tiktok className="icon icon-tiktok"></Tiktok>
+                </li>
+                <li className="instagram">    
+                    <Instagram className="icon icon-instagram" ></Instagram>
+                </li>
+                <li className="youtube">
+                    <Youtube className="icon icon-youtube"></Youtube>
+                </li>
             </ul>
         </div>
     </div>

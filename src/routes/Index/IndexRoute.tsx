@@ -6,7 +6,6 @@ import { Reviews } from "../../components/Index/Reviews/Reviews";
 
 import './IndexRoute.css'
 
-
 export function Index() {
     return (
         <>

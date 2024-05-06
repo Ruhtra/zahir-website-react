@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2200"
+   zoomAndPan="magnify"
+   viewBox="0 0 1650 1649.999929"
+   height="2200"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.0"
+   id="svg8"
+   sodipodi:docname="Promoção.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.19022727"
+     inkscape:cx="23.655914"
+     inkscape:cy="575.62724"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <defs
+     id="defs4">
+    <clipPath
+       id="d8c66e5b5b">
+      <path
+         d="M 721.148438 774.796875 L 934.667969 774.796875 L 934.667969 880.316406 L 721.148438 880.316406 Z M 721.148438 774.796875 "
+         clip-rule="nonzero"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="28e0e9e177">
+      <path
+         d="M 758.648438 774.796875 L 896.859375 774.796875 C 906.804688 774.796875 916.339844 778.746094 923.375 785.777344 C 930.40625 792.8125 934.359375 802.347656 934.359375 812.296875 L 934.359375 842.816406 C 934.359375 852.761719 930.40625 862.300781 923.375 869.335938 C 916.339844 876.367188 906.804688 880.316406 896.859375 880.316406 L 758.648438 880.316406 C 748.703125 880.316406 739.164062 876.367188 732.132812 869.335938 C 725.097656 862.300781 721.148438 852.761719 721.148438 842.816406 L 721.148438 812.296875 C 721.148438 802.347656 725.097656 792.8125 732.132812 785.777344 C 739.164062 778.746094 748.703125 774.796875 758.648438 774.796875 Z M 758.648438 774.796875 "
+         clip-rule="nonzero"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="69bc7296eb">
+      <path
+         d="M 715.640625 769.683594 L 928.863281 769.683594 L 928.863281 863.148438 L 715.640625 863.148438 Z M 715.640625 769.683594 "
+         clip-rule="nonzero"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       id="0ab2f00d09">
+      <path
+         d="M 753.140625 769.683594 L 891.210938 769.683594 C 901.15625 769.683594 910.695312 773.632812 917.730469 780.664062 C 924.761719 787.699219 928.710938 797.238281 928.710938 807.183594 L 928.710938 825.648438 C 928.710938 835.59375 924.761719 845.132812 917.730469 852.164062 C 910.695312 859.199219 901.15625 863.148438 891.210938 863.148438 L 753.140625 863.148438 C 743.195312 863.148438 733.660156 859.199219 726.625 852.164062 C 719.59375 845.132812 715.640625 835.59375 715.640625 825.648438 L 715.640625 807.183594 C 715.640625 797.238281 719.59375 787.699219 726.625 780.664062 C 733.660156 773.632812 743.195312 769.683594 753.140625 769.683594 Z M 753.140625 769.683594 "
+         clip-rule="nonzero"
+         id="path4" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#d8c66e5b5b)"
+     id="g6"
+     transform="matrix(7.5341316,0,0,7.5341316,-5391.6813,-5393.9093)">
+    <g
+       clip-path="url(#28e0e9e177)"
+       id="g5">
+      <path
+         fill="#d62522"
+         d="M 721.14844,774.79687 H 934.25391 V 880.31641 H 721.14844 Z m 0,0"
+         fill-opacity="1"
+         fill-rule="nonzero"
+         id="path5" />
+    </g>
+  </g>
+  <g
+     clip-path="url(#69bc7296eb)"
+     id="g8"
+     transform="matrix(7.5341316,0,0,7.5341316,-5391.6813,-5393.9093)">
+    <g
+       clip-path="url(#0ab2f00d09)"
+       id="g7">
+      <path
+         fill="#f4f0ff"
+         d="m 715.64062,769.68359 h 213.22266 v 93.46485 H 715.64062 Z m 0,0"
+         fill-opacity="1"
+         fill-rule="nonzero"
+         id="path6" />
+    </g>
+  </g>
+</svg>

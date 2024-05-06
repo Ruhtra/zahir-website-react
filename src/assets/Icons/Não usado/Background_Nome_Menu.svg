@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2200"
+   zoomAndPan="magnify"
+   viewBox="0 0 1650 1649.999929"
+   height="2200"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.0"
+   id="svg10"
+   sodipodi:docname="Background Nome Menu.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.26902199"
+     inkscape:cx="1094.7061"
+     inkscape:cy="1053.8172"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs5">
+    <clipPath
+       id="e314ddff79">
+      <path
+         d="M 696.300781 801.738281 L 953.699219 801.738281 L 953.699219 848.261719 L 696.300781 848.261719 Z M 696.300781 801.738281 "
+         clip-rule="nonzero"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="a82bcd1970">
+      <path
+         d="M 689.824219 801.738281 L 702.78125 801.738281 L 702.78125 848.304688 L 689.824219 848.304688 Z M 689.824219 801.738281 "
+         clip-rule="nonzero"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="79cd79eb36">
+      <path
+         d="M 696.300781 801.738281 C 699.878906 801.738281 702.78125 804.636719 702.78125 808.214844 L 702.78125 841.785156 C 702.78125 845.363281 699.878906 848.261719 696.300781 848.261719 C 692.722656 848.261719 689.824219 845.363281 689.824219 841.785156 L 689.824219 808.214844 C 689.824219 804.636719 692.722656 801.738281 696.300781 801.738281 Z M 696.300781 801.738281 "
+         clip-rule="nonzero"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       id="6879c6628c">
+      <path
+         d="M 947.21875 801.738281 L 960.175781 801.738281 L 960.175781 848.304688 L 947.21875 848.304688 Z M 947.21875 801.738281 "
+         clip-rule="nonzero"
+         id="path4" />
+    </clipPath>
+    <clipPath
+       id="ad7aaa64df">
+      <path
+         d="M 953.699219 801.738281 C 957.277344 801.738281 960.175781 804.636719 960.175781 808.214844 L 960.175781 841.785156 C 960.175781 845.363281 957.277344 848.261719 953.699219 848.261719 C 950.121094 848.261719 947.21875 845.363281 947.21875 841.785156 L 947.21875 808.214844 C 947.21875 804.636719 950.121094 801.738281 953.699219 801.738281 Z M 953.699219 801.738281 "
+         clip-rule="nonzero"
+         id="path5" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#e314ddff79)"
+     id="g6"
+     transform="matrix(6.0735238,0,0,6.0735238,-4185.6571,-4183.7379)">
+    <path
+       fill="#9972bf"
+       d="m 696.30078,801.73828 h 257.34766 v 46.52344 H 696.30078 Z m 0,0"
+       fill-opacity="1"
+       fill-rule="nonzero"
+       id="path6" />
+  </g>
+  <g
+     clip-path="url(#a82bcd1970)"
+     id="g8"
+     transform="matrix(6.0735238,0,0,6.0735238,-4185.6571,-4183.7379)">
+    <g
+       clip-path="url(#79cd79eb36)"
+       id="g7">
+      <path
+         fill="#fcba3e"
+         d="m 689.82422,801.73828 h 12.95703 v 46.51563 h -12.95703 z m 0,0"
+         fill-opacity="1"
+         fill-rule="nonzero"
+         id="path7" />
+    </g>
+  </g>
+  <g
+     clip-path="url(#6879c6628c)"
+     id="g10"
+     transform="matrix(6.0735238,0,0,6.0735238,-4185.6571,-4183.7379)">
+    <g
+       clip-path="url(#ad7aaa64df)"
+       id="g9">
+      <path
+         fill="#fcba3e"
+         d="m 947.21875,801.73828 h 12.95703 v 46.51563 h -12.95703 z m 0,0"
+         fill-opacity="1"
+         fill-rule="nonzero"
+         id="path8" />
+    </g>
+  </g>
+</svg>

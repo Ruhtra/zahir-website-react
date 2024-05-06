@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2200"
+   zoomAndPan="magnify"
+   viewBox="0 0 1650 1649.999929"
+   height="2200"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.0"
+   id="svg4"
+   sodipodi:docname="Seta Up.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.38045455"
+     inkscape:cx="1100"
+     inkscape:cy="1100"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <defs
+     id="defs1">
+    <g
+       id="g1" />
+  </defs>
+  <g
+     fill="#d62522"
+     fill-opacity="1"
+     id="g4"
+     transform="matrix(1,0,0,-1,0,1550.3595)">
+    <g
+       transform="translate(-106.54292,3570.9688)"
+       id="g3">
+      <g
+         id="g2">
+        <path
+           d="m 930.65625,-2183.0156 -662.5625,-727.6719 H 785.125 v -497.875 h 291.0625 v 497.875 h 517.0313 z m 0,0"
+           id="path1" />
+      </g>
+    </g>
+  </g>
+</svg>

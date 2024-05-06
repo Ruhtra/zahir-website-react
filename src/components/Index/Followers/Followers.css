@@ -1,13 +1,13 @@
 .followers {
     color: var(--color-5);
     margin: 2em;
-    font-size: max(1em, 2vw);
+    font-size: max(1.75em, 2vw);
 }
 
 /* desktop */
     .followers .desktop {
         text-align: center;
-        max-width: 900px;
+        max-width: 1200px;
         margin:  0 auto;
     }
 
@@ -15,8 +15,26 @@
         margin-top: 1em;
         list-style: none;
         display: flex;
+        
         justify-content: space-around;
     }
+    /* li */
+        .followers .desktop .items li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5em;
+        }
+        /* icon */
+            .followers .desktop .items li .icon {
+                display: block;
+                width: 1.75em;
+            }
+        /* number */
+            .followers .desktop .items li .number {
+                /* line-height: 1px; */
+                padding: 0;
+            }
 
 /* mobile */
     .followers .mobile {
