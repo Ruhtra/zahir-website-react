@@ -1,1 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2200" zoomAndPan="magnify" viewBox="0 0 1650 1649.999929" height="2200" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="e0bed7cdfe"><path d="M 41 75.585938 L 1618 75.585938 L 1618 1574.5625 L 41 1574.5625 Z M 41 75.585938 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#e0bed7cdfe)"><path fill="#fbb93e" d="M 829.929688 75.613281 L 1073.421875 569.035156 L 1617.953125 648.15625 L 1223.941406 1032.226562 L 1316.96875 1574.5625 L 829.929688 1318.496094 L 342.867188 1574.5625 L 435.894531 1032.226562 L 41.882812 648.15625 L 586.414062 569.035156 L 829.929688 75.613281 " fill-opacity="1" fill-rule="nonzero"/></g><path fill="#fad550" d="M 41.882812 648.15625 L 435.894531 1032.226562 L 395.722656 1266.527344 C 744.539062 1159.066406 1001.769531 842.730469 1021.371094 463.519531 L 829.929688 75.613281 L 586.414062 569.035156 L 41.882812 648.15625 " fill-opacity="1" fill-rule="nonzero"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2200"
+    zoomAndPan="magnify" viewBox="0 0 1650 1649.999929" height="2200"
+    preserveAspectRatio="xMidYMid meet" version="1.0">
+    <defs>
+        <clipPath id="e0bed7cdfe">
+            <path
+                d="M 41 75.585938 L 1618 75.585938 L 1618 1574.5625 L 41 1574.5625 Z M 41 75.585938 "
+                clip-rule="nonzero" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#e0bed7cdfe)">
+        <path fill="#fbb93e"
+            d="M 829.929688 75.613281 L 1073.421875 569.035156 L 1617.953125 648.15625 L 1223.941406 1032.226562 L 1316.96875 1574.5625 L 829.929688 1318.496094 L 342.867188 1574.5625 L 435.894531 1032.226562 L 41.882812 648.15625 L 586.414062 569.035156 L 829.929688 75.613281 "
+            fill-opacity="1" fill-rule="nonzero" />
+    </g>
+    <path fill="#fad550"
+        d="M 41.882812 648.15625 L 435.894531 1032.226562 L 395.722656 1266.527344 C 744.539062 1159.066406 1001.769531 842.730469 1021.371094 463.519531 L 829.929688 75.613281 L 586.414062 569.035156 L 41.882812 648.15625 "
+        fill-opacity="1" fill-rule="nonzero" />
+</svg>

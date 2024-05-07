@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { Navigation } from 'swiper/modules';
 import { NavLink } from "react-router-dom";
+import { Estrela } from "../../../assets/Icons/Icons";
 
 
 export function Reviews() {
@@ -25,7 +26,7 @@ export function Reviews() {
                     {
                         [... Array(5).keys()].map(() => {
                             return <>
-                                <div className="icon"></div>
+                                <Estrela className="icon icon-star"></Estrela>
                             </>
                         })
                     }

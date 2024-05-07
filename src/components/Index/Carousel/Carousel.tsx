@@ -17,8 +17,8 @@ import 'swiper/css/navigation';
 
 import './Carousel.css'
 import { useRef } from "react";
-import { ArrowIcon } from "../../../assets/Icons/Arrow";
 import { Link } from "react-router-dom";
+import { Arrow } from "../../../assets/Icons/Icons";
 
 export function Carousel() {
     const { data, isLoading } = useCarousel(true)
@@ -58,36 +58,36 @@ export function Carousel() {
             modules={[Keyboard, EffectCoverflow, Pagination, Navigation, Autoplay]}
             className="mySwiper"
             
-            >
-                {
-                    data?.map(e => {
-                        return (
-                            <SwiperSlide className="swiper-slide" key={e.profile._id}>
-                                <Link to={`/profile/${e.profile._id}`} >
-                                    <div className="card">
-                                        <div className="promotion">
-                                            <div className="text">{e.profile.promotion.title}</div>
-                                        </div>
-                                        <div className="informations">
-                                            <span className="name">{e.profile.name}</span>
-                                            <span className="local">{e.profile.local.uf} - {e.profile.local.city}</span>
-                                        </div>
-                                        <img src={e.profile.picture} />
+        >
+            {
+                data?.map(e => {
+                    return (
+                        <SwiperSlide className="swiper-slide" key={e.profile._id}>
+                            <Link to={`/profile/${e.profile._id}`} >
+                                <div className="card">
+                                    <div className="promotion">
+                                        <div className="text">{e.profile.promotion.title}</div>
                                     </div>
-                                </Link>
-                            </SwiperSlide>
-                        )
-                    })
-                }
-                <div className="buttons">
-                        <div className="left" onClick={() => swiperRef.current?.slidePrev()}>
-                            <ArrowIcon />
-                        </div>
-                        <div className="rigth" onClick={() => swiperRef.current?.slideNext()}>
-                            <ArrowIcon />
-                        </div>
-                    </div>
-            </Swiper>
-    }
-    </>
+                                    <div className="informations">
+                                        <span className="name">{e.profile.name}</span>
+                                        <span className="local">{e.profile.local.uf} - {e.profile.local.city}</span>
+                                    </div>
+                                    <img src={e.profile.picture} />
+                                </div>
+                            </Link>
+                        </SwiperSlide>
+                    )
+                })
+            }
+            <div className="buttons">
+                <div className="left" onClick={() => swiperRef.current?.slidePrev()}>
+                    <Arrow className="icon icon-arrow" fillColor="purple" side="left" />
+                </div>
+                <div className="rigth" onClick={() => swiperRef.current?.slideNext()}>
+                    <Arrow className="icon icon-arrow" fillColor="purple" side="rigth" />
+                </div>
+            </div>
+        </Swiper>
+        }
+</>
 }

@@ -2,8 +2,9 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Link, useLocation } from "react-router-dom";
 import * as Dialog from '@radix-ui/react-dialog';
 
-import { HamburgerMenuIcon, Cross1Icon, HomeIcon, VideoIcon, CardStackIcon, GlobeIcon } from "@radix-ui/react-icons";
+import { Cross1Icon, HomeIcon, VideoIcon, CardStackIcon, GlobeIcon } from "@radix-ui/react-icons";
 import './NavBar.css'
+import { Menu } from "../../assets/Icons/Icons";
 
 export function NavBar() {
     const location = useLocation();
@@ -60,8 +61,8 @@ export function NavBar() {
 
                 <Dialog.Root>
                     <Dialog.Trigger asChild>
-                            <HamburgerMenuIcon color="white" width={'auto'} height={'auto'} className={'HamburguerMenu'} aria-hidden />
-
+                            {/* <HamburgerMenuIcon color="white" width={'auto'} height={'auto'} className={'HamburguerMenu'} aria-hidden /> */}
+                            <Menu fillColor="orange" className="icon icon-menu" height={'auto'}></Menu>
                     </Dialog.Trigger>
                         <Dialog.Overlay className="overlay">
                             <Dialog.Content className="content">

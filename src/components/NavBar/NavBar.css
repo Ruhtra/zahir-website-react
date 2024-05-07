@@ -211,14 +211,12 @@ to {
     color: white;
 }
 
-.HamburguerMenu, .Cross1Icon  {
+.icon-menu, .Cross1Icon  {
     width: auto;
     height: 100%;
     aspect-ratio: 1;
     justify-self: right;
     cursor: pointer;
-    background-color: rgba(48, 47, 47, 0.3);
     border-radius: .3em;
-    border: .1em solid white;
     padding: .2em;
 }

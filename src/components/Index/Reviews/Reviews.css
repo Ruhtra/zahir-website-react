@@ -90,18 +90,17 @@
   .lastReviews .stars .icon {
     width: 1em;
     aspect-ratio: 1;
-    background-color: yellow;
   }
   .lastReviews .stars .icon:nth-child(1),
   .lastReviews .stars .icon:nth-child(5) {
-    width: .7em;
+    width: calc(2em - 1em);
   }
   .lastReviews .stars .icon:nth-child(2),
   .lastReviews .stars .icon:nth-child(4) {
-    width: 1.2em;
+    width: calc(2em - 0.5em);
   }
   .lastReviews .stars .icon:nth-child(3) {
-    width: 1.7em;
+    width: 2em;
   }
 
 

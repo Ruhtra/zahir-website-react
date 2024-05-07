@@ -14,7 +14,7 @@
     height: 100%;
     font-size: 1.5em;
 }
-.search .searchIcon {
+.search .icon-lupa {
     width: auto;
     height: 1.5em;
     aspect-ratio: 1;
@@ -31,16 +31,16 @@
     color: var(--color-5);
 }
 
-.dropDown .dropdownIcon {
+.dropDown .icon-filtro {
     cursor: pointer;
     width: auto;
     height: 1.5em;
     aspect-ratio: 1;
     transition: .5s;
 }
-.dropDown[data-state="open"] .dropdownIcon{
+/* .dropDown[data-state="open"] .icon-filtro{
     transform: rotate(45deg);
-}
+} */
 
 
 .NavigationMenuRoot {

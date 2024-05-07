@@ -10,9 +10,9 @@ import { useSearchParams } from "react-router-dom";
 
 import * as Dialog from '@radix-ui/react-dialog';
 import "./Filter.css"
-import {  MagnifyingGlassIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 import * as Switch from "@radix-ui/react-switch";
+import { Lupa, Filtro } from "../../assets/Icons/Icons";
 
 export function Filter() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -77,13 +77,12 @@ export function Filter() {
 
     return (
         <>
-        
             <div>
                 <div className="NavigationMenuRoot" >
                     <ul className="NavigationMenuList">
                         <li className="searchList">
                             <div className="search">
-                                <MagnifyingGlassIcon className="searchIcon" />
+                                <Lupa className="icon icon-lupa"></Lupa>
                                 <FilterSearch search={searchParams.get('search') ?? ''} onSearchChange={setSearchParams} placeholder="Pesquise" />
                             </div>
                         </li>
@@ -91,7 +90,7 @@ export function Filter() {
                             <Dialog.Root>
                                 <Dialog.Trigger asChild>
                                 <div className="dropDown">
-                                    <PlusCircledIcon className="dropdownIcon" /> 
+                                    <Filtro className="icon icon-filtro"></Filtro>
                                 </div>
                                 </Dialog.Trigger>
                                 <Dialog.Portal>

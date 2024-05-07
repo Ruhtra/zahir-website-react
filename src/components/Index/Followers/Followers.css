@@ -69,10 +69,12 @@
             list-style-type: none;
         }
         .followers .mobile ul.icons li {
-            background-color: var(--color-5);
-            width: 1em;
+            width: 1.5em;
             aspect-ratio: 1;
 
+        }
+        .followers .mobile ul.icons li .icon {
+            display: block;
         }
 
 
