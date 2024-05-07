@@ -1,16 +1,38 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Link, useLocation } from "react-router-dom";
-import * as Dialog from '@radix-ui/react-dialog';
 
-import { Cross1Icon, HomeIcon, VideoIcon, CardStackIcon, GlobeIcon } from "@radix-ui/react-icons";
 import './NavBar.css'
-import { Menu } from "../../assets/Icons/Icons";
+import { Anunice, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
+import { useEffect, useState } from "react";
+
 
 export function NavBar() {
     const location = useLocation();
+    const [state, setState] = useState(null)
 
+    useEffect(() => {
+        // Adicionando o atributo ao elemento body
+        if (state == 'open') document.body.setAttribute('data-scroll-locked', '');
+        else  document.body.removeAttribute('data-scroll-locked');
+
+        // Função de limpeza para remover o atributo quando o componente for desmontado
+        return () => {
+          document.body.removeAttribute('data-scroll-locked');
+        };
+      }, [state]); // [] como segundo argumento garante que o efeito só é executado uma vez
+    
+
+    function changeState() {
+        if (state == null) {
+            setState('open')
+        } else {
+            if (state == "open") setState("close")
+            if (state == "close") setState("open")
+        }
+    }
+    
     return (
-        <NavigationMenu.Root className="navbar" orientation="horizontal">
+        <NavigationMenu.Root  className={`${state} navbar`} orientation="horizontal">
             <div className="nav desktop">
                 <div className="logo">
                     <Link to="/">
@@ -59,123 +81,38 @@ export function NavBar() {
                     </Link>
                 </div>
 
-                <Dialog.Root>
-                    <Dialog.Trigger asChild>
-                            {/* <HamburgerMenuIcon color="white" width={'auto'} height={'auto'} className={'HamburguerMenu'} aria-hidden /> */}
-                            <Menu fillColor="orange" className="icon icon-menu" height={'auto'}></Menu>
-                    </Dialog.Trigger>
-                        <Dialog.Overlay className="overlay">
-                            <Dialog.Content className="content">
-                                <Dialog.Title asChild>
-                                    <div className="title">
-                                    <h2 className="text">Menu Bar</h2>
-                                        <Dialog.Close asChild>
-                                            <Cross1Icon color="white" width={'auto'} height={'auto'} className="Cross1Icon" />
-                                        </Dialog.Close>
-                                    </div>
-                                </Dialog.Title>
-                                <Dialog.Description>
-                                    <NavigationMenu.List className="links">
-                                        <NavigationMenu.Item>
-                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
-                                                <Dialog.DialogClose asChild>
-                                                    <Link className="item" to={'/'}>
-                                                            <HomeIcon width={'1em'} height={'auto'} className="Home" color="white" />
-                                                            index
-                                                    </Link>
-                                                </Dialog.DialogClose>
-                                            </NavigationMenu.Link>
-                                        </NavigationMenu.Item>
-                        
-                                        <NavigationMenu.Item className="line" />
-                                        
-                                        <NavigationMenu.Item>
-                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/profiles'}>
-                                                <Dialog.DialogClose asChild>
-                                                    <Link className="item" to={'/profiles'}>
-                                                            <VideoIcon width={'1em'} height={'auto'} className="Video" color="white" />
-                                                            Reviews
-                                                    </Link>
-                                                </Dialog.DialogClose>
-                                            </NavigationMenu.Link>
-                                        </NavigationMenu.Item>
-                                        
-                                        <NavigationMenu.Item className="line" />
-
-
-                                        <NavigationMenu.Item>
-                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/loja'}>
-                                                <Dialog.DialogClose asChild>
-                                                    <Link className="item" to={'/loja'}>
-                                                            <CardStackIcon width={'1em'} height={'auto'} className="CardStack" color="white" />
-                                                            Loja
-                                                    </Link>
-                                                </Dialog.DialogClose>
-                                            </NavigationMenu.Link>
-                                        </NavigationMenu.Item>
-                                        
-                                        <NavigationMenu.Item className="line" />
-
-                                        <NavigationMenu.Item>
-                                            <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/anuncie'}>
-                                                <Dialog.DialogClose asChild>
-                                                    <Link className="item" to={'/anuncie'}>
-                                                            <GlobeIcon width={'1em'} height={'auto'} className="Globe" color="white" />
-                                                            Anuncie
-                                                    </Link>
-                                                </Dialog.DialogClose>
-                                            </NavigationMenu.Link>
-                                        </NavigationMenu.Item>
-                                        
-                                        <NavigationMenu.Item className="line" />
-                                    </NavigationMenu.List>
-                                </Dialog.Description>
-                            </Dialog.Content>
-                        </Dialog.Overlay>
-                </Dialog.Root>
+                <div className="botao" onClick={changeState}>
+                    <Menu fillColor="orange" className="icon icon-menu" height={'auto'}></Menu>
+                </div>
+            </div>
+            <div className={`${state} content`}>
+                <NavigationMenu.List>
+                    <NavigationMenu.Item className="item">
+                        <Link to={'/'} onClick={changeState}>
+                            <Home className="icon icon-home"></Home>
+                            <div className="text">Home</div>
+                        </Link>
+                    </NavigationMenu.Item>
+                    <NavigationMenu.Item className="item">
+                        <Link to={'/profiles'} onClick={changeState}>
+                            <Reviews className="icon icon-reviews"></Reviews>
+                            <div className="text">Reviews</div>
+                        </Link>
+                    </NavigationMenu.Item>
+                    <NavigationMenu.Item className="item">
+                        <Link to={'/loja'} onClick={changeState}>
+                            <Loja className="icon icon-loja"></Loja>
+                            <div className="text">Loja</div>
+                        </Link>
+                    </NavigationMenu.Item>
+                    <NavigationMenu.Item className="item">
+                        <Link to={'/anuncie'} onClick={changeState}>
+                            <Anunice className="icon icon-anuncie"></Anunice>
+                            <div className="text">Anuncie</div>
+                        </Link>
+                    </NavigationMenu.Item>
+                </NavigationMenu.List>
             </div>
         </NavigationMenu.Root> 
     )
 }
-
-
-
-
-
- {
-    
-    //config
-    
-    /* <NavigationMenu.Item>
-                        <NavigationMenu.Item className="line" />
-                        <NavigationMenu.Trigger asChild>
-                            <NavigationMenu.Link className="item_link" asChild active={
-                                    location.pathname === '/config/profiles' ||
-                                    location.pathname === '/config/homePage'
-                                }
-                            >
-                                <Link className="item" to={'#'}>
-                                    Config  <CaretDownIcon className="CaretDown" aria-hidden />
-                                </Link>
-                            </NavigationMenu.Link>
-                                
-                        </NavigationMenu.Trigger>
-                        <NavigationMenu.Content className="contesnt">
-                            <NavigationMenu.Sub orientation="vertical">
-                                <NavigationMenu.List>
-                                    <NavigationMenu.Item>
-                                        <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/config/profiles'}>
-                                            <Link className="item" to={'/config/profiles'}>Profiles</Link>
-                                        </NavigationMenu.Link>
-                                    </NavigationMenu.Item>
-
-                                    <NavigationMenu.Item>
-                                        <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/config/homePage'}>
-                                            <Link className="item" to={'/config/homePage'}>HomePage</Link>
-                                        </NavigationMenu.Link>
-                                    </NavigationMenu.Item>
-                                </NavigationMenu.List>
-                                <NavigationMenu.Viewport />
-                            </NavigationMenu.Sub>
-                        </NavigationMenu.Content>
-                    </NavigationMenu.Item> */}
