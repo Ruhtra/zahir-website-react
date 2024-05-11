@@ -1,3 +1,4 @@
+import image from "../../../assets/imagem.png"
 import './Info.css'
 
 export function Info() {
@@ -5,6 +6,7 @@ export function Info() {
           <div className="info">
                 <div className="block">
                     <div className="img">
+                        <img src={image} alt="" />
                     </div>
                     <div className="texto">
                         <div className="msg">

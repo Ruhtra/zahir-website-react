@@ -1,7 +1,7 @@
 .followers {
     color: var(--color-5);
     margin: 2em;
-    font-size: max(1.75em, 2vw);
+    font-size: clamp(1.75em, 2vw, 2em);
 }
 
 /* desktop */
