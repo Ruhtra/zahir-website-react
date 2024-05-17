@@ -13,8 +13,13 @@ import "./Filter.css"
 
 import * as Switch from "@radix-ui/react-switch";
 import { Lupa, Filtro } from "../../assets/Icons/Icons";
+import { Skeleton } from "@radix-ui/themes";
 
-export function Filter() {
+export interface PropsFilter {
+    isLoading: boolean;
+}
+
+export function Filter({ isLoading }: PropsFilter) {
     const [searchParams, setSearchParams] = useSearchParams()
     const {data, onFilter} =  useContext(FilterContext)
 
@@ -75,9 +80,11 @@ export function Filter() {
 
     // }
 
+
     return (
         <>
             <div>
+                <Skeleton width={"100%"} height={"100%"} loading={isLoading}>
                 <div className="NavigationMenuRoot" >
                     <ul className="NavigationMenuList">
                         <li className="searchList">
@@ -138,6 +145,7 @@ export function Filter() {
                         </li>
                     </ul>
                 </div>
+                </Skeleton>
                 
                 {/* <FilterPromotion promotion={searchParams.get('promotion') == 'true'? true : false } onPromotionChange={setSearchParams} /> */}
             </div>

@@ -3,7 +3,6 @@ import { Profile } from "../models/model";
 import { useEffect, useState } from "react";
 import { Filter } from "../components/Filter/Filter";
 import FilterContext from "../components/Filter/FilterContext";
-import { Loading } from "../components/Loading/Loading";
 import { useProfiles } from "../services/Querys/Profiles";
 
 
@@ -19,13 +18,11 @@ export function ProfilesRoute() {
         setFiltrado(filtered);
     };
 
-    if (isLoading) return <Loading />
-
     return (
         <>
             <FilterContext.Provider value={{data, onFilter: handleFilter}}>
-                <Filter />
-                <Profiles filtrado={filtrado} />
+                <Filter isLoading={isLoading} />
+                <Profiles filtrado={filtrado} isLoading={isLoading} />
             </FilterContext.Provider>
           
         </>

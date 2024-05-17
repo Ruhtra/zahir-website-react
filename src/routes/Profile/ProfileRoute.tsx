@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { Loading } from "../../components/Loading/Loading";
 import { useGetProfile } from "../../services/Querys/Profiles";
 
 import "./ProfileRoute.css"
+import { Skeleton } from "@radix-ui/themes";
 
 export function ProfileRoute() {
 
@@ -11,14 +11,18 @@ export function ProfileRoute() {
 
     return (
         <>
-            {isLoading && <Loading />}
             {
                 <>
                 <div className="up">
+                    <Skeleton loading={isLoading}>
                     <div className="left">
                         <img src={data?.picture} alt="" />
                     </div>
+                    </Skeleton>
+                    <Skeleton loading={isLoading}>
                     <div className="back"></div>
+                    </Skeleton>
+                    <Skeleton loading={isLoading}>
                     <div className="rigth">
                         <div className="promotion">
                             <span>Produto Em promoção</span>
@@ -33,8 +37,13 @@ export function ProfileRoute() {
                             </div>
                         </div>
                     </div>
+                    </Skeleton>
                 </div>
+                <Skeleton loading={isLoading}>
                 <div className="middle"></div>
+                </Skeleton>
+
+                {/* Necessario adicionar skeleto aqui */}
                 {/* não tenho certeza se a classe é pra ser implementada dessa forma */}
                 <div className={data?.movie == null ? "bottom noVideo": "bottom"}>
                     { data?.movie != null ?

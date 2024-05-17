@@ -23,6 +23,7 @@ export function useCarousel(isShuffle: boolean | null = null) {
             const response = await axios.get<HomePage[]>(
                 `${PathUrl}/getAll`
             );
+            await new Promise(resolve => setTimeout(resolve, 15000));
             if (isShuffle) return shuffleArray(response.data);
             return response.data
         },

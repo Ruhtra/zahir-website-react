@@ -1,5 +1,4 @@
 import { useCarousel } from "../../../services/Querys/HomePage"
-import { Loading } from "../../Loading/Loading";
 
 // import React, { useRef, useState } from 'react';
 // Import Swiper React components
@@ -19,6 +18,7 @@ import './Carousel.css'
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Arrow } from "../../../assets/Icons/Icons";
+import { Skeleton } from "@radix-ui/themes";
 
 export function Carousel() {
     const { data, isLoading } = useCarousel(true)
@@ -26,7 +26,7 @@ export function Carousel() {
 
     return <>
     {
-        isLoading ? <Loading /> :
+        // isLoading ? <Loading /> :
         <Swiper
             effect={'coverflow'}
             loop={true}
@@ -60,9 +60,31 @@ export function Carousel() {
             
         >
             {
-                data?.map(e => {
+                isLoading ? Array(1,2,3,4,5).map(e => {
+                    return (
+                        <SwiperSlide className="swiper-slide" key={e}>
+                            
+                        <Link to={``} onClick={(e) => e.preventDefault()} >
+                        <Skeleton loading={true}>
+                            <div className="card">
+                                <div className="promotion">
+                                    <div className="text"></div>
+                                </div>
+                                <div className="informations">
+                                    <span className="name"></span>
+                                    <span className="local"> - </span>
+                                </div>
+                                <img src={""} />
+                            </div>
+                        </Skeleton>
+                        </Link>
+                    </SwiperSlide>
+                    )
+                })
+                : data?.map(e => {
                     return (
                         <SwiperSlide className="swiper-slide" key={e.profile._id}>
+                            
                             <Link to={`/profile/${e.profile._id}`} >
                                 <div className="card">
                                     <div className="promotion">
@@ -79,13 +101,18 @@ export function Carousel() {
                     )
                 })
             }
+            
             <div className="buttons">
+                <Skeleton loading={isLoading}>
                 <div className="left" onClick={() => swiperRef.current?.slidePrev()}>
                     <Arrow className="icon icon-arrow" fillColor="purple" side="left" />
                 </div>
+                </Skeleton>
+                <Skeleton loading={isLoading}>
                 <div className="rigth" onClick={() => swiperRef.current?.slideNext()}>
                     <Arrow className="icon icon-arrow" fillColor="purple" side="rigth" />
                 </div>
+                </Skeleton>
             </div>
         </Swiper>
         }

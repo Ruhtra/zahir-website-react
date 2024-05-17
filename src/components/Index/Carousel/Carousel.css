@@ -153,6 +153,7 @@
     cursor: pointer;
     transform-origin: 50% 50%;
     transition: .2s;
+    border-radius: 50em;
   }
 
   .swiper .buttons .left {
