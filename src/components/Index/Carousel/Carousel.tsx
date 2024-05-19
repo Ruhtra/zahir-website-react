@@ -1,5 +1,3 @@
-import { useCarousel } from "../../../services/Querys/HomePage"
-
 // import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,14 +13,17 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import './Carousel.css'
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Arrow } from "../../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
+import CarouselContext from '../IndexContext';
+
+
 
 export function Carousel() {
-    const { data, isLoading } = useCarousel(true)
     const swiperRef = useRef(null)
+    const {data, isLoading} =  useContext(CarouselContext)
 
     return <>
     {

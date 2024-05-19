@@ -50,6 +50,7 @@
     background-color: var(--color-10);
     color: var(--color-5);
     border-radius: 30px;
+    font-size: min(1em, 4vw);
 }
 .NavigationMenuList {
     display: grid;
@@ -235,6 +236,7 @@ section {
     box-shadow: 0 0 1em black;
     animation: scaleIn .2s cubic-bezier(0.16, 1, 0.3, 1); 
     z-index: 3;
+    font-size: min(1em, 4vw);
   }
 
   .DialogContent:focus {
