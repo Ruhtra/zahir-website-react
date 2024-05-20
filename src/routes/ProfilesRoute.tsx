@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Filter } from "../components/Filter/Filter";
 import FilterContext from "../components/Filter/FilterContext";
 import { useProfiles } from "../services/Querys/Profiles";
+import PageTitle from "../components/PageTitle";
 
 
 export function ProfilesRoute() {
@@ -20,6 +21,7 @@ export function ProfilesRoute() {
 
     return (
         <>
+            <PageTitle title={"Perfis"} />
             <FilterContext.Provider value={{data, onFilter: handleFilter}}>
                 <Filter isLoading={isLoading} />
                 <Profiles filtrado={filtrado} isLoading={isLoading} />

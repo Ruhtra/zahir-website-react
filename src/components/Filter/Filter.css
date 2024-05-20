@@ -97,6 +97,8 @@ section {
     flex-wrap: wrap;
     gap: .5em 1em;
     width: 100%;
+    max-height: 10em;
+    overflow-y: auto;
 }
 .mybtn {
     position: relative;
@@ -246,12 +248,6 @@ section {
   .DialogContent:focus {
     outline: none;
   }
-
-  
-  .DialogContent .categories {
-    overflow-y: scroll;
-  }
-
 
 /* switch */
 

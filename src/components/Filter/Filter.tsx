@@ -6,7 +6,7 @@ import { FilterSearch } from "./FilterSearch";
 import { FilterCategory } from "./FilterCategory";
 import { FilterCategories } from "./FilterCategories";
 import { FilterUf } from "./FilterUf";
-import { useSearchParams } from "react-router-dom";
+import { SetURLSearchParams, useSearchParams } from "react-router-dom";
 
 import * as Dialog from '@radix-ui/react-dialog';
 import "./Filter.css"
@@ -19,23 +19,21 @@ export interface PropsFilter {
     isLoading: boolean;
 }
 
+export function clearFilter(setSearchParams: SetURLSearchParams){
+    setSearchParams(params => {
+        params.set('search', '')
+        params.set('promotion', '')
+        params.set('category', '')
+        params.set('uf', '')
+        params.set('categories', '')
+
+        return params
+    })
+}
+
 export function Filter({ isLoading }: PropsFilter) {
     const [searchParams, setSearchParams] = useSearchParams()
     const {data, onFilter} =  useContext(FilterContext)
-
-    // logica {
-
-    function clearFilter() {
-        setSearchParams(params => {
-            params.set('search', '')
-            params.set('promotion', '')
-            params.set('category', '')
-            params.set('uf', '')
-            params.set('categories', '')
-
-            return params
-        })
-    }
 
     const filteredData: Profile[] = useMemo(() => {
         if (!data) return
@@ -125,14 +123,14 @@ export function Filter({ isLoading }: PropsFilter) {
                                             <h3>Locais</h3>
                                             <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
                                         </section>
-                                        <section className="categories">
+                                        <section>
                                             <h3>Categorias</h3>                                 
                                             <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
                                         </section>
 
                                         <section>
                                             <div className="options">
-                                                <button className="mybtn-2" onClick={clearFilter}>Limpar</button>
+                                                <button className="mybtn-2" onClick={() => clearFilter(setSearchParams)}>Limpar</button>
                                                 <Dialog.Close asChild>
                                                     <button className="mybtn-2" onClick={() => console.log()}>Aplicar</button>
                                                 </Dialog.Close>

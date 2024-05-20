@@ -38,7 +38,7 @@ export function FilterCategories({ categories, onCategoriesChange }: CategoriesP
             }
 
     return (
-        <div className="itenss">
+        <div className="itenss categories scroll-style">
             {
             [...new Set(data?.flatMap(item => item.category.categories || []))].sort().sort().map((category, index) => (
                 <button key={index} className="mybtn">

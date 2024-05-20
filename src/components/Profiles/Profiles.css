@@ -58,3 +58,22 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* ClearFilter Button */
+h1.message {
+    text-align: center;
+}
+button.clearFilter {
+    display: block;
+    background: var(--color-6);
+    margin: 0 auto;
+    font-size: 2em;
+    padding: .2em 1em;
+    border-radius: .6em;
+    margin-top: 1em;
+    cursor: pointer;
+    transition: transform .5s;
+}
+button.clearFilter:hover {
+    transform: scale(1.1);
+}

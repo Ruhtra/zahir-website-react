@@ -68,10 +68,10 @@
 }
 
 /* scroll bar */
-body::-webkit-scrollbar {  width: 12px; }
-body::-webkit-scrollbar-track { background: var(--color-6); }
+body::-webkit-scrollbar, .scroll-style::-webkit-scrollbar {  width: 12px; }
+body::-webkit-scrollbar-track, .scroll-style::-webkit-scrollbar-track { background: var(--color-6); }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .scroll-style::-webkit-scrollbar-thumb {
     background-color: var(--color-7);
     border-radius: 200px;
     border: 2px solid var(--color-6);

@@ -8,13 +8,16 @@ import { Reviews } from "../../components/Index/Reviews/Reviews";
 import { useCarousel } from "../../services/Querys/HomePage";
 
 import './IndexRoute.css'
+import PageTitle from "../../components/PageTitle";
 
 export function Index() {
     const { data, isLoading } = useCarousel(true)
 
     return (
         <>
-        <CarouselContext.Provider value={{data, isLoading}}>
+            <PageTitle title={"Zahir"} />
+
+            <CarouselContext.Provider value={{data, isLoading}}>
 
             {/* optimize skeleton */}
             <Skeleton loading={isLoading}>

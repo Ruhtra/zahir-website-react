@@ -3,6 +3,7 @@ import { useGetProfile } from "../../services/Querys/Profiles";
 
 import "./ProfileRoute.css"
 import { Skeleton } from "@radix-ui/themes";
+import PageTitle from "../../components/PageTitle";
 
 export function ProfileRoute() {
 
@@ -13,6 +14,7 @@ export function ProfileRoute() {
         <>
             {
                 <>
+                <PageTitle title={"Perfil"} />
                 <div className="up">
                     <Skeleton loading={isLoading}>
                     <div className="left">
