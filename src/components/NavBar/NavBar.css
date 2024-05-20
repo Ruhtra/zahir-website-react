@@ -240,7 +240,7 @@ body[data-scroll-locked] {
     animation: close .7s ease-in-out alternate; 
 }
 .navbar.open {
-    height: 100vh;
+    height: 100svh;
 }
 
 
