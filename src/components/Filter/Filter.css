@@ -102,7 +102,6 @@ section {
     position: relative;
     border: 0;
     font-size: 1.25em;
-    border: .3em solid var(--color-5);
     border-radius: 10em;
 }
 .mybtn label {
@@ -116,6 +115,8 @@ section {
     color: var(--color-5);
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
+    border: .3em solid var(--color-5);
+    border-radius: inherit;
     /* outline: .5em solid green; */
 }
 .mybtn input[type=checkbox] {

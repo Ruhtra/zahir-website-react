@@ -43,18 +43,22 @@ export function ProfileRoute() {
                 <div className="middle"></div>
                 </Skeleton>
 
-                {/* Necessario adicionar skeleto aqui */}
-                {/* não tenho certeza se a classe é pra ser implementada dessa forma */}
-                <div className={data?.movie == null ? "bottom noVideo": "bottom"}>
-                    { data?.movie != null ?
-                        <div className="movie">
-                            <div className="inside">
-                                <iframe src={data?.movie} style={{border: "none"}} scrolling="no" loading="lazy"></iframe>
-                            </div>
-                        </div> : <></>
-                    }
-
+                <div className={"bottom"}>
+                    <Skeleton loading={isLoading} minHeight={"610px"} minWidth={"320px"}>
+                    <div className="movie">
+                        <div className="inside">
+                            {
+                                data?.movie == null
+                                ? <div className="noVideo">Video não disponivel</div>
+                                : <iframe className="content" src={data?.movie} style={{border: "none"}} scrolling="no" loading="lazy"></iframe>
+                            }
+                        </div>
+                    </div>
+                    </Skeleton>
+                    <Skeleton loading={isLoading} minHeight={"3em"}>
                     <div className="text">{data?.resume}</div>
+                    </Skeleton>
+                    <Skeleton loading={isLoading}>
                     <div className="map">
                         {data?.local != null ? 
                             <iframe
@@ -62,6 +66,7 @@ export function ProfileRoute() {
                             ></iframe> : <>Carregando</>
                         }
                     </div>
+                    </Skeleton>
                 </div>
                 </>
             }

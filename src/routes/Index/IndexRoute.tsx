@@ -18,7 +18,7 @@ export function Index() {
 
             {/* optimize skeleton */}
             <Skeleton loading={isLoading}>
-                <h1 className="titulo"> Promoções </h1>
+                <h1 className={`titulo ${isLoading ? '' : 'stroke'}`}> Promoções </h1>
             </Skeleton>
 
             <Carousel />

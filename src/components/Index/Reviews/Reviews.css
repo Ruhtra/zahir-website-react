@@ -61,8 +61,7 @@
     width: 100%;
   }
 
-/* carousel */
-  /* lastReviews */
+/* lastReviews */
   .lastReviews {
     all: unset;
     width: max-content;
@@ -75,6 +74,10 @@
     color: var(--color-6);
     position: relative;
     cursor: pointer;
+    transition: all .3s;
+  }
+  .lastReviews:hover {
+    transform: scale(1.3);
   }
   .lastReviews .stars {
     display: flex;
@@ -106,7 +109,4 @@
 
 @media (max-width: 680px) {
   /* consertar para layout com largura pequena */
-  .movie {
-
-  }
 }

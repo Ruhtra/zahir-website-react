@@ -105,7 +105,7 @@
             object-fit: cover;
             width: 100%;
         }
-        .bottom .movie .inside iframe {
+        .bottom .movie .inside .content {
             width: calc(320px - 1em);
             height: calc(610px - 1em);
         }
@@ -136,11 +136,13 @@
         }
 
         /* sem vídeo */
-            .bottom.noVideo {
-                grid-template: auto 1fr / 1fr;
-            }
-            .bottom.noVideo .map {
-                aspect-ratio: 4 / 2;
+            .noVideo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 320px;
+                height: 610px;
             }
 
         @media screen and (max-width: 800px) {
