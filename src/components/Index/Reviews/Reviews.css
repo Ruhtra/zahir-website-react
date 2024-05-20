@@ -104,75 +104,9 @@
   }
 
 
-  /*  swiper */  
-    .reviews .swiper {
-      padding: 2em 0 0 0;
-    }
-    .reviews .swiper-slide {
-      height: 610px;
-      width: 320px;
-    }
-    /* center */
-      .reviews .swiper-slide-active.movie {
-        outline: .8em solid var(--color-6);
-      }
-
-    /* buttons */
-    .reviews .swiper-button-next,
-    .reviews .swiper-button-prev {
-      background: rgb(0,0,0);
-      height: 100%;
-      width: 7em;
-      top: 3em;
-    }
-    .reviews .swiper-button-next {    
-      right: 0;
-      background: linear-gradient(-90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.28) 83%, rgba(0,0,0,0) 100%);
-    }
-      .reviews .swiper-button-prev {
-      left: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.28) 83%, rgba(0,0,0,0) 100%);
-    }
-
-    
-  .reviews .carousel .movie {
-    transition: .5s;
-    position: relative;
-    padding: .5em;
-    border-radius: 1em;
-    margin: 1em 1em;
-    text-align: center;
-  }
-  .reviews .carousel .movie .inside {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    width: fit-content;
-    height: fit-content;
-    
-    overflow: hidden;
-    
-    border-radius: inherit;
-    /* border: .3em solid var(--color-6); */
-    /* outline: .3em solid var(--color-6); */
-    position: relative;
-  }
-  .reviews .carousel .movie .inside img {
-    object-fit: cover;
-    width: 100%;
-  }
-  .reviews .carousel .movie .inside iframe {
-    width: calc(320px - 1em);
-    height: calc(610px - 1em);
-  }
-
-
 @media (max-width: 680px) {
-  .reviews .grid {
-    display: none;
-  }
-  .reviews .carousel {
-    display: block !important;
+  /* consertar para layout com largura pequena */
+  .movie {
+
   }
 }
