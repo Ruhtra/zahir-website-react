@@ -173,7 +173,7 @@ section {
     }
     to {
       opacity: 1;
-      transform: translateX(-50%) rotateX(0deg) scale(1);
+      transform: translate(-50%, -50%) rotateX(0deg) scale(1);
     }
   }
   
@@ -221,27 +221,35 @@ section {
     flex-direction: column;
     align-items: center;
     width: 80vw;
+    max-height: 100vh;
     max-width: 960px;
 
     gap: 1.5em;
 
-    position: absolute;
-    /* top: 45%; */
-    margin-top: 12em;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
     background-color: var(--color-10);
     padding: 1em 1em;
     height: fit-content;
     box-shadow: 0 0 1em black;
     animation: scaleIn .2s cubic-bezier(0.16, 1, 0.3, 1); 
     z-index: 3;
-    font-size: min(1em, 4vw);
+    font-size: min(1em, 3vw);
+  }
+
+  .DialogContent section:last-child {
+    margin-top: auto;
   }
 
   .DialogContent:focus {
     outline: none;
+  }
+
+  
+  .DialogContent .categories {
+    overflow-y: scroll;
   }
 
 
@@ -290,3 +298,15 @@ section {
     .SwitchThumb[data-state='checked'] {
       transform: translate(calc(var(--size-width) - var(--padding)*3 - .1em), -50%);
     }
+
+
+
+@media screen and (max-width: 800px) {
+  .DialogContent {
+    transform: translateX(-50%);
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 95vh;
+  }
+}

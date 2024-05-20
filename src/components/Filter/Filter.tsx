@@ -80,7 +80,6 @@ export function Filter({ isLoading }: PropsFilter) {
 
     // }
 
-
     return (
         <>
             <div>
@@ -126,7 +125,7 @@ export function Filter({ isLoading }: PropsFilter) {
                                             <h3>Locais</h3>
                                             <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
                                         </section>
-                                        <section>
+                                        <section className="categories">
                                             <h3>Categorias</h3>                                 
                                             <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
                                         </section>
