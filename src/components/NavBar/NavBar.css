@@ -6,6 +6,8 @@
 .navbar {
     position: relative;
 
+    font-size: min(4vw, 1em);
+
     padding: var(--nav-padding);
     background-color: var(--color-7);
     background-image: url('/images/back_50.png');
@@ -264,10 +266,11 @@ body[data-scroll-locked] {
 .content {
     overflow: hidden;
     width: 100%;
-
+    height: 100%;
 
     margin-top: var(--nav-padding-y);
-    padding-top: 3em;
+    padding-top: calc(.5em + var(--nav-padding-y));
+    padding-bottom: calc(3em + var(--nav-padding-y));
     
 }
 .content > div { height: 100%; width: 100%; }
@@ -275,7 +278,7 @@ body[data-scroll-locked] {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 3em;
+    max-height: 35em;
     height: 100%;
     font-size: 1.5em;
 }
@@ -296,6 +299,7 @@ body[data-scroll-locked] {
 .content .item .text {
     position: relative;
     width: 50%;
+    min-width: 7em;
     text-align: center;
     color: white;
     background-color: rgba(255, 255, 255, .15);
@@ -331,7 +335,7 @@ body[data-scroll-locked] {
     }
 }
 @media screen and (max-width: 800px) {
-    :root { --nav-padding: .5rem .5rem; }
+    :root { --nav-padding: .5em .rem; }
 
     .navbar { border-radius: 0 0 1em 1em; }
     .nav.desktop { display: none; }

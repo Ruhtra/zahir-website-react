@@ -53,8 +53,8 @@
         --profile-font-size: clamp(.1em, 2.5vw, 2.5em);
 
     /* nav */
-        --nav-padding-y: .5rem;
-        --nav-padding: var(--nav-padding-y) 2rem;
+        --nav-padding-y: .5em;
+        --nav-padding: var(--nav-padding-y) 2em;
         --nav-heigth: min(40px, 10vw);
         --nav-heigth-total: calc(var(--nav-heigth) + var(--nav-padding-y) * 2);
 
