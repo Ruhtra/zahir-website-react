@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito Cortina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+        @font-face {
+        font-family: 'Adigiana-Toybox-Regular';
+        src:url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.woff') format('woff'),
+            url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.svg#Adigiana-Toybox-Regular') format('svg'),
+            url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot'),
+            url('/Adigiana-Toybox-Regular/Adigiana-Toybox-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+        font-weight: normal;
+        font-style: normal;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            font-family:  "Bree Serif", 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
+        }
+        :root {
+            --nav-heigth: 3em;
+            --color-10: gold;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100svh;
+            font-size: min(4vw, 1em);
+            background-color: red;
+        }
+        .top {
+            background-color: green;
+            display: grid;
+            height: var(--nav-heigth);
+            
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        #curtain {
+            margin-top: var(--nav-heigth);
+            
+            height: calc(100svh - var(--nav-heigth));
+            width: 100%;
+            
+            position: fixed;
+            
+            top: 0;
+            left: 0;
+            
+            background-color: blue;
+            transition: transform 0.3s ease;
+
+            z-index: -1;
+        }
+        .list {
+            background-color: aqua;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            font-size: 1.5em;
+            max-height: 35em;
+        }
+        .list .item {
+            background-color: purple;
+            display: flex;
+            gap: .5em;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .list .item .icon {
+            background-color: red;
+            width: 2.75em;
+            aspect-ratio: 1;
+        }
+        .list .item .text {
+            position: relative;
+            width: 50%;
+            min-width: 7em;
+            text-align: center;
+            color: white;
+            background-color: rgba(255, 255, 255, .15);
+            border-radius: .3em;
+        }
+        .list .item .text::after, 
+        .list .item .text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: .5em;
+            background-color: gold;
+            border-radius: inherit;
+        }
+        .list .item .text::before {
+            left: 0;
+        }
+        .list .item .text::after {
+            right: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="top">
+            <div class="icon">icon</div>
+            <div class="button">button</div>
+        </div>
+        <div id="curtain">
+            <ul class="list">
+                <li class="item">
+                    <div class="icon"></div>
+                    <span class="text">Home</span>
+                </li>
+                <li class="item">
+                    <div class="icon"></div>
+                    <span class="text">Reviews</span>
+                </li>
+                <li class="item">
+                    <div class="icon"></div>
+                    <span class="text">Loja</span>
+                </li>
+                <li class="item">
+                    <div class="icon"></div>
+                    <span class="text">Anuncie</span>
+                </li>
+            </ul>
+    </nav>
+ 
+
+    </div>
+    <script>
+        let curtain = document.getElementById('curtain');
+        let startY = 0;
+        let endY = 0;
+
+        curtain.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+
+        curtain.addEventListener('touchmove', (e) => {
+            endY = e.touches[0].clientY;
+            let moveY = endY - startY;
+
+            if (moveY < 0) {
+                curtain.style.transform = `translateY(${moveY}px)`;
+            }
+        });
+
+        curtain.addEventListener('touchend', () => {
+            let movePercentage = Math.abs((endY - startY) / window.innerHeight) * 100;
+            if (movePercentage < 30) {
+                curtain.style.transform = 'translateY(0)';
+            } else if (endY < startY) {
+                curtain.style.transform = 'translateY(-100%)';
+            }   
+        });
+    </script>
+</body>
+</html>

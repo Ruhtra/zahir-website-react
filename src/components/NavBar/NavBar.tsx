@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import './NavBar.css'
 import { Anunice, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 export function NavBar() {
@@ -11,16 +11,25 @@ export function NavBar() {
     const [state, setState] = useState(null)
 
     useEffect(() => {
-        // Adicionando o atributo ao elemento body
-        if (state == 'open') document.body.setAttribute('data-scroll-locked', '');
-        else  document.body.removeAttribute('data-scroll-locked');
+        if (state == 'open') openCuratain()
+        else closeCuratain()
+      }, [state]);
 
-        // Função de limpeza para remover o atributo quando o componente for desmontado
-        return () => {
-          document.body.removeAttribute('data-scroll-locked');
+      useEffect(() => {
+        const curtainElement = curtainRef.current;
+
+        const handleTransitionEnd = () => {
+            if (curtainElement.style.transform === 'translateY(-100%)') {
+                document.body.removeAttribute('data-scroll-locked');
+            }
         };
-      }, [state]); // [] como segundo argumento garante que o efeito só é executado uma vez
-    
+
+        curtainElement.addEventListener('transitionend', handleTransitionEnd);
+        
+        return () => {
+            curtainElement.removeEventListener('transitionend', handleTransitionEnd);
+        };
+    }, []);
 
     function changeState() {
         if (state == null) {
@@ -33,9 +42,47 @@ export function NavBar() {
     function closeState() {
         if (state == "open") changeState()
     }
+
+    
+    const [startY, setStartY] = useState(0);
+    const [endY, setEndY] = useState(0);
+    const curtainRef = useRef(null);
+
+    const openCuratain = () => {
+        document.body.setAttribute('data-scroll-locked', '');
+        curtainRef.current.style.transform = `translateY(0)`;
+    }
+    const closeCuratain = () => {
+        curtainRef.current.style.transform = `translateY(-100%)`;
+        closeState()
+    }
+
+    const handleTouchStart = (e) => {
+        setStartY(e.touches[0].clientY);
+    };
+
+    const handleTouchMove = (e) => {
+        setEndY(e.touches[0].clientY);
+        const moveY = e.touches[0].clientY - startY;
+
+        if (moveY < 0) {
+            curtainRef.current.style.transform = `translateY(${moveY}px)`;
+        }
+    };
+
+    const handleTouchEnd = () => {
+        const movePercentage = Math.abs((endY - startY) / window.innerHeight) * 100;
+        if (movePercentage < 30) {
+            openCuratain()
+        } else if (endY < startY) {
+            closeCuratain()
+        }
+    };
+
+
     
     return (
-        <NavigationMenu.Root  className={`${state} navbar`} orientation="horizontal">
+        <NavigationMenu.Root  className={`navbar`} orientation="horizontal">
             <div className="nav desktop">
                 <div className="logo">
                     <Link to="/">
@@ -88,7 +135,14 @@ export function NavBar() {
                     <Menu fillColor="orange" className="icon icon-menu" height={'auto'}></Menu>
                 </div>
             </div>
-            <div className={`${state} content`}>
+            <div 
+                id="curtain"
+                className={`curtain content`}
+                ref={curtainRef}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
                 <NavigationMenu.List>
                     <NavigationMenu.Item className="item">
                         <Link to={'/'} onClick={closeState}>
