@@ -64,7 +64,7 @@ export function ProfileRoute() {
                     <div className="map">
                         {data?.local != null ? 
                             <iframe
-                                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBPTco1Jre2e_OinSY0ew44I7UiIzNsRls&q=${data?.local.lat},${data?.local.lng}&zoom=15&maptype=roadmap`}
+                                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD-E3xnEJoVAtUs2Ln5aOIr6JaPi0e6kUE&q=${data?.local.lat},${data?.local.lng}&zoom=15&maptype=roadmap`}
                             ></iframe> : <>Carregando</>
                         }
                     </div>
