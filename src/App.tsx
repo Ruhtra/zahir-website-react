@@ -8,6 +8,7 @@ import { ProfileRoute } from "./routes/Profile/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";
+import { Teste } from "./routes/TesteRoute";
 
 export function App() {
   
@@ -21,6 +22,7 @@ export function App() {
       <Route path="/profile/:id" element={<ProfileRoute />} />
       <Route path="/loja" element={<LojaRoute />} />
       <Route path="/anuncie" element={<AnuncieRoute />} />
+      <Route path="/teste" element={<Teste />} />
     </Routes>
 
     <Footer />
