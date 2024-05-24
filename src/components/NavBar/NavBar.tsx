@@ -2,8 +2,9 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Link, useLocation } from "react-router-dom";
 
 import './NavBar.css'
-import { Anunice, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
+import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
 import { useEffect, useRef, useState } from "react";
+import Images from "../../assets/Images";
 
 
 export function NavBar() {
@@ -122,7 +123,18 @@ export function NavBar() {
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
                     </NavigationMenu.List>
-                </div>            
+                </div>          
+
+                <div className="login">
+                    <div className="btn" style={{display: "none"}}>
+                        <Google width={null} height={null} className="icon" />
+                        <span className="text"> Login com Google </span>
+                    </div>  
+                    <div className="user">
+                        <div className="message">Olá, Fabrydjene</div>
+                        <img width={null} height={null} src={Images.backImageExample} />
+                    </div>
+                </div>
             </div>
             <div className="nav mobile">
                 <div className="logo">
@@ -160,6 +172,12 @@ export function NavBar() {
                         <Link to={'/loja'} onClick={closeState}>
                             <Loja className="icon icon-loja"></Loja>
                             <div className="text">Loja</div>
+                        </Link>
+                    </NavigationMenu.Item>
+                    <NavigationMenu.Item className="item">
+                        <Link to={'/anuncie'} onClick={closeState}>
+                            <Anunice className="icon icon-anuncie"></Anunice>
+                            <div className="text">Anuncie</div>
                         </Link>
                     </NavigationMenu.Item>
                     <NavigationMenu.Item className="item">

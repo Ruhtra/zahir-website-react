@@ -102,7 +102,78 @@
                 .nav.desktop .links-block ul.links li a.item:hover {
                     /* font-size: 1.25em; */
                     background-color: rgba(0, 0, 0, .3);
-                }    
+                }   
+                
+            /* login */
+                .nav.desktop .login {
+                    align-self: center;
+                    height: inherit;
+                    font-size: 1em;
+                    border-radius: .4em;
+                }
+                /* btn */
+                    .nav.desktop .login .btn {
+                        transition: background-color .2s;
+                        background-color: white;
+                        cursor: pointer;
+                        display: grid;
+                        border-radius: inherit;
+                        grid-template-columns: auto 1fr;
+                        align-items: center;
+                        height: 100%;
+                        width: 100%;
+                        padding-left: .3em;
+                        padding-right: .3em;
+                        gap: .3em;
+                        max-width: 200px;
+                    }
+                    .nav.desktop .login .btn:hover {
+                        background-color: rgba(220, 220, 220, 1);
+                    } 
+                    .nav.desktop .login .btn .icon {
+                        display: block;
+                        width: 2em;
+                    }
+                    .nav.desktop .login .btn .text {
+                        font-size: .9em;
+                        display: block;
+                        /* background-color: gold; */
+                        text-align: center;
+                    }
+                /* user */
+                .nav.desktop .login .user {
+                    background-color: white;
+                    border-radius: inherit;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 0 0 0 1em;
+                    align-items: center;
+                    height: 100%;
+                    transition: background-color .2s;
+                    overflow: hidden;
+                    cursor: pointer;
+                    position: relative;
+                }
+                .nav.desktop .login .user:hover {
+                    background-color: rgba(220, 220, 220, 1);
+                }
+                .nav.desktop .login .user img {
+                    object-fit: cover;
+                    display: block;
+                    background-color: aqua;
+                    border-left: .3em solid var(--color-7);
+                    height: 100%;
+                    aspect-ratio: 1;
+                }
+                .nav.desktop .login .user .message {
+                    line-height: min(2vw, 1.2em);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: min(2vw, 1.2em);
+                    height: 100%;
+                }
                 
         /* mobile */
             .nav.mobile {

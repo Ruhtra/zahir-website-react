@@ -9,14 +9,13 @@ import { useCarousel } from "../../services/Querys/HomePage";
 
 import './IndexRoute.css'
 import PageTitle from "../../components/PageTitle";
-import { GoogleLogin } from "@react-oauth/google";
 
 export function Index() {
     const { data, isLoading } = useCarousel(true)
 
-    const responseMessage = (response) => {
-        console.log(response);
-    };
+    // const responseMessage = (response) => {
+    //     console.log(response);
+    // };
     // const errorMessage = (error) => {
     //     console.log(error);
     // };
@@ -25,12 +24,12 @@ export function Index() {
         <>
             <PageTitle title={"Zahir"} />
 
-            <div>
+            {/* <div>
                 <h2>React Google Login</h2>
                 <br />
                 <br />
                 <GoogleLogin onSuccess={responseMessage} onError={() => console.log("error") } />
-            </div>
+            </div> */}
 
             <CarouselContext.Provider value={{data, isLoading}}>
 

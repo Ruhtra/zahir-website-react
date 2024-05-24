@@ -3,6 +3,7 @@ import ArrowIcon from './Arrow.svg?react';
 import Estrela from './Estrela.svg?react';
 import Filtro from './Filtro.svg?react';
 import Home from './Home.svg?react';
+import Google from './Google.svg?react'
 import Instagram from './Instagram.svg?react';
 import Loja from './Loja.svg?react';
 import Lupa from './Lupa.svg?react';
@@ -59,6 +60,7 @@ export {
     Estrela,
     Filtro,
     Home,
+    Google,
     Instagram,
     Loja,
     Lupa,
