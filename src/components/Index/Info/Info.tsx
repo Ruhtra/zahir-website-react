@@ -1,8 +1,8 @@
 import { Skeleton } from "@radix-ui/themes"
-import image from "../../../assets/imagem.png"
 import './Info.css'
 import CarouselContext from "../IndexContext";
 import { useContext } from "react";
+import Images from "../../../assets/Images";
 
 
 export function Info() {
@@ -13,7 +13,7 @@ export function Info() {
             <div className="block">
                 <Skeleton loading={isLoading}>
                 <div className="img">
-                    <img src={image} alt="" />
+                    <img src={Images.zahirImageIndex} alt="" />
                 </div>
                 </Skeleton>
                 <Skeleton loading={isLoading}>

@@ -31,7 +31,7 @@ export function Teste() {
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => {
-            localStorage.setItem("credentials", JSON.stringify(user));
+            localStorage.setItem("credentials", JSON.stringify(codeResponse));
             setUser(codeResponse)
         },
         onError: (error) => console.log('Login Failed:', error),

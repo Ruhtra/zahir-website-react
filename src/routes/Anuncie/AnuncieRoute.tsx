@@ -1,3 +1,4 @@
+import Images from "../../assets/Images"
 import PageTitle from "../../components/PageTitle"
 import "./Anuncie.css"
 
@@ -41,7 +42,7 @@ export function AnuncieRoute() {
             <div className="images">
                 {
                     Array.from({ length: 8 }, (_, i) => i + 1).map(() => (
-                        <img src="/a.png" alt="" />
+                        <img src={Images.backImageExample} alt="" />
                     ))
                 }
             </div>
