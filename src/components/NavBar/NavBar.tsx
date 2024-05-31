@@ -4,10 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import './NavBar.css'
 import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { Skeleton } from "@radix-ui/themes";
+import { useGetProfileUser } from "../../services/Querys/Google";
 
-// const api = "https://localhost:3333"
-const api = "https://zahir-website.onrender.com"
+// export const api = "https://localhost:3333"
+export const api = "https://zahir-website.onrender.com"
 
 function getGoogleOAuthURL() {
     const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -33,7 +34,7 @@ export function NavBar() {
     const location = useLocation();
     const [state, setState] = useState(null)
 
-    const [user, setUser] = useState(null)
+    const  { data: dataUser, status: statusUser } = useGetProfileUser()
 
     useEffect(() => {
         if (state == 'open') openCuratain()
@@ -55,27 +56,6 @@ export function NavBar() {
             curtainElement.removeEventListener('transitionend', handleTransitionEnd);
         };
     }, []);
-
-    useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                console.log("here");
-                const { data: userGet } = await axios.get(api+"/api/getUser", {
-                    withCredentials: true,
-                })
-
-
-                console.log(userGet);
-
-                setUser(userGet)
-
-            } catch (error) {
-                console.error('Erro ao buscar dados da API:', error);
-            }
-        }
-        fetchData();
-    }, [])
 
     function changeState() {
         if (state == null) {
@@ -171,19 +151,19 @@ export function NavBar() {
                 </div>
 
                 <div className="login">
-                    {
-                        user
+                    <Skeleton loading={statusUser == "loading"}>
+                        {
+                            statusUser != "error"  && statusUser == "success"
                             ? <div className="user">
-                                <div className="message">Olá, {user?.name}</div>
-                                <img width={null} height={null} src={user?.picture} />
-                            </div>
-                            : <Link to={getGoogleOAuthURL()} className="btn">
-                                <Google width={null} height={null} className="icon" />
-                                <span className="text"> Login com Google </span>
-                            </Link>
-                    }
-
-
+                                    <div className="message">Olá, {dataUser?.name}</div>
+                                    <img width={null} height={null} src={dataUser?.picture} />
+                                </div>
+                                : <Link to={getGoogleOAuthURL()} className="btn">
+                                    <Google width={null} height={null} className="icon" />
+                                    <span className="text"> Login com Google </span>
+                                </Link>
+                        }
+                    </Skeleton>
                 </div>
             </div>
             <div className="nav mobile">

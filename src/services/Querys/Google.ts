@@ -1,7 +1,8 @@
-import { useQuery } from "react-query";
 import axios from "axios";
 import { BaseUrlGoogle } from "../QueryClient";
 import { TokenResponse } from "@react-oauth/google";
+import { api } from "../../components/NavBar/NavBar";
+import { useQuery } from "react-query";
 
 const PathUrlUser = `${BaseUrlGoogle}/userinfo`
 const PathUrlToken = `${BaseUrlGoogle}/tokeninfo`
@@ -26,9 +27,9 @@ interface GoogleUserToken {
     email: string;
     verified_email: boolean;
     access_type: string;
-  }
+}
 
-export type UserGoogleLogin =  Omit<TokenResponse, "error" | "error_description" | "error_uri">
+export type UserGoogleLogin = Omit<TokenResponse, "error" | "error_description" | "error_uri">
 
 export function useGoogleGetAccount(user: UserGoogleLogin) {
     return useQuery<UserResponseGoogle>({
@@ -38,8 +39,8 @@ export function useGoogleGetAccount(user: UserGoogleLogin) {
                 const response = await axios.get<UserResponseGoogle>(
                     `${PathUrlUser}?access_token=${user.access_token}`
                 );
-                console.debug("response: "+ response);
-    
+                console.debug("response: " + response);
+
                 return response.data
             }
             return null
@@ -48,7 +49,7 @@ export function useGoogleGetAccount(user: UserGoogleLogin) {
     })
 }
 
-export function useValidGoogleSession(user: UserGoogleLogin){
+export function useValidGoogleSession(user: UserGoogleLogin) {
     return useQuery<GoogleUserToken>({
         queryKey: ['googleInfo'],
         queryFn: async () => {
@@ -56,11 +57,40 @@ export function useValidGoogleSession(user: UserGoogleLogin){
                 const response = await axios.get<GoogleUserToken>(
                     `${PathUrlToken}?access_token=${user.access_token}`
                 );
-    
+
                 return response.data
             }
             return null
         },
         staleTime: 1000 * 60 // 1 minute
     })
+}
+
+interface goolgeUser {
+    _id: string
+    email: string
+    picture?: string
+    name: string
+}
+
+export function useGetProfileUser() {
+    return useQuery<goolgeUser>({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const response = await axios.get<goolgeUser>(api + '/api/getUser', {
+                withCredentials: true,
+            });
+
+            return response.data;
+        },
+        staleTime: 15 * 60 * 1000, // 15 minutos
+        retry: (failureCount, error) => {
+            if (axios.isAxiosError(error) && error.response?.status === 403)
+                return false;
+
+            if (failureCount < 3) return true;
+        },
+        retryDelay: 5 * 1000, // 5 seconds
+        refetchOnWindowFocus:false
+    });
 }
