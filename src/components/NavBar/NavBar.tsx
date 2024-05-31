@@ -6,6 +6,25 @@ import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/I
 import { useEffect, useRef, useState } from "react";
 import Images from "../../assets/Images";
 
+function getGoogleOAuthURL() {
+    const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
+  
+    const options = {
+      redirect_uri: "https://zahir-website.onrender.com/api/oauth/google",
+      client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
+      access_type: "offline",
+      response_type: "code",
+      prompt: "consent",
+      scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email",
+      ].join(" "),
+    };
+  
+    const qs = new URLSearchParams(options);
+  
+    return `${rootUrl}?${qs.toString()}`;
+  }
 
 export function NavBar() {
     const location = useLocation();
@@ -126,10 +145,10 @@ export function NavBar() {
                 </div>          
 
                 <div className="login">
-                    <div className="btn" style={{display: "none"}}>
+                    <Link to={getGoogleOAuthURL()} className="btn" style={{display: "none"}}>
                         <Google width={null} height={null} className="icon" />
                         <span className="text"> Login com Google </span>
-                    </div>  
+                    </Link>  
                     <div className="user">
                         <div className="message">Olá, Fabrydjene</div>
                         <img width={null} height={null} src={Images.backImageExample} />
