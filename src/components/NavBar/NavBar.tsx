@@ -4,38 +4,43 @@ import { Link, useLocation } from "react-router-dom";
 import './NavBar.css'
 import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
 import { useEffect, useRef, useState } from "react";
-import Images from "../../assets/Images";
+import axios from "axios";
+
+// const api = "https://localhost:3333"
+const api = "https://zahir-website.onrender.com"
 
 function getGoogleOAuthURL() {
     const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
-  
+
     const options = {
-      redirect_uri: "https://zahir-website.onrender.com/api/oauth/google",
-      client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
-      access_type: "offline",
-      response_type: "code",
-      prompt: "consent",
-      scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email",
-      ].join(" "),
+        redirect_uri: `${api}/api/oauth/google`,
+        client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
+        access_type: "offline",
+        response_type: "code",
+        prompt: "consent",
+        scope: [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email",
+        ].join(" "),
     };
-  
+
     const qs = new URLSearchParams(options);
-  
+
     return `${rootUrl}?${qs.toString()}`;
-  }
+}
 
 export function NavBar() {
     const location = useLocation();
     const [state, setState] = useState(null)
 
+    const [user, setUser] = useState(null)
+
     useEffect(() => {
         if (state == 'open') openCuratain()
         else closeCuratain()
-      }, [state]);
+    }, [state]);
 
-      useEffect(() => {
+    useEffect(() => {
         const curtainElement = curtainRef.current;
 
         const handleTransitionEnd = () => {
@@ -45,11 +50,32 @@ export function NavBar() {
         };
 
         curtainElement.addEventListener('transitionend', handleTransitionEnd);
-        
+
         return () => {
             curtainElement.removeEventListener('transitionend', handleTransitionEnd);
         };
     }, []);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                console.log("here");
+                const { data: userGet } = await axios.get(api+"/api/getUser", {
+                    withCredentials: true,
+                })
+
+
+                console.log(userGet);
+
+                setUser(userGet)
+
+            } catch (error) {
+                console.error('Erro ao buscar dados da API:', error);
+            }
+        }
+        fetchData();
+    }, [])
 
     function changeState() {
         if (state == null) {
@@ -63,7 +89,7 @@ export function NavBar() {
         if (state == "open") changeState()
     }
 
-    
+
     const [startY, setStartY] = useState(0);
     const [endY, setEndY] = useState(0);
     const curtainRef = useRef(null);
@@ -100,16 +126,16 @@ export function NavBar() {
     };
 
 
-    
+
     return (
-        <NavigationMenu.Root  className={`navbar`} orientation="horizontal">
+        <NavigationMenu.Root className={`navbar`} orientation="horizontal">
             <div className="nav desktop">
                 <div className="logo">
                     <Link to="/">
                         <img src="/images/icon.png" alt="" />
                     </Link>
                 </div>
-    
+
                 <div className="links-block">
                     <NavigationMenu.List className="links">
                         <NavigationMenu.Item>
@@ -117,15 +143,15 @@ export function NavBar() {
                                 <Link className="item" to={'/'}>index</Link>
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
-        
+
                         <NavigationMenu.Item className="line" />
-                        
+
                         <NavigationMenu.Item>
                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/profiles'}>
                                 <Link className="item" to={'/profiles'}>Reviews</Link>
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
-                        
+
                         <NavigationMenu.Item className="line" />
 
                         <NavigationMenu.Item>
@@ -133,7 +159,7 @@ export function NavBar() {
                                 <Link className="item" to={'/loja'}>Loja</Link>
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
-                        
+
                         <NavigationMenu.Item className="line" />
 
                         <NavigationMenu.Item>
@@ -142,17 +168,22 @@ export function NavBar() {
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
                     </NavigationMenu.List>
-                </div>          
+                </div>
 
                 <div className="login">
-                    <Link to={getGoogleOAuthURL()} className="btn" style={{display: "none"}}>
-                        <Google width={null} height={null} className="icon" />
-                        <span className="text"> Login com Google </span>
-                    </Link>  
-                    <div className="user">
-                        <div className="message">Olá, Fabrydjene</div>
-                        <img width={null} height={null} src={Images.backImageExample} />
-                    </div>
+                    {
+                        user
+                            ? <div className="user">
+                                <div className="message">Olá, {user?.name}</div>
+                                <img width={null} height={null} src={user?.picture} />
+                            </div>
+                            : <Link to={getGoogleOAuthURL()} className="btn">
+                                <Google width={null} height={null} className="icon" />
+                                <span className="text"> Login com Google </span>
+                            </Link>
+                    }
+
+
                 </div>
             </div>
             <div className="nav mobile">
@@ -166,7 +197,7 @@ export function NavBar() {
                     <Menu fillColor="orange" className="icon icon-menu" height={'auto'}></Menu>
                 </div>
             </div>
-            <div 
+            <div
                 id="curtain"
                 className={`curtain content`}
                 ref={curtainRef}
@@ -207,6 +238,6 @@ export function NavBar() {
                     </NavigationMenu.Item>
                 </NavigationMenu.List>
             </div>
-        </NavigationMenu.Root> 
+        </NavigationMenu.Root>
     )
 }
