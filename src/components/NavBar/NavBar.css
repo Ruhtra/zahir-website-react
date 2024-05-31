@@ -126,6 +126,7 @@
                         padding-right: .3em;
                         gap: .3em;
                         max-width: 200px;
+                        color: black;
                     }
                     .nav.desktop .login .btn:hover {
                         background-color: rgba(220, 220, 220, 1);
@@ -271,7 +272,7 @@ body[data-scroll-locked] {
     font-size: 1.5em;
 }
 .curtain ul .item, 
-.curtain ul .item a {
+.curtain ul .item.link a {
     display: flex;
     gap: .5em;
     width: 100%;
@@ -283,7 +284,7 @@ body[data-scroll-locked] {
     width: 2.75em;
     aspect-ratio: 1;
 }
-.curtain ul .item .text {
+.curtain ul .item.link .text {
     position: relative;
     width: 50%;
     min-width: 7em;
@@ -292,8 +293,8 @@ body[data-scroll-locked] {
     background-color: rgba(255, 255, 255, .15);
     border-radius: .3em;
 }
-.curtain ul .item .text::after, 
-.curtain ul .item .text::before {
+.curtain ul .item.link .text::after, 
+.curtain ul .item.link .text::before {
     content: '';
     position: absolute;
     top: 0;
@@ -324,4 +325,88 @@ body[data-scroll-locked] {
     .navbar { border-radius: 0 0 1em 1em; }
     .nav.desktop { display: none; }
     .nav.mobile { display: grid; }
+}
+
+
+
+
+
+/* login */
+.curtain .login {
+    align-self: center;
+    height: inherit;
+    font-size: 1em;
+    border-radius: .4em;
+    width: 50%;
+    min-width: 12em;
+    max-width: 13em;
+}
+/* btn */
+    .curtain .login .btn {
+        transition: background-color .2s;
+        background-color: white;
+        cursor: pointer;
+        display: grid;
+        border-radius: inherit;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding-left: .3em;
+        padding-right: .3em;
+        gap: .3em;
+        width: 100%;
+        padding: .2em;
+        color: black;
+    }
+    .curtain .login .btn:hover {
+        background-color: rgba(220, 220, 220, 1);
+    } 
+    .curtain .login .btn .icon {
+        display: block;
+        width: 2em;
+    }
+    .curtain .login .btn .text {
+        font-size: .9em;
+        display: block;
+        /* background-color: gold; */
+        text-align: center;
+    }
+/* user */
+.curtain .login .user {
+    background-color: white;
+    border-radius: inherit;
+    display: flex;
+    /* display: grid;
+    grid-template-columns: auto 1fr; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    transition: background-color .2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.curtain .login .user:hover {
+    background-color: rgba(220, 220, 220, 1);
+}
+.curtain .login .user img {
+    object-fit: cover;
+    display: block;
+    background-color: aqua;
+    border-left: .3em solid var(--color-7);
+    width: 2.5em;
+    aspect-ratio: 1;
+}
+.curtain .login .user .message {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    font-size: 1em;
+    height: fit-content;
+    padding: 0 .5em;
+
+    display: block;
 }

@@ -91,6 +91,6 @@ export function useGetProfileUser() {
             if (failureCount < 3) return true;
         },
         retryDelay: 5 * 1000, // 5 seconds
-        refetchOnWindowFocus:false
+        refetchOnWindowFocus: false
     });
 }

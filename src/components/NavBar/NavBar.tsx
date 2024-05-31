@@ -34,7 +34,7 @@ export function NavBar() {
     const location = useLocation();
     const [state, setState] = useState(null)
 
-    const  { data: dataUser, status: statusUser } = useGetProfileUser()
+    const { data: dataUser, status: statusUser } = useGetProfileUser()
 
     useEffect(() => {
         if (state == 'open') openCuratain()
@@ -153,8 +153,8 @@ export function NavBar() {
                 <div className="login">
                     <Skeleton loading={statusUser == "loading"}>
                         {
-                            statusUser != "error"  && statusUser == "success"
-                            ? <div className="user">
+                            statusUser != "error" && statusUser == "success"
+                                ? <div className="user">
                                     <div className="message">Olá, {dataUser?.name}</div>
                                     <img width={null} height={null} src={dataUser?.picture} />
                                 </div>
@@ -186,35 +186,46 @@ export function NavBar() {
                 onTouchEnd={handleTouchEnd}
             >
                 <NavigationMenu.List>
-                    <NavigationMenu.Item className="item">
+                    <NavigationMenu.Item className="item link">
                         <Link to={'/'} onClick={closeState}>
                             <Home className="icon icon-home"></Home>
                             <div className="text">Home</div>
                         </Link>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="item">
+                    <NavigationMenu.Item className="item link">
                         <Link to={'/profiles'} onClick={closeState}>
                             <Reviews className="icon icon-reviews"></Reviews>
                             <div className="text">Reviews</div>
                         </Link>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="item">
+                    <NavigationMenu.Item className="item link">
                         <Link to={'/loja'} onClick={closeState}>
                             <Loja className="icon icon-loja"></Loja>
                             <div className="text">Loja</div>
                         </Link>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="item">
+                    <NavigationMenu.Item className="item link">
                         <Link to={'/anuncie'} onClick={closeState}>
                             <Anunice className="icon icon-anuncie"></Anunice>
                             <div className="text">Anuncie</div>
                         </Link>
                     </NavigationMenu.Item>
                     <NavigationMenu.Item className="item">
-                        <Link to={'/anuncie'} onClick={closeState}>
-                            <Anunice className="icon icon-anuncie"></Anunice>
-                            <div className="text">Anuncie</div>
-                        </Link>
+                        <div className="login">
+                            <Skeleton loading={statusUser == "loading"}>
+                                {
+                                    statusUser != "error" && statusUser == "success"
+                                        ? <div className="user">
+                                            <div className="message">Olá, {dataUser?.name}</div>
+                                            <img width={null} height={null} src={dataUser?.picture} />
+                                        </div>
+                                        : <Link to={getGoogleOAuthURL()} className="btn">
+                                            <Google width={null} height={null} className="icon" />
+                                            <span className="text"> Login com Google </span>
+                                        </Link>
+                                }
+                            </Skeleton>
+                        </div>
                     </NavigationMenu.Item>
                 </NavigationMenu.List>
             </div>
