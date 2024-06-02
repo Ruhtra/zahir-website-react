@@ -7,8 +7,12 @@ import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@radix-ui/themes";
 import { useGetProfileUser } from "../../services/Querys/Google";
 
-// export const api = "https://localhost:3333"
-export const api = "https://zahir-website.onrender.com"
+
+const production = import.meta.env.VITE_PRODUCTION
+export var api: string = null
+if (production) api = "https://zahir-website.onrender.com"
+else api = "https://localhost:3333"
+
 
 function getGoogleOAuthURL() {
     const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
