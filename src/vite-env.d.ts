@@ -5,7 +5,7 @@
 
 // type for .env
 interface ImportMetaEnv {
-    readonly PRODUCTION: boolean
+    readonly VITE_PRODUCTION: string
     // more env variables...
 }
 
