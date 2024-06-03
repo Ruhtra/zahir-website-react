@@ -5,7 +5,7 @@
 
 // type for .env
 interface ImportMetaEnv {
-    readonly VITE_PRODUCTION: string
+    readonly VITE_API_DNS: string
     // more env variables...
 }
 
