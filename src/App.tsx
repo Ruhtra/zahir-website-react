@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+// import { createContext, useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Index } from "./routes/Index/IndexRoute";
 import { ProfilesRoute } from "./routes/ProfilesRoute";
@@ -9,43 +9,44 @@ import { ProfileRoute } from "./routes/Profile/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";
-import { googleUser, useGetProfileUser } from "./services/Querys/Google";
+// import { googleUser, useGetProfileUser } from "./services/Querys/Google";
+import {  AuthProvider } from "./Contexts/AuthContext";
 
-interface AuthContextProps {
-  user: googleUser,
-  statusUser: "idle" | "error" | "loading" | "success"
-  login: () => {}
-}
-const AuthContext = createContext<AuthContextProps>(null)
-export const AuthData = () => useContext(AuthContext)
+// interface AuthContextProps {
+//   user: googleUser,
+//   statusUser: "idle" | "error" | "loading" | "success"
+//   login: () => {}
+// }
+// const AuthContext = createContext<AuthContextProps>(null)
+// export const AuthData = () => useContext(AuthContext)
 
 export function App() {
-  const { data: user, status: statusUser } = useGetProfileUser()
+  // const { data: user, status: statusUser } = useGetProfileUser()
 
-  const getGoogleOAuthURL = () => {
-    const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
+  // const getGoogleOAuthURL = () => {
+  //   const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
 
-    const options = {
-      redirect_uri: `${import.meta.env.VITE_API_DNS}/api/oauth/google`,
-      client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
-      access_type: "offline",
-      response_type: "code",
-      prompt: "consent",
-      scope: [
-        "https://www.googleapis.com/auth/userinfo.profile",
-        "https://www.googleapis.com/auth/userinfo.email",
-      ].join(" "),
-    };
+  //   const options = {
+  //     redirect_uri: `${import.meta.env.VITE_API_DNS}/api/oauth/google`,
+  //     client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
+  //     access_type: "offline",
+  //     response_type: "code",
+  //     prompt: "consent",
+  //     scope: [
+  //       "https://www.googleapis.com/auth/userinfo.profile",
+  //       "https://www.googleapis.com/auth/userinfo.email",
+  //     ].join(" "),
+  //   };
 
-    const qs = new URLSearchParams(options);
+  //   const qs = new URLSearchParams(options);
 
-    return `${rootUrl}?${qs.toString()}`;
-  }
+  //   return `${rootUrl}?${qs.toString()}`;
+  // }
 
 
 
   return (
-    <AuthContext.Provider value={{user, statusUser , login: getGoogleOAuthURL}}>
+    <AuthProvider>
       <>
         <NavBar />
 
@@ -59,6 +60,8 @@ export function App() {
 
         <Footer />
       </>
-    </AuthContext.Provider>
+    </AuthProvider>
+    // <AuthContext.Provider value={{user, statusUser , login: getGoogleOAuthURL}}>
+    // </AuthContext.Providekr>
   )
 }

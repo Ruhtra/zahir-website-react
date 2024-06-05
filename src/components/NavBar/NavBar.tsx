@@ -3,13 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 
 import './NavBar.css'
 import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
-import { useEffect, useRef, useState } from "react";
-import { Skeleton } from "@radix-ui/themes";
-import { AuthData } from "../../App";
+import { useContext, useEffect, useRef, useState } from "react";
+// import { Skeleton } from "@radix-ui/themes";
+import { AuthContext } from "../../Contexts/AuthContext";
+// import { AuthData } from "../../App";
 
 
 export function NavBar() {
-    const { login, user, statusUser } = AuthData()
+    // const { login, user, statusUser } = AuthData()
+    const { userData: user, getGoogleOAuthURL } = useContext(AuthContext)
     const location = useLocation();
     const [state, setState] = useState(null)
 
@@ -129,19 +131,19 @@ export function NavBar() {
                 </div>
 
                 <div className="login">
-                    <Skeleton loading={statusUser == "loading"}>
-                        {
-                            statusUser != "error" && statusUser == "success"
-                                ? <div className="user">
-                                    <div className="message">Olá, {user?.name}</div>
-                                    <img width={null} height={null} src={user?.picture} />
-                                </div>
-                                : <Link to={login()} className="btn">
-                                    <Google width={null} height={null} className="icon" />
-                                    <span className="text"> Login com Google </span>
-                                </Link>
-                        }
-                    </Skeleton>
+                    {/* <Skeleton loading={statusUser == "loading"}> */}
+                    {
+                        user != null
+                            ? <div className="user">
+                                <div className="message">Olá, {user?.name}</div>
+                                <img width={null} height={null} src={user?.picture} />
+                            </div>
+                            : <Link to={getGoogleOAuthURL()} className="btn">
+                                <Google width={null} height={null} className="icon" />
+                                <span className="text"> Login com Google </span>
+                            </Link>
+                    }
+                    {/* </Skeleton> */}
                 </div>
             </div>
             <div className="nav mobile">
@@ -190,19 +192,19 @@ export function NavBar() {
                     </NavigationMenu.Item>
                     <NavigationMenu.Item className="item">
                         <div className="login">
-                            <Skeleton loading={statusUser == "loading"}>
+                            {/* <Skeleton loading={statusUser == "loading"}> */}
                                 {
-                                    statusUser != "error" && statusUser == "success"
+                                    user != null
                                         ? <div className="user">
                                             <div className="message">Olá, {user?.name}</div>
                                             <img width={null} height={null} src={user?.picture} />
                                         </div>
-                                        : <Link to={login()} className="btn">
+                                        : <Link to={getGoogleOAuthURL()} className="btn">
                                             <Google width={null} height={null} className="icon" />
                                             <span className="text"> Login com Google </span>
                                         </Link>
                                 }
-                            </Skeleton>
+                            {/* </Skeleton> */}
                         </div>
                     </NavigationMenu.Item>
                 </NavigationMenu.List>
