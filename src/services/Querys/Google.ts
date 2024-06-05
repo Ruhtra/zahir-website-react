@@ -65,7 +65,7 @@ export function useValidGoogleSession(user: UserGoogleLogin) {
     })
 }
 
-interface goolgeUser {
+export interface googleUser {
     _id: string
     email: string
     picture?: string
@@ -73,10 +73,10 @@ interface goolgeUser {
 }
 
 export function useGetProfileUser() {
-    return useQuery<goolgeUser>({
+    return useQuery<googleUser>({
         queryKey: ['user'],
         queryFn: async () => {
-            const response = await axios.get<goolgeUser>(import.meta.env.VITE_API_DNS + '/api/getUser', {
+            const response = await axios.get<googleUser>(import.meta.env.VITE_API_DNS + '/api/getUser', {
                 withCredentials: true,
             });
 

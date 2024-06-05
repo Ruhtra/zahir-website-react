@@ -5,37 +5,14 @@ import './NavBar.css'
 import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
 import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@radix-ui/themes";
-import { useGetProfileUser } from "../../services/Querys/Google";
+import { AuthData } from "../../App";
 
-
-
-
-
-function getGoogleOAuthURL() {
-    const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
-
-    const options = {
-        redirect_uri: `${import.meta.env.VITE_API_DNS}/api/oauth/google`,
-        client_id: "856144354818-hrot573bj8lmbod786pla96i3lsj7rsf.apps.googleusercontent.com",
-        access_type: "offline",
-        response_type: "code",
-        prompt: "consent",
-        scope: [
-            "https://www.googleapis.com/auth/userinfo.profile",
-            "https://www.googleapis.com/auth/userinfo.email",
-        ].join(" "),
-    };
-
-    const qs = new URLSearchParams(options);
-
-    return `${rootUrl}?${qs.toString()}`;
-}
 
 export function NavBar() {
+    const { login, user, statusUser } = AuthData()
     const location = useLocation();
     const [state, setState] = useState(null)
 
-    const { data: dataUser, status: statusUser } = useGetProfileUser()
 
     useEffect(() => {
         if (state == 'open') openCuratain()
@@ -156,10 +133,10 @@ export function NavBar() {
                         {
                             statusUser != "error" && statusUser == "success"
                                 ? <div className="user">
-                                    <div className="message">Olá, {dataUser?.name}</div>
-                                    <img width={null} height={null} src={dataUser?.picture} />
+                                    <div className="message">Olá, {user?.name}</div>
+                                    <img width={null} height={null} src={user?.picture} />
                                 </div>
-                                : <Link to={getGoogleOAuthURL()} className="btn">
+                                : <Link to={login()} className="btn">
                                     <Google width={null} height={null} className="icon" />
                                     <span className="text"> Login com Google </span>
                                 </Link>
@@ -217,10 +194,10 @@ export function NavBar() {
                                 {
                                     statusUser != "error" && statusUser == "success"
                                         ? <div className="user">
-                                            <div className="message">Olá, {dataUser?.name}</div>
-                                            <img width={null} height={null} src={dataUser?.picture} />
+                                            <div className="message">Olá, {user?.name}</div>
+                                            <img width={null} height={null} src={user?.picture} />
                                         </div>
-                                        : <Link to={getGoogleOAuthURL()} className="btn">
+                                        : <Link to={login()} className="btn">
                                             <Google width={null} height={null} className="icon" />
                                             <span className="text"> Login com Google </span>
                                         </Link>
