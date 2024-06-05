@@ -3,23 +3,46 @@ import { Link, useLocation } from "react-router-dom";
 
 import './NavBar.css'
 import { Anunice, Google, Home, Loja, Menu, Reviews } from "../../assets/Icons/Icons";
-import { useContext, useEffect, useRef, useState } from "react";
-// import { Skeleton } from "@radix-ui/themes";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { Skeleton } from "@radix-ui/themes";
 import { AuthContext } from "../../Contexts/AuthContext";
-// import { AuthData } from "../../App";
 
 
 export function NavBar() {
     // const { login, user, statusUser } = AuthData()
-    const { userData: user, getGoogleOAuthURL } = useContext(AuthContext)
+    const { user, statusUser, getGoogleOAuthURL } = useContext(AuthContext)
     const location = useLocation();
     const [state, setState] = useState(null)
 
 
+    const changeState = useCallback(() =>  {
+        if (state == null) {
+            setState('open')
+        } else {
+            if (state == "open") setState("close")
+            if (state == "close") setState("open")
+        }
+    }, [state])
+
+
+    const closeState = useCallback(() => {
+        if (state == "open") changeState()
+    }, [state, changeState])
+
+    const openCuratain = useCallback(() => {
+        document.body.setAttribute('data-scroll-locked', '');
+        curtainRef.current.style.transform = `translateY(0)`;
+    }, [])
+
+    const closeCuratain = useCallback(() => {
+        curtainRef.current.style.transform = `translateY(-100%)`;
+        closeState()
+    }, [closeState])
+
     useEffect(() => {
         if (state == 'open') openCuratain()
         else closeCuratain()
-    }, [state]);
+    }, [state, closeCuratain, openCuratain]);
 
     useEffect(() => {
         const curtainElement = curtainRef.current;
@@ -37,31 +60,11 @@ export function NavBar() {
         };
     }, []);
 
-    function changeState() {
-        if (state == null) {
-            setState('open')
-        } else {
-            if (state == "open") setState("close")
-            if (state == "close") setState("open")
-        }
-    }
-    function closeState() {
-        if (state == "open") changeState()
-    }
-
 
     const [startY, setStartY] = useState(0);
     const [endY, setEndY] = useState(0);
     const curtainRef = useRef(null);
 
-    const openCuratain = () => {
-        document.body.setAttribute('data-scroll-locked', '');
-        curtainRef.current.style.transform = `translateY(0)`;
-    }
-    const closeCuratain = () => {
-        curtainRef.current.style.transform = `translateY(-100%)`;
-        closeState()
-    }
 
     const handleTouchStart = (e) => {
         setStartY(e.touches[0].clientY);
@@ -131,9 +134,9 @@ export function NavBar() {
                 </div>
 
                 <div className="login">
-                    {/* <Skeleton loading={statusUser == "loading"}> */}
+                    <Skeleton loading={statusUser == "loading"}>
                     {
-                        user != null
+                        statusUser != "loading" && statusUser == "success"
                             ? <div className="user">
                                 <div className="message">Olá, {user?.name}</div>
                                 <img width={null} height={null} src={user?.picture} />
@@ -143,7 +146,7 @@ export function NavBar() {
                                 <span className="text"> Login com Google </span>
                             </Link>
                     }
-                    {/* </Skeleton> */}
+                    </Skeleton>
                 </div>
             </div>
             <div className="nav mobile">
@@ -192,9 +195,9 @@ export function NavBar() {
                     </NavigationMenu.Item>
                     <NavigationMenu.Item className="item">
                         <div className="login">
-                            {/* <Skeleton loading={statusUser == "loading"}> */}
+                            <Skeleton loading={statusUser == "loading"}>
                                 {
-                                    user != null
+                                    statusUser != "loading" && statusUser == "success"
                                         ? <div className="user">
                                             <div className="message">Olá, {user?.name}</div>
                                             <img width={null} height={null} src={user?.picture} />
@@ -204,7 +207,7 @@ export function NavBar() {
                                             <span className="text"> Login com Google </span>
                                         </Link>
                                 }
-                            {/* </Skeleton> */}
+                            </Skeleton>
                         </div>
                     </NavigationMenu.Item>
                 </NavigationMenu.List>

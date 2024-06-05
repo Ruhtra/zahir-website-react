@@ -2,6 +2,7 @@ import axios from "axios";
 import { BaseUrlGoogle } from "../QueryClient";
 import { TokenResponse } from "@react-oauth/google";
 import { useQuery } from "react-query";
+import { api } from "../Api";
 
 const PathUrlUser = `${BaseUrlGoogle}/userinfo`
 const PathUrlToken = `${BaseUrlGoogle}/tokeninfo`
@@ -76,9 +77,7 @@ export function useGetProfileUser() {
     return useQuery<googleUser>({
         queryKey: ['user'],
         queryFn: async () => {
-            const response = await axios.get<googleUser>(import.meta.env.VITE_API_DNS + '/api/getUser', {
-                withCredentials: true,
-            });
+            const response = await api.get<googleUser>('/api/getUser');
 
             return response.data;
         },
