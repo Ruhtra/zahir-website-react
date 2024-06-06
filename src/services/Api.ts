@@ -1,6 +1,4 @@
 import axios from "axios";
-// import { useContext } from "react";
-// import { AuthContext } from "../Contexts/AuthContext";
 
 export const api = axios.create({
     baseURL: import.meta.env.VITE_API_DNS,
@@ -8,17 +6,15 @@ export const api = axios.create({
 },)
 
 
-// export const setupInterceptors = () => {
-//     const { setUser } = useContext(AuthContext)
-
+export const setupInterceptors = (setUser) => {
     api.interceptors.response.use(
         response => response,
         error => {
             if (error.response && error.response.status === 403) {
-                // setUser(null);
+                setUser(null);
                 console.error('Unauthorized access - 403 error');
             }
             return Promise.reject(error);
         }
     );
-// };
+};

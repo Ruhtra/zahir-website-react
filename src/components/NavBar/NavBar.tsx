@@ -136,7 +136,7 @@ export function NavBar() {
                 <div className="login">
                     <Skeleton loading={statusUser == "loading"}>
                     {
-                        statusUser != "loading" && statusUser == "success"
+                        statusUser != "loading" && statusUser == "success" && user != null
                             ? <div className="user">
                                 <div className="message">Olá, {user?.name}</div>
                                 <img width={null} height={null} src={user?.picture} />
@@ -197,7 +197,7 @@ export function NavBar() {
                         <div className="login">
                             <Skeleton loading={statusUser == "loading"}>
                                 {
-                                    statusUser != "loading" && statusUser == "success"
+                                    statusUser != "loading" && statusUser == "success" && user != null
                                         ? <div className="user">
                                             <div className="message">Olá, {user?.name}</div>
                                             <img width={null} height={null} src={user?.picture} />
