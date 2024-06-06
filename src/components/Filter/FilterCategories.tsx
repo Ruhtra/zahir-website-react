@@ -1,13 +1,13 @@
 import { useContext } from "react"
-import FilterContext from "./FilterContext"
 import { SetURLSearchParams } from "react-router-dom";
+import { FilterContext } from "./FilterContext";
 interface CategoriesProps {
     categories: string
     onCategoriesChange: SetURLSearchParams;
 }
 
 export function FilterCategories({ categories, onCategoriesChange }: CategoriesProps) {
-            const {data} = useContext(FilterContext)
+            const { data } = useContext(FilterContext)
 
             const categoriesSelected = categories
             ? (

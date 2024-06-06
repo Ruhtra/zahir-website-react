@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import FilterContext from "./FilterContext";
 import { SetURLSearchParams } from "react-router-dom";
+import { FilterContext } from "./FilterContext";
 
 interface UfProps {
     uf: string;
@@ -8,7 +8,7 @@ interface UfProps {
 }
 
 export function FilterUf({ uf, onUfChange }: UfProps) {
-    const {data} =  useContext(FilterContext)
+    const { data } =  useContext(FilterContext)
 
     
     const ufSelected = uf

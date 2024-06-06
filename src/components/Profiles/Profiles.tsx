@@ -1,27 +1,24 @@
 import { Link, useSearchParams } from "react-router-dom";
-import { Profile } from "../../models/model"
-
 
 import "./Profiles.css"
 import { Skeleton } from "@radix-ui/themes";
 import '@radix-ui/themes/styles.css';
 import { clearFilter } from "../Filter/Filter";
+import { useContext } from "react";
+import { FilterContext } from "../Filter/FilterContext";
 
 
-export interface PropsProfile {
-    filtrado?: Profile[];
-    isLoading: boolean;
-}
-export function Profiles({ filtrado, isLoading }: PropsProfile) {
-    const [_searchParams, setSearchParams] = useSearchParams()
+export function Profiles() {
+    const { filtrado, isLoading } = useContext(FilterContext)
+    const [_searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line @typescript-eslint/no-unused-vars
+
     return (
         <>
         <ul className="profiles">
 
-
         {
             isLoading
-            ? Array(0,1,2,3,4,5).map(e => {
+            ? [...Array(6).keys()].map(e => {
                 return (
                     <li key={e}>
                         <Skeleton key={e} width={"100%"} height={"100%"} loading={isLoading}>

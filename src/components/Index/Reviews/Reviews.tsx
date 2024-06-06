@@ -9,38 +9,34 @@ import { NavLink } from "react-router-dom";
 import { Estrela } from "../../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
 import { useContext } from "react";
-import CarouselContext from "../IndexContext";
-
+import { CarouselContext } from "../CarouselContext";
 
 export function Reviews() {
-    const { data: dataRecents, isLoading: isLoadingRecents } = useRecents()
+    const { data: dataRecents } = useRecents()
     const { isLoading } = useContext(CarouselContext)
-
-
-    console.log(isLoadingRecents);
 
     return (<>
         <Skeleton loading={isLoading}>
         <NavLink to={"/profiles"} className={"lastReviews"}>
                 <div className="stars">
                     {
-                        [... Array(5).keys()].map(() => {
-                            return <>
-                                <Estrela className="icon icon-star"></Estrela>
-                            </>
-                        })
+                        [...Array(5).keys()].map((_e, index) => {
+                            return (
+                                <Estrela key={`star_${index}`} className="icon icon-star"></Estrela>
+                            );
+                        })                        
                     }
                 </div>
-                Últimos Reviews
+                Últimos Reviews 
         </NavLink>
         </Skeleton>
 
         <div className="reviews">
             <div className="grid">
                 {isLoading
-                ? Array(1,2,3,4,5).map(e => {
-                        return <Skeleton loading={isLoading}>
-                            <div key={e} className="movie">
+                ? [...Array(5).keys()].map((_e, index) => {
+                        return <Skeleton key={index} loading={isLoading}>
+                            <div  className="movie">
                                 <div className="inside">
                                     <iframe width="320px" height="610px" style={{border: "none"}} scrolling="no" loading="lazy"></iframe>
                                 </div>

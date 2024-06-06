@@ -1,0 +1,21 @@
+.titulo {
+    display: block;
+    width: fit-content;
+    text-align: center;
+    margin: 1.5rem auto 0 auto;
+    font-size: 5em;
+    font-family: 'Adigiana-Toybox-Regular';
+
+    color: var(--color-6);
+    letter-spacing: .1em;
+}
+
+.titulo.stroke {
+    -webkit-text-stroke: .04em var(--color-5);
+}
+
+@media (max-width: 600px) {
+    .titulo {
+        font-size: 10vw;
+    }
+}

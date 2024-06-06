@@ -1,39 +1,31 @@
-import { Skeleton } from "@radix-ui/themes";
 import { BackToTop } from "../../components/BackToTop/BackToTop";
 import { Carousel } from "../../components/Index/Carousel/Carousel";
 import { Followers } from "../../components/Index/Followers/Followers";
-import CarouselContext from "../../components/Index/IndexContext";
 import { Info } from "../../components/Index/Info/Info";
 import { Reviews } from "../../components/Index/Reviews/Reviews";
-import { useCarousel } from "../../services/Querys/HomePage";
+import { CarouselProvider } from "../../components/Index/CarouselContext";
+import { Title } from "../../components/Index/Title/Title";
 import PageTitle from "../../components/PageTitle";
 
-import './IndexRoute.css'
-
 export function Index() {
-    const { data, isLoading } = useCarousel(true)
 
     return (
         <>
             <PageTitle title={"Zahir"} />
 
-            <CarouselContext.Provider value={{data, isLoading}}>
+            <CarouselProvider>
+                <Title />
 
-            {/* optimize skeleton */}
-            <Skeleton loading={isLoading}>
-                <h1 className={`titulo ${isLoading ? '' : 'stroke'}`}> Promoções </h1>
-            </Skeleton>
+                <Carousel />
 
-            <Carousel />
+                <Info />
 
-            <Info />
-            
-            <Followers />
+                <Followers />
 
-            <Reviews />   
+                <Reviews />
 
-            <BackToTop /> 
-        </CarouselContext.Provider>
+                <BackToTop />
+            </CarouselProvider>
         </>
     )
 }

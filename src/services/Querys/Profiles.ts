@@ -1,10 +1,10 @@
 import { useQuery } from "react-query";
-import axios from "axios";
 
 import { Profile, RecentsMovies } from "../../models/model";
-import { BaseUrl } from "../QueryClient";
+import { api } from "../Api";
+// import { BaseUrl } from "../QueryClient";
 
-const PathUrl = `${BaseUrl}/profile`
+const PathUrl = `/profile`
 
 export function useProfiles() {
     // Atenção para o modelo que pode estar errado
@@ -13,7 +13,7 @@ export function useProfiles() {
     return useQuery<Profile[]>({
         queryKey: ['profiles'],
         queryFn: async () => {
-            const response = await axios.get<Profile[]>(
+            const response = await api.get<Profile[]>(
                 `${PathUrl}/getlist`
             )
             return response.data
@@ -26,8 +26,8 @@ export function useGetProfile(id: string) {
     return useQuery<Profile>({
         queryKey: ['profile', id],
         queryFn: async () => {
-            const response = await axios.get<Profile[]>(
-                `${BaseUrl}/profile/get?id=${id}`
+            const response = await api.get<Profile[]>(
+                `${PathUrl}/get?id=${id}`
             );
             
             // -=-=-=-=-=-=-=-=-=-
@@ -46,7 +46,7 @@ export function useRecents() {
     return useQuery<RecentsMovies[]>({
         queryKey: ['recents'],
         queryFn: async () => {
-            const response = await axios.get<RecentsMovies[]>(
+            const response = await api.get<RecentsMovies[]>(
                 `${PathUrl}/getRecents`
             );
             return response.data;

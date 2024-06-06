@@ -1,8 +1,8 @@
 import { Skeleton } from "@radix-ui/themes"
 import './Info.css'
-import CarouselContext from "../IndexContext";
 import { useContext } from "react";
 import Images from "../../../assets/Images";
+import { CarouselContext } from "../CarouselContext";
 
 
 export function Info() {
