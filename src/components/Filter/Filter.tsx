@@ -1,6 +1,5 @@
 import { useContext, useEffect, useMemo } from "react";
 import { Profile } from "../../models/model";
-import FilterContext from "./FilterContext";
 import { FilterSearch } from "./FilterSearch";
 // import { FilterPromotion } from "./FilterPromotion";
 import { FilterCategory } from "./FilterCategory";
@@ -14,10 +13,7 @@ import "./Filter.css"
 import * as Switch from "@radix-ui/react-switch";
 import { Lupa, Filtro } from "../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
-
-export interface PropsFilter {
-    isLoading: boolean;
-}
+import { FilterContext } from "./FilterContext";
 
 export function clearFilter(setSearchParams: SetURLSearchParams){
     setSearchParams(params => {
@@ -31,9 +27,9 @@ export function clearFilter(setSearchParams: SetURLSearchParams){
     })
 }
 
-export function Filter({ isLoading }: PropsFilter) {
+export function Filter() {
     const [searchParams, setSearchParams] = useSearchParams()
-    const {data, onFilter} =  useContext(FilterContext)
+    const {data, isLoading, onFilter} =  useContext(FilterContext)
 
     const filteredData: Profile[] = useMemo(() => {
         if (!data) return

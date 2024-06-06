@@ -2,9 +2,9 @@ import "./Followers.css"
 
 import { Instagram, Tiktok, Youtube } from "../../../assets/Icons/Icons"
 import { Skeleton } from "@radix-ui/themes"
-import CarouselContext from "../IndexContext"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { CarouselContext } from "../CarouselContext"
 
 export function Followers() {
     const { isLoading } =  useContext(CarouselContext)

@@ -41,8 +41,8 @@ export function AnuncieRoute() {
 
             <div className="images">
                 {
-                    Array.from({ length: 8 }, (_, i) => i + 1).map(() => (
-                        <img src={Images.backImageExample} alt="" />
+                    [...Array(8).keys()].map((_e, index) => (
+                        <img key={index} src={Images.backImageExample} alt="" />
                     ))
                 }
             </div>

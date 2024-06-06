@@ -17,7 +17,7 @@ import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Arrow } from "../../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
-import CarouselContext from '../IndexContext';
+import { CarouselContext } from '../CarouselContext';
 
 
 
