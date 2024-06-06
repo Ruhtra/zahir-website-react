@@ -1,29 +1,16 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import { googleUser, useGetProfileUser } from "../services/Querys/Google";
-import { setupInterceptors } from "../services/Api";
-
+import { UseQueryResult } from "react-query";
 
 interface AuthContextType  {
-    user: googleUser
-    statusUser: "idle" | "error" | "loading" | "success"
-    setCurrentUser: React.Dispatch<React.SetStateAction<googleUser>>
-
+    userFetch: UseQueryResult<googleUser, unknown>
     getGoogleOAuthURL: () => string
 }
 
 export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState(null);
-
-    useEffect(() => {
-        setupInterceptors(setCurrentUser);
-    }, []);
-    
-    const { data: user, status: statusUser } = useGetProfileUser();
-    useEffect(() => {
-        setCurrentUser(user)
-    }, [user])
+    const userFetch = useGetProfileUser();
 
     function getGoogleOAuthURL() {
         const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -44,10 +31,9 @@ export function AuthProvider({ children }) {
     
         return `${rootUrl}?${qs.toString()}`;
     }
-
     
     return (
-        <AuthContext.Provider value={{ user: currentUser, statusUser, setCurrentUser, getGoogleOAuthURL: getGoogleOAuthURL }}>
+        <AuthContext.Provider value={{ userFetch, getGoogleOAuthURL: getGoogleOAuthURL }}>
             {children}
         </AuthContext.Provider>
     )

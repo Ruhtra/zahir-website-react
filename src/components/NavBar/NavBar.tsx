@@ -9,13 +9,11 @@ import { AuthContext } from "../../Contexts/AuthContext";
 
 
 export function NavBar() {
-    // const { login, user, statusUser } = AuthData()
-    const { user, statusUser, getGoogleOAuthURL } = useContext(AuthContext)
     const location = useLocation();
     const [state, setState] = useState(null)
+    const { userFetch: { data: dataUser, status: statusUser }, getGoogleOAuthURL } = useContext(AuthContext);
 
-
-    const changeState = useCallback(() =>  {
+    const changeState = useCallback(() => {
         if (state == null) {
             setState('open')
         } else {
@@ -135,17 +133,17 @@ export function NavBar() {
 
                 <div className="login">
                     <Skeleton loading={statusUser == "loading"}>
-                    {
-                        statusUser != "loading" && statusUser == "success" && user != null
-                            ? <div className="user">
-                                <div className="message">Olá, {user?.name}</div>
-                                <img width={null} height={null} src={user?.picture} />
-                            </div>
-                            : <Link to={getGoogleOAuthURL()} className="btn">
-                                <Google width={null} height={null} className="icon" />
-                                <span className="text"> Login com Google </span>
-                            </Link>
-                    }
+                        {
+                            statusUser != "loading" && statusUser == "success" && dataUser != null
+                                ? <div className="user">
+                                    <div className="message">Olá, {dataUser?.name}</div>
+                                    <img width={null} height={null} src={dataUser?.picture} />
+                                </div>
+                                : <Link to={getGoogleOAuthURL()} className="btn">
+                                    <Google width={null} height={null} className="icon" />
+                                    <span className="text"> Login com Google </span>
+                                </Link>
+                        }
                     </Skeleton>
                 </div>
             </div>
@@ -197,10 +195,10 @@ export function NavBar() {
                         <div className="login">
                             <Skeleton loading={statusUser == "loading"}>
                                 {
-                                    statusUser != "loading" && statusUser == "success" && user != null
+                                    statusUser != "loading" && statusUser == "success" && dataUser != null
                                         ? <div className="user">
-                                            <div className="message">Olá, {user?.name}</div>
-                                            <img width={null} height={null} src={user?.picture} />
+                                            <div className="message">Olá, {dataUser?.name}</div>
+                                            <img width={null} height={null} src={dataUser?.picture} />
                                         </div>
                                         : <Link to={getGoogleOAuthURL()} className="btn">
                                             <Google width={null} height={null} className="icon" />
