@@ -65,7 +65,37 @@
     .middle {
         height: 8em;
         width: 100%;
+        font-size: min(1em, 4vw);
+
         background-color: var(--color-5);
+    }
+    .middle .btns {
+        display: flex;
+        justify-content: space-around;
+        gap: 3em;
+        width: 50%;
+        height: 100%;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .middle .btns .btn {
+        font-weight: 900;
+        letter-spacing: .1em;
+        padding: 1em 2em;
+        border-radius: 1em;
+        cursor: pointer;
+        box-shadow: .1em .1em .1em var(--color-6);
+    }
+    .middle .btn:hover {
+        box-shadow: .1em .1em .1em var(--color-6) inset;
+    }
+
+    .middle .btns .editar {
+        background-color: aliceblue;
+    }
+    .middle .btns .delete {
+        background-color: rgb(111, 14, 14);
+        color: white;
     }
 
 /* bottom */
@@ -159,6 +189,9 @@
                 align-self: flex-end;
             }
 
+            .middle .btns {
+                width: 100%;
+            }
 
             .bottom {
                 gap: 2em;

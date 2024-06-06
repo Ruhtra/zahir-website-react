@@ -6,6 +6,7 @@ export interface googleUser {
     _id: string
     email: string
     picture?: string
+    role: "user" | "admin"
     name: string
 }
 

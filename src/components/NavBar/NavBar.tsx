@@ -11,7 +11,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 export function NavBar() {
     const location = useLocation();
     const [state, setState] = useState(null)
-    const { userFetch: { data: dataUser, status: statusUser }, getGoogleOAuthURL } = useContext(AuthContext);
+    const { dataUser, statusUser, getGoogleOAuthURL } = useContext(AuthContext);
 
     const changeState = useCallback(() => {
         if (state == null) {

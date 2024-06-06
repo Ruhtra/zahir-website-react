@@ -1,16 +1,16 @@
 import { createContext } from "react";
 import { googleUser, useGetProfileUser } from "../services/Querys/Google";
-import { UseQueryResult } from "react-query";
 
 interface AuthContextType  {
-    userFetch: UseQueryResult<googleUser, unknown>
+    dataUser: googleUser,
+    statusUser: "idle" | "error" | "loading" | "success"
     getGoogleOAuthURL: () => string
 }
 
 export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export function AuthProvider({ children }) {
-    const userFetch = useGetProfileUser();
+    const {data: dataUser, status: statusUser} = useGetProfileUser();
 
     function getGoogleOAuthURL() {
         const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
     }
     
     return (
-        <AuthContext.Provider value={{ userFetch, getGoogleOAuthURL: getGoogleOAuthURL }}>
+        <AuthContext.Provider value={{ dataUser, statusUser, getGoogleOAuthURL: getGoogleOAuthURL }}>
             {children}
         </AuthContext.Provider>
     )
