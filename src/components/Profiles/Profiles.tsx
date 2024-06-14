@@ -48,8 +48,8 @@ export function Profiles() {
                 </div>
                 : filtrado?.map((e) => {
                     return (
-                        <li key={e._id}>
-                            <Link to={`/profile/${e._id}`} style={{all: "inherit"}}>
+                        <li key={e.id}>
+                            <Link to={`/profile/${e.id}`} style={{all: "inherit"}}>
                                 <div className="card">
                                     <img src={e.picture} alt="" />
                                     <div className="infos">

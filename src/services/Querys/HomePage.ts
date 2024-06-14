@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { HomePage } from "../../models/model";
+import { GetAllHomePageResponseDto, HomePage } from "../../models/model";
 import { api } from "../Api";
 
 const PathUrl = `/homePage`
@@ -16,11 +16,11 @@ function shuffleArray(array: any[]) { // eslint-disable-line @typescript-eslint/
 
 
 export function useCarousel(isShuffle: boolean | null = null) {
-    return useQuery<HomePage[]>({
+    return useQuery<GetAllHomePageResponseDto[]>({
         queryKey: ['carousel'],
         queryFn: async () => {
-            const response = await api.get<HomePage[]>(
-                `${PathUrl}/getAll`
+            const response = await api.get<GetAllHomePageResponseDto[]>(
+                `${PathUrl}/all`
             );
             if (isShuffle) return shuffleArray(response.data);
             return response.data

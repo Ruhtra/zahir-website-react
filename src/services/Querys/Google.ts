@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { api } from "../Api";
 
 export interface googleUser {
-    _id: string
+    id: string
     email: string
     picture?: string
     role: "user" | "admin"
@@ -20,7 +20,7 @@ export function useGetProfileUser() {
         },
         staleTime: 15 * 60 * 1000, // 15 minutos
         retry: (failureCount, error) => {
-            if (axios.isAxiosError(error) && error.response?.status === 403)
+            if (axios.isAxiosError(error) && error.response?.status === 401)
                 return false;
 
             if (failureCount < 3) return true;

@@ -1,7 +1,7 @@
 
 interface Category {
-    type: string;
-    categories?: string[];
+    id: string;
+    name: string;
 }
 
 interface Local {
@@ -15,7 +15,7 @@ interface Local {
 }
 
 interface Promotion {
-    title?: string;
+    title: string;
     description?: string;
 }
 
@@ -25,22 +25,23 @@ interface Telephones {
 }
 
 export interface Profile {
-    _id: string;
+    id: string;
     name: string;
-    resume: string;
-    category: Category;
-    informations: string;
+    resume?: string;
+    categoryType: string;
+    categorie: Category[];
+    informations?: string;
     telephones: Telephones;
     local: Local;
-    movie: string
-    promotion: Promotion;
+    movie?: string
+    promotion?: Promotion;
     picture: string;
 }
 
 
 
 export interface ProfileList extends
-Pick<Profile, '_id' | 'name' | 'category' | 'promotion' | 'picture' >  {
+    Pick<Profile, 'id' | 'name' | 'categoryType' | 'categorie' | 'promotion' | 'picture'> {
     local: Pick<Local, 'uf' | 'city'>
 }
 
@@ -48,12 +49,30 @@ Pick<Profile, '_id' | 'name' | 'category' | 'promotion' | 'picture' >  {
 export interface HomePage {
     order: number;
     profile:
-        Omit<Profile,
-            'resume' | 'informations' | 'telephones' | 'local' | 'movie'> &
-        { local: Pick<Local, 'uf' | 'city'> };
+    Omit<Profile,
+        'resume' | 'informations' | 'telephones' | 'local' | 'movie'> &
+    { local: Pick<Local, 'uf' | 'city'> };
 }
 
 export interface RecentsMovies {
-    _id: string;
+    id: string;
     movie: string;
+}
+
+
+
+
+export interface GetAllHomePageResponseDto extends Pick<
+    HomePage,
+    'order'
+> {
+    profile: Pick<
+        Profile,
+        'id' |
+        'picture' |
+        'name' |
+        'promotion'
+    > & {
+        local: Pick<Profile['local'], 'uf' | 'city'>
+    }
 }
