@@ -166,7 +166,7 @@ export function NavBar() {
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
             >
-                <NavigationMenu.List>
+                <NavigationMenu.List className="links">
                     <NavigationMenu.Item className="item link">
                         <Link to={'/'} onClick={closeState}>
                             <Home className="icon icon-home"></Home>
@@ -191,7 +191,10 @@ export function NavBar() {
                             <div className="text">Anuncie</div>
                         </Link>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="item">
+
+                </NavigationMenu.List>
+                <NavigationMenu.List className="bottomlinks">
+                    <NavigationMenu.Item className="item loginbtn">
                         <div className="login">
                             <Skeleton loading={statusUser == "loading"}>
                                 {

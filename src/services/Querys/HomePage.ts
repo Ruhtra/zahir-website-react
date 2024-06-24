@@ -16,7 +16,7 @@ function shuffleArray(array: any[]) { // eslint-disable-line @typescript-eslint/
 
 
 export function useCarousel(isShuffle: boolean | null = null) {
-    return useQuery<GetAllHomePageResponseDto[]>({
+    return useQuery<HomePage[]>({
         queryKey: ['carousel'],
         queryFn: async () => {
             const response = await api.get<HomePage[]>(

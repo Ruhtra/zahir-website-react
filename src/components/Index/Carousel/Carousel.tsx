@@ -84,9 +84,9 @@ export function Carousel() {
                 })
                 : data?.map(e => {
                     return (
-                        <SwiperSlide className="swiper-slide" key={e.profile.id}>
+                        <SwiperSlide className="swiper-slide" key={e.profile._id}>
                             
-                            <Link to={`/profile/${e.profile.id}`} >
+                            <Link to={`/profile/${e.profile._id}`} >
                                 <div className="card">
                                     <div className="promotion">
                                         <div className="text">{e.profile.promotion.title}</div>

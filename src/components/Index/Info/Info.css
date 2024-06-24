@@ -18,14 +18,15 @@
 /* img */
     .info .block .img {
         width: 20em;
-        aspect-ratio: 2/3;
+        overflow: hidden;
+        aspect-ratio: 2 / 3;
         background-color: var(--color-5);
         border-radius: inherit;
         outline: 1em solid var(--color-6);
     }
     .info .block .img img{
         display: block;
-        width: 100%;
+        width: 130%;
         height: 100%;
         object-fit: cover;
     }
@@ -85,14 +86,15 @@
   
 @media (max-width: 600px) {
     .info .block {
-    margin: 5em auto; 
-    font-size: max(.1em, 1.5vw);
-    padding: 6em;
-    /* font-size: .5em; */
+        margin: 5em auto; 
+        font-size: max(.1em, 1.5vw);
+        padding: 6em;
+        /* font-size: .5em; */
     }
     /* img */
         .info .block .img {
             width: 20em;
+            aspect-ratio: 3 / 4;
         }
     /* text */
         .info .block .texto {

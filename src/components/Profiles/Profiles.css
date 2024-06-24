@@ -23,7 +23,7 @@
     /* background-color: pink; */
     width: 14em;
     padding: 1em 1em .5em 1em;
-    border-radius: 1em;
+    border-radius: .5em;
     outline: .5em solid var(--color-5);
     background-color: var(--color-6);
     aspect-ratio: 1;

@@ -249,6 +249,10 @@ body[data-scroll-locked] {
     
     width: 100%;
     height: 100svh;
+
+    display: grid;
+    grid-template-rows: minmax(auto, 35em) auto;
+
     
     position: fixed;
     
@@ -262,17 +266,24 @@ body[data-scroll-locked] {
     z-index: -1;
     border-radius: inherit;
 }
-.curtain > div { height: 100%; width: 100%; }
+/* 
+.curtain > div {   
+}
+.curtain > div:nth-child(1) {
+}
+.curtain > div:nth-child(2) {
+} */
+
 .curtain ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    max-height: 35em;
+    justify-content: space-between;
     height: 100%;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    /* padding: .5em 0 4em 0; */
 }
-.curtain ul .item, 
-.curtain ul .item.link a {
+.curtain ul.links .item, 
+.curtain ul.links .item.link a {
     display: flex;
     gap: .5em;
     width: 100%;
@@ -280,11 +291,11 @@ body[data-scroll-locked] {
     justify-content: center;
     align-items: center;
 }
-.curtain ul .item .icon {
+.curtain ul.links .item .icon {
     width: 2.75em;
     aspect-ratio: 1;
 }
-.curtain ul .item.link .text {
+.curtain ul.links .item.link .text {
     position: relative;
     width: 50%;
     min-width: 7em;
@@ -293,8 +304,8 @@ body[data-scroll-locked] {
     background-color: rgba(255, 255, 255, .15);
     border-radius: .3em;
 }
-.curtain ul .item.link .text::after, 
-.curtain ul .item.link .text::before {
+.curtain ul.links .item.link .text::after, 
+.curtain ul.links .item.link .text::before {
     content: '';
     position: absolute;
     top: 0;
@@ -303,13 +314,25 @@ body[data-scroll-locked] {
     background-color: gold;
     border-radius: inherit;
 }
-.curtain ul .item .text::before {
+.curtain ul.links .item .text::before {
     left: 0;
 }
-.curtain ul .item .text::after {
+.curtain ul.links .item .text::after {
     right: 0;
 }
 
+.curtain ul .loginbtn {
+    margin: 2em 0;
+}
+
+
+.curtain ul.bottomlinks  {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
 
 
 

@@ -1,6 +1,6 @@
 
 interface Category {
-    id: string;
+    _id: string;
     name: string;
 }
 
@@ -25,7 +25,7 @@ interface Telephones {
 }
 
 export interface Profile {
-    id: string;
+    _id: string;
     name: string;
     resume?: string;
     categoryType: string;
@@ -41,7 +41,7 @@ export interface Profile {
 
 
 export interface ProfileList extends
-    Pick<Profile, 'id' | 'name' | 'categoryType' | 'categorie' | 'promotion' | 'picture'> {
+    Pick<Profile, '_id' | 'name' | 'categoryType' | 'categorie' | 'promotion' | 'picture'> {
     local: Pick<Local, 'uf' | 'city'>
 }
 
@@ -62,17 +62,17 @@ export interface RecentsMovies {
 
 
 
-export interface GetAllHomePageResponseDto extends Pick<
-    HomePage,
-    'order'
-> {
-    profile: Pick<
-        Profile,
-        'id' |
-        'picture' |
-        'name' |
-        'promotion'
-    > & {
-        local: Pick<Profile['local'], 'uf' | 'city'>
-    }
-}
+// export interface GetAllHomePageResponseDto extends Pick<
+//     HomePage,
+//     'order'
+// > {
+//     profile: Pick<
+//         Profile,
+//         '_id' |
+//         'picture' |
+//         'name' |
+//         'promotion'
+//     > & {
+//         local: Pick<Profile['local'], 'uf' | 'city'>
+//     }
+// }

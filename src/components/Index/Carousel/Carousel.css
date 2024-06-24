@@ -31,8 +31,8 @@
   }
 }
 .swiper .swiper-slide-active img {
-  outline: .5em solid var(--color-6);
-  transition: box-shadow .5s;
+  outline: .75em solid var(--color-6);
+  transition: box-shadow .3s;
 }
 .swiper .swiper-slide-active .card .informations,
 .swiper .swiper-slide-active .card .promotion {
@@ -44,7 +44,7 @@
     cursor: pointer;
   }
   .swiper .swiper-slide-active .card:hover img{
-    box-shadow: 0 0 0 1em var(--color-6), 0 0 30px .5em var(--color-4);
+    box-shadow:0 0 30px .5em var(--color-4);
   }
 
 /* Paginação */

@@ -68,6 +68,14 @@
         --footer-heigth: calc(var(--footer-font-size) * 5) ;
 }
 
+
+@media screen and (max-width: 600px) {
+    :root {
+        --nav-padding-y: 1em;
+    }
+}
+
+
 /* scroll bar */
 body::-webkit-scrollbar, .scroll-style::-webkit-scrollbar {  width: 12px; }
 body::-webkit-scrollbar-track, .scroll-style::-webkit-scrollbar-track { background: var(--color-6); }

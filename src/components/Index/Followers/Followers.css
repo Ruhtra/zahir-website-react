@@ -76,6 +76,7 @@
             list-style-type: none;
         }
         .followers .bloco ul.icons li {
+            cursor: pointer;
             width: 1.5em;
             aspect-ratio: 1;
 

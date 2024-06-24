@@ -151,7 +151,7 @@ input, textarea {
 
     @media (max-width: 600px) {
         .images img {
-            width: calc(50% - .5em);
+            width: calc(50% - .25em);
             aspect-ratio: 1;
             object-fit: cover;
         }
