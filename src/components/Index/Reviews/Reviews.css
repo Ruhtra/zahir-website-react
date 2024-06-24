@@ -68,7 +68,7 @@
     display: block;
     background-color: var(--color-5);
     margin: 2.5em auto 1em auto;
-    font-size: 1.5em;
+    font-size: 2em;
     padding: .5em;
     border-radius: .6em;
     color: var(--color-6);
@@ -108,5 +108,8 @@
 
 
 @media (max-width: 680px) {
+  .lastReviews {
+    font-size: 1.5em;
+  }
   /* consertar para layout com largura pequena */
 }

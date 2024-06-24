@@ -1,6 +1,6 @@
 .followers {
     color: var(--color-5);
-    margin: 2em;
+    margin: 2em 2em 4em 2em;
     font-size: clamp(1.75em, 2vw, 2em);
 }
 .followers a {
@@ -8,7 +8,7 @@
 }
 
 /* desktop */
-    .followers .desktop {
+    /* .followers .desktop {
         text-align: center;
         max-width: 1200px;
         margin:  0 auto;
@@ -20,9 +20,9 @@
         display: flex;
         
         justify-content: space-around;
-    }
+    } */
     /* li */
-        .followers .desktop .items li {
+        /* .followers .desktop .items li {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,23 +32,22 @@
         }
         .followers .desktop .items li:hover {
             transform: scale(1.3);
-        }
+        } */
         /* icon */
-            .followers .desktop .items li .icon {
+            /* .followers .desktop .items li .icon {
                 display: block;
                 width: 1.75em;
-            }
+            } */
         /* number */
-            .followers .desktop .items li .number {
-                /* line-height: 1px; */
+            /* .followers .desktop .items li .number {
                 padding: 0;
-            }
+            } */
 
-/* mobile */
-    .followers .mobile {
-        font-size: min(1.3em, 4vw);
+/* bloco */
+    .followers .bloco {
+        font-size: min(1.2em, 4vw);
         margin: 0 auto;
-        max-width: 400px;
+        max-width: 700px;
         padding: .4em .4em .4em .75em;
         box-shadow: .2em .35em 0 var(--color-6);
         border-radius: 1em;
@@ -60,7 +59,7 @@
         font-weight: 900;
     }
     /* total */
-        .followers .mobile .total {
+        .followers .bloco .total {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,28 +68,18 @@
             line-height: 1em;
         }
     /* icons */
-        .followers .mobile ul.icons {
+        .followers .bloco ul.icons {
             display: flex;
             width: 100%;
             justify-content: space-around;
             align-items: center;
             list-style-type: none;
         }
-        .followers .mobile ul.icons li {
+        .followers .bloco ul.icons li {
             width: 1.5em;
             aspect-ratio: 1;
 
         }
-        .followers .mobile ul.icons li .icon {
+        .followers .bloco ul.icons li .icon {
             display: block;
         }
-
-
-    @media screen and (max-width: 600px) {
-        .followers .desktop {
-            display: none;
-        }
-        .followers .mobile {
-            display: grid !important;
-        }        
-    }

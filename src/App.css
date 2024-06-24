@@ -60,7 +60,8 @@
 
         --nav-font-size: min(1rem, 4vw);
     
-        --nav-active: rgba(40, 171, 201, .9);
+        /* --nav-active: rgba(40, 171, 201, .9); */
+        --nav-active: rgba(255, 255, 255, .15);
 
     /* footer */
         --footer-font-size: min(1.3rem, 4vw);

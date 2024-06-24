@@ -1,0 +1,79 @@
+.OverlayConfirmation {
+  background-color: rgba(0, 0, 0, .7);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ContentConfirmation {
+  background-color: var(--color-6);
+  border-radius: 1em;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 500px;
+  max-height: 85svh;
+  padding: 2em;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ContentConfirmation:focus {
+  outline: none;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+/* btns */
+
+.ContentConfirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    font-size: min(1.4em, 4vw);
+}
+.ContentConfirmation .btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+    font-size: 1.25em;
+}
+.ContentConfirmation .btns .btn {
+    padding: .3em 2em;
+    border-radius: .4em;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: .1em .1em .1em var(--color-6);
+}
+.ContentConfirmation .btns .btn:hover {
+    box-shadow: .1em .1em .1em var(--color-6) inset;
+}
+.ContentConfirmation .btns .btn.success {
+    background-color: rgb(26, 183, 26);
+}
+.ContentConfirmation .btns .btn.cancel {
+    background-color: rgb(164, 18, 18);
+    color: white;
+}

@@ -11,7 +11,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 export function NavBar() {
     const location = useLocation();
     const [state, setState] = useState(null)
-    const { userFetch: { data: dataUser, status: statusUser }, getGoogleOAuthURL } = useContext(AuthContext);
+    const { dataUser, statusUser, getGoogleOAuthURL } = useContext(AuthContext);
 
     const changeState = useCallback(() => {
         if (state == null) {
@@ -101,7 +101,7 @@ export function NavBar() {
                     <NavigationMenu.List className="links">
                         <NavigationMenu.Item>
                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
-                                <Link className="item" to={'/'}>index</Link>
+                                <Link className="item" to={'/'}>Home</Link>
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
 

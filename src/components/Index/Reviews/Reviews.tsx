@@ -45,7 +45,7 @@ export function Reviews() {
                     }
                 ) 
                 : dataRecents?.map(e => {
-                        return <div key={e._id} className="movie">
+                        return <div key={e.id} className="movie">
                             <div className="inside">
                                 <iframe src={e.movie} width="320px" height="610px" style={{border: "none"}} scrolling="no" loading="lazy"></iframe>
                             </div>

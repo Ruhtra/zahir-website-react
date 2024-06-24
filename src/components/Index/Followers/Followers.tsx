@@ -10,7 +10,7 @@ export function Followers() {
     const { isLoading } =  useContext(CarouselContext)
     return (<>
     <div className="followers">
-        <div className="desktop">
+        {/* <div className="desktop">
             <Skeleton loading={isLoading}>
                 <h2>Nossos Números</h2>
             </Skeleton>
@@ -40,29 +40,29 @@ export function Followers() {
                 </Link>
             </Skeleton>
             </ul>
-        </div>
-            <Skeleton loading={isLoading}>
-        <div className="mobile" style={{display: "none"}}>
-            <span>Olha só quantos já somos!</span> 
-            <p className="total">509,7k</p>
-            <ul className="icons">
-                <Link to={"https://www.tiktok.com/@dozahir"} target="_blank">
-                    <li className="tiktok">
-                        <Tiktok className="icon icon-tiktok"></Tiktok>
-                    </li>
-                </Link>
-                <Link to={"https://www.instagram.com/dozahir/"} target="_blank">
-                    <li className="instagram">    
-                        <Instagram className="icon icon-instagram" ></Instagram>
-                    </li>
-                </Link>
-                <Link to={"https://www.youtube.com/@doZahir"} target="_blank">
-                    <li className="youtube">
-                        <Youtube className="icon icon-youtube"></Youtube>
-                    </li>
-                </Link>
-            </ul>
-        </div>
+        </div> */}
+        <Skeleton loading={isLoading}>
+            <div className="bloco" >
+                <span>Olha só quantos já somos!</span> 
+                <p className="total">509,7k</p>
+                <ul className="icons">
+                    <Link to={"https://www.tiktok.com/@dozahir"} target="_blank">
+                        <li className="tiktok">
+                            <Tiktok className="icon icon-tiktok"></Tiktok>
+                        </li>
+                    </Link>
+                    <Link to={"https://www.instagram.com/dozahir/"} target="_blank">
+                        <li className="instagram">    
+                            <Instagram className="icon icon-instagram" ></Instagram>
+                        </li>
+                    </Link>
+                    <Link to={"https://www.youtube.com/@doZahir"} target="_blank">
+                        <li className="youtube">
+                            <Youtube className="icon icon-youtube"></Youtube>
+                        </li>
+                    </Link>
+                </ul>
+            </div>
         </Skeleton>
     </div>
     </>)
