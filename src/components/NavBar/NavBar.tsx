@@ -101,7 +101,7 @@ export function NavBar() {
                     <NavigationMenu.List className="links">
                         <NavigationMenu.Item>
                             <NavigationMenu.Link className="item_link" asChild active={location.pathname === '/'}>
-                                <Link className="item" to={'/'}>index</Link>
+                                <Link className="item" to={'/'}>Home</Link>
                             </NavigationMenu.Link>
                         </NavigationMenu.Item>
 
