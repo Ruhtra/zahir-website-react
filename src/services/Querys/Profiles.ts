@@ -14,7 +14,7 @@ export function useProfiles() {
         queryKey: ['profiles'],
         queryFn: async () => {
             const response = await api.get<Profile[]>(
-                `${PathUrl}/all`
+                `${PathUrl}/getlist`
             )
             return response.data
         },
@@ -27,7 +27,7 @@ export function useGetProfile(id: string) {
         queryKey: ['profile', id],
         queryFn: async () => {
             const response = await api.get<Profile[]>(
-                `${PathUrl}/getbyid?id=${id}`
+                `${PathUrl}/get?id=${id}`
             );
             
             // -=-=-=-=-=-=-=-=-=-
@@ -47,7 +47,7 @@ export function useRecents() {
         queryKey: ['recents'],
         queryFn: async () => {
             const response = await api.get<RecentsMovies[]>(
-                `${PathUrl}/recent`
+                `${PathUrl}/getRecents`
             );
             return response.data;
         },
