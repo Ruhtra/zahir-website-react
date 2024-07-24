@@ -16,6 +16,9 @@ export function ProfileRoute() {
     const { id } = useParams();
     const { data, isLoading } = useGetProfile(id);
 
+    console.log(data);
+
+
     return (
         <>
             {
@@ -32,12 +35,16 @@ export function ProfileRoute() {
                         </Skeleton>
                         <Skeleton loading={isLoading}>
                             <div className="rigth">
-                                <div className="promotion">
-                                    <span>Produto Em promoção</span>
-                                    <div className="text">
-                                        {data?.promotion.description}
+                                {/* solve this for "data?.promotion" in backendn */}
+                                {data?.promotion.description != undefined &&
+                                    <div className="promotion">
+                                        <span>Produto em promoção</span>
+                                        <div className="text">
+                                            {data?.promotion.description}
+                                        </div>
                                     </div>
-                                </div>
+                                }
+
                                 <div className="informations">
                                     <span>Informações</span>
                                     <div className="text">
@@ -88,10 +95,11 @@ export function ProfileRoute() {
                         </Skeleton>
                         <Skeleton loading={isLoading}>
                             <div className="map">
-                                {data?.local != null ?
+                                {data?.local != undefined ?
                                     <iframe
                                         src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD-E3xnEJoVAtUs2Ln5aOIr6JaPi0e6kUE&q=${data?.local.lat},${data?.local.lng}&zoom=15&maptype=roadmap`}
-                                    ></iframe> : <>Carregando</>
+                                    ></iframe>
+                                    : <>Não existe local para esse perfil</>
                                 }
                             </div>
                         </Skeleton>
