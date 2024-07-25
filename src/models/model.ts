@@ -35,6 +35,7 @@ export interface Profile {
     movie: string
     promotion: Promotion;
     picture: string;
+    createdAt: Date;
 }
 
 

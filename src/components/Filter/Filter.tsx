@@ -14,6 +14,7 @@ import * as Switch from "@radix-ui/react-switch";
 import { Lupa, Filtro } from "../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
 import { FilterContext } from "./FilterContext";
+import { FilterOrder } from "./FilterOrder";
 
 export function clearFilter(setSearchParams: SetURLSearchParams){
     setSearchParams(params => {
@@ -22,6 +23,7 @@ export function clearFilter(setSearchParams: SetURLSearchParams){
         params.set('category', '')
         params.set('uf', '')
         params.set('categories', '')
+        params.set('order', '')
 
         return params
     })
@@ -39,12 +41,13 @@ export function Filter() {
             const category = searchParams.get('category')
             const uf = searchParams.get('uf')
             const categories = searchParams.get('categories')
-                ? (
-                    searchParams.get('categories').split(',')[0] != ''
-                    ?  searchParams.get('categories').split(',')
-                    : [])
+            ? (
+                searchParams.get('categories').split(',')[0] != ''
+                ?  searchParams.get('categories').split(',')
+                : [])
                 : []
-        
+            const order = searchParams.get('order')
+                
 
             if (search) {            
                 filteredData = filteredData.filter(e => e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
@@ -57,6 +60,18 @@ export function Filter() {
             }
             if (uf) {            
                 filteredData = filteredData.filter(e => e.local.uf == uf)
+            }
+            if (order === "createdOrder") {
+                filteredData = filteredData.sort((a, b) => {
+                    return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+                });
+            } else {
+                // Ordenado alfabeticamente por e.name
+                filteredData = filteredData.sort((a, b) => {
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    return 0;
+                });
             }
             
             if (categories.length > 0) {
@@ -111,6 +126,10 @@ export function Filter() {
                                                 <button className="mybtn">preço d</button>
                                             </div>
                                         </section> */}
+                                        <section>
+                                            <h3>Ordenar Por</h3>
+                                          <FilterOrder order={searchParams.get('order')} onOrderChange={setSearchParams} />
+                                        </section>
                                         <section>
                                             <h3>Região</h3>
                                             <FilterUf uf={searchParams.get("uf") ?? ''} onUfChange={setSearchParams} />
