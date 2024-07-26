@@ -53,7 +53,7 @@ export function Filter() {
                 filteredData = filteredData.filter(e => e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
             }
             if (promotion) {
-                filteredData = filteredData.filter(e => Object.keys(e.promotion).length > 1);
+                filteredData = filteredData.filter(e => e.promotion.active)
             }
             if (category) {
                 filteredData = filteredData.filter(e => e.category.type == category)

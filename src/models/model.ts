@@ -15,6 +15,7 @@ interface Local {
 }
 
 interface Promotion {
+    active: boolean;
     title?: string;
     description?: string;
 }

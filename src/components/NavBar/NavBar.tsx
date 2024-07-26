@@ -79,7 +79,7 @@ export function NavBar() {
 
     const handleTouchEnd = () => {
         const movePercentage = Math.abs((endY - startY) / window.innerHeight) * 100;
-        if (movePercentage < 30) {
+        if (movePercentage < 15) {
             openCuratain()
         } else if (endY < startY) {
             closeCuratain()

@@ -35,10 +35,9 @@ export function ProfileRoute() {
                         </Skeleton>
                         <Skeleton loading={isLoading}>
                             <div className="rigth">
-                                {/* solve this for "data?.promotion" in backendn */}
-                                {data?.promotion.description != undefined &&
+                                {data?.promotion.active &&
                                     <div className="promotion">
-                                        <span>Produto em promoção</span>
+                                        <span>Produto em promoção: </span>
                                         <div className="text">
                                             {data?.promotion.description}
                                         </div>
@@ -46,7 +45,7 @@ export function ProfileRoute() {
                                 }
 
                                 <div className="informations">
-                                    <span>Informações</span>
+                                    <span>Informações: </span>
                                     <div className="text">
                                         {data?.informations}
                                     </div>

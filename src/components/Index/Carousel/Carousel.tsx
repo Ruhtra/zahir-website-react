@@ -88,10 +88,11 @@ export function Carousel() {
 
                                     <Link to={`/profile/${e.profile._id}`} >
                                         <div className="card">
-                                            {/* fix this code for "e.promotion" in backendreturn */}
-                                            {e.profile.promotion.title != undefined && <div className="promotion">
-                                                <div className="text">{e.profile.promotion.title}</div>
-                                            </div>}
+                                            {e.profile.promotion.active &&
+                                                <div className="promotion">
+                                                    <div className="text">{e.profile.promotion.title}</div>
+                                                </div>
+                                            }
 
                                             <div className="informations">
                                                 <span className="name">{e.profile.name}</span>
