@@ -90,8 +90,9 @@
     .swiper .card .promotion::after {
       content: '';
       position: absolute;
+      right: -.25em;
       bottom: -.5em;
-      left: 0em;
+      /* left: 0em; */
       width: 100%;
       border-radius: inherit;
       height: 100%;

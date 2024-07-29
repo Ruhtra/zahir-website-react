@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
   
     width: 100%;
     max-width: 2000px;
@@ -19,14 +19,15 @@
   }
   
   .reviews .grid .movie {
+    font-size: clamp(.4em, 1.5vw, 1em);
     transition: .5s;
     position: relative;
-    outline: .5em solid var(--color-6);
+    outline: 1em solid var(--color-6);
     border-radius: inherit;
     margin: 1em 0;
   }
   .reviews .grid .movie:hover {
-    outline: 1em solid var(--color-6);
+    /* outline: 1em solid var(--color-6); */
   }
   
   .reviews .grid .movie  .inside {
