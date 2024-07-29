@@ -30,6 +30,7 @@ export function AnuncieRoute() {
                     {/* <div className="mensagem item"> */}
                     <textarea className="mensagem item" placeholder="Mensagem"></textarea>
                     {/* </div> */}
+                    <button type="submit" className="item">enviar</button>
                 </form>
             </section>
 

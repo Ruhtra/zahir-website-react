@@ -111,6 +111,18 @@ input, textarea {
         color: var(--color-8);
         opacity: .6;
     }
+    .formulario > .item[type="submit"] {
+        margin-top: .5em;
+        color: var(--color-6);
+        text-indent: 0;
+        padding: .5em 2em;
+        width: fit-content;
+        justify-self: end;
+        grid-column: 12 / -1;
+        cursor: pointer;
+        transition: .5s;
+    } 
+    .formulario > .item[type="submit"]:hover { scale: 1.1; }
 
 
 
