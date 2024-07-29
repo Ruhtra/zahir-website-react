@@ -1,6 +1,6 @@
 .info {
     overflow: hidden;
-    padding: 3em 0 8em 0;
+    padding: 5em 0 12em 0;
     font-size: clamp(.4em, 1.5vw, 1em);
   }
 .info .block {
@@ -19,7 +19,7 @@
     .info .block .img {
         width: 20em;
         overflow: hidden;
-        aspect-ratio: 2 / 3;
+        aspect-ratio: 4 / 5;
         background-color: var(--color-5);
         border-radius: inherit;
         outline: 1em solid var(--color-6);
@@ -32,7 +32,7 @@
     }
 /* text */
     .info .block .texto {
-        top: 60%;
+        top: 70%;
         left: 15em;
         transform: translateY(-50%);
         position: absolute;
@@ -74,7 +74,7 @@
     }
     .info .block .back::before {
         top: 70%;
-        left: 30%;
+        left: 35%;
     }
     .info .block .back::after {
         left: 20%;
