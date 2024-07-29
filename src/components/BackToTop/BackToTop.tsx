@@ -1,6 +1,6 @@
-import { ChevronUpIcon } from "@radix-ui/react-icons"
 import "./BackToTop.css"
 import { useEffect, useState } from "react";
+import { Arrow, SetaDefault } from "../../assets/Icons/Icons";
 
 export function BackToTop() {
     const [scrolled, setScrolled] = useState(false);
@@ -32,7 +32,8 @@ export function BackToTop() {
     
     if (scrolled) return (
         <div className={'btnTop'} onClick={handleClick}>
-            <ChevronUpIcon className="arrowIcon" />
+            <Arrow fillColor="red" side="bottom" />
+            {/* <ChevronUpIcon className="arrowIcon" /> */}
         </div>
     );
 }

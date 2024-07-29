@@ -19,7 +19,7 @@ import Youtube from './Youtube.svg?react';
 
 
 interface ArrowProps {
-    fillColor: "purple" | "orange";
+    fillColor: "purple" | "orange" | "red";
     side: "left" | "rigth" | "top" | "bottom"
     [key: string]: any
 }
@@ -30,6 +30,7 @@ function Arrow({ fillColor, side, ...props }: ArrowProps) {
 
     if (fillColor == "purple") fill ="#6b45ca"
     else if (fillColor == "orange") fill ="#fbb93e"
+    else if (fillColor == "red") fill ="rgba(214, 37, 34, 1)"
 
 
     switch (side) {
