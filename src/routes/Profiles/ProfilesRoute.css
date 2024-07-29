@@ -1,0 +1,7 @@
+.profilesRoutesPage {
+    display: block;
+    width: svw;
+    margin: auto;
+    overflow: hidden;
+    max-width: 1000px;
+}

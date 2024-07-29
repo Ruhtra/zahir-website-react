@@ -1,70 +1,59 @@
-
-
 .profiles {
-    font-size: clamp(0.1em, 2.9vw, 1em);
-    max-width: 960px;
-    margin: 3em auto;
-    padding: 1em 1em;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    /* background-color: red; */
+    /* margin: 0 1em; */
+    margin: auto;
+    display: grid;
+    width: 95%;
+    padding: 1em;
+    height: min-content;
     list-style: none;
-    gap: 3em 1.5em;
+    margin-top: 1em;
+    gap: 1.75em;
+    font-size: clamp(0.1em, 2.9vw, 1em);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.profiles li {
+    width: 100%;
 }
 
-.profiles li {
-    position: relative;
-    /* background-color: green; */
-}
+.profiles li a { text-decoration: none;}
 .profiles li .card {
-    /* background-color: pink; */
-    width: 14em;
+    width: 100%;
+    height: 100%;
     padding: 1em 1em .5em 1em;
-    border-radius: .5em;
+    border-radius: .5em;border-radius: .5em;
+    background: var(--color-6);
     outline: .5em solid var(--color-5);
-    background-color: var(--color-6);
-    aspect-ratio: 1;
+    padding: 1em;
     transition: .25s transform linear;
     cursor: pointer;
 }
+
 .profiles li .card:hover {
     transform: scale(1.05);
     /* outline: .8em solid var(--color-5); */
 }
 .profiles li .card img {
-    border-radius: inherit;
-    display: block;
     width: 100%;
     aspect-ratio: 1;
+    border-radius: inherit;
     outline: .5em solid var(--color-5);
     object-fit: cover;
+    display: block;
+}
+.profiles li .card .infoCard {
+    margin-top: 1em;
+    text-align: center;
+    width: 100%;
+    color: var(--color-5);
 }
 
-.infos {
-    color: var(--color-5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: calc(.5em + .5em);
-    /* background-color: goldenrod; */
-    /* height: ; */
-}
-.name {
-    text-align: center;
-    text-wrap: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 /* ClearFilter Button */
-h1.message {
+.profiles .nullProfile {
+    grid-column: 1 / -1;
     text-align: center;
 }
-button.clearFilter {
+.profiles .clearFilter {
     display: block;
     background: var(--color-6);
     margin: 0 auto;
@@ -75,6 +64,19 @@ button.clearFilter {
     cursor: pointer;
     transition: transform .5s;
 }
-button.clearFilter:hover {
+.profiles .clearFilter:hover {
     transform: scale(1.1);
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .profiles {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .profiles {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

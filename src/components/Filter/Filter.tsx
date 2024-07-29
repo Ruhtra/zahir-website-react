@@ -91,7 +91,7 @@ export function Filter() {
 
     return (
         <>
-            <div>
+            <div className="filter">
                 <Skeleton width={"100%"} height={"100%"} loading={isLoading}>
                 <div className="NavigationMenuRoot" >
                     <ul className="NavigationMenuList">

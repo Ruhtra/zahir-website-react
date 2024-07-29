@@ -15,7 +15,6 @@ export function Profiles() {
     return (
         <>
             <ul className="profiles">
-
                 {
                     isLoading
                         ? [...Array(6).keys()].map(e => {
@@ -23,12 +22,12 @@ export function Profiles() {
                                 <li key={e}>
                                     <Skeleton key={e} width={"100%"} height={"100%"} loading={isLoading}>
                                         <div className="card">
-                                            <img src={""} alt="" />
-                                            <div className="infos">
-                                                <div className="name">
+                                            <img src="" />
+                                            <div className="infoCard">
+                                                <div className="">
                                                     { }
                                                 </div>
-                                                <div className="local">
+                                                <div className="">
                                                     { } - { }
                                                 </div>
                                             </div>
@@ -38,25 +37,26 @@ export function Profiles() {
                             )
                         })
                         : filtrado != null && filtrado?.length == 0
-                            ? <div>
-                                <h1 className="message">Nenhuma Review foi encontrada <br />
-                                    Deseja Limpar o filtro de pesquisa?</h1>
-
+                            ? <div className="nullProfile">
+                                <h1 className="message">
+                                    Nenhuma Review foi encontrada
+                                    <br />
+                                    Deseja Limpar o filtro de pesquisa?
+                                </h1>
                                 <br />
-
                                 <button onClick={() => clearFilter(setSearchParams)} className="clearFilter">Sim</button>
                             </div>
                             : filtrado?.map((e) => {
                                 return (
-                                    <li key={e._id}>
-                                        <Link to={`/profile/${e._id}`} style={{ all: "inherit" }}>
+                                    <li key={e._id} className="item">
+                                        <Link to={`/profile/${e._id}`}>
                                             <div className="card">
-                                                <img src={e.picture} alt="" />
-                                                <div className="infos">
-                                                    <div className="name">
+                                                <img src={e.picture} />
+                                                <div className="infoCard">
+                                                    <div className="">
                                                         {e.name}
                                                     </div>
-                                                    <div className="local">
+                                                    <div className="">
                                                         {/* fix this code for "e.local" in backendreturn */}
                                                         {e.local.uf != undefined && (<>
                                                             {e.local.uf} - {e.local.city}

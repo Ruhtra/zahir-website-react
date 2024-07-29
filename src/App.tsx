@@ -1,7 +1,7 @@
 // import { createContext, useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Index } from "./routes/Index/IndexRoute";
-import { ProfilesRoute } from "./routes/ProfilesRoute";
+import { ProfilesRoute } from "./routes/Profiles/ProfilesRoute";
 import { LojaRoute } from "./routes/Loja/LojaRoute";
 import { NavBar } from "./components/NavBar/NavBar";
 import { AnuncieRoute } from "./routes/Anuncie/AnuncieRoute";

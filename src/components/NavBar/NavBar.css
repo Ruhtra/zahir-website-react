@@ -73,7 +73,8 @@
                 height: max-content;
 
                 font-size: 1.3em;
-                font-weight: 900;
+                font-weight: 500;
+                letter-spacing: .1em;
             }
 
             .nav.desktop .links-block ul.links li { position: relative; }
@@ -101,7 +102,7 @@
                 .nav.desktop .links-block ul.links li a.item[data-active] { background-color: var(--nav-active); }
                 .nav.desktop .links-block ul.links li a.item:hover {
                     /* font-size: 1.25em; */
-                    background-color: rgba(0, 0, 0, .3);
+                    background-color: var(--nav-active);
                 }   
                 
             /* login */

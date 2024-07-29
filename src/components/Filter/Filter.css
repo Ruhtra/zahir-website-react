@@ -44,8 +44,8 @@
 
 
 .NavigationMenuRoot {
-    width: 80vw;
-    max-width: 960px;
+    width: 91%;
+    /* max-width: 960px; */
     margin: 3em auto 0 auto;
     background-color: var(--color-10);
     color: var(--color-5);

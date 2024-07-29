@@ -1,6 +1,6 @@
 import "./BackToTop.css"
 import { useEffect, useState } from "react";
-import { Arrow, SetaDefault } from "../../assets/Icons/Icons";
+import { Arrow } from "../../assets/Icons/Icons";
 
 export function BackToTop() {
     const [scrolled, setScrolled] = useState(false);
