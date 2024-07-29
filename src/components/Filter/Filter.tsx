@@ -138,7 +138,7 @@ export function Filter() {
                                             <h3>Locais</h3>
                                             <FilterCategory category={searchParams.get('category') ?? ''} onCategoryChange={setSearchParams} />
                                         </section>
-                                        <section>
+                                        <section className="categories scroll-style">
                                             <h3>Categorias</h3>                                 
                                             <FilterCategories categories={searchParams.get('categories')} onCategoriesChange={setSearchParams} />
                                         </section>
