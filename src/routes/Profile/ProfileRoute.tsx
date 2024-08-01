@@ -47,7 +47,10 @@ export function ProfileRoute() {
                                 <div className="informations">
                                     <span>Informações: </span>
                                     <div className="text">
-                                        {data?.informations}
+                                    {data?.informations.split('\n').map((line, index) => {
+                                        return <span key={index}>{line}<br/></span> 
+                                    })}
+                                        
                                     </div>
                                 </div>
                             </div>

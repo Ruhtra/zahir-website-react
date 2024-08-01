@@ -50,7 +50,7 @@
         flex-direction: column;
         gap: 1em;
         margin-top: 3em;
-        text-align: center;
+        text-align: left;
         padding: 1em;
         width: 23em;
         min-height: calc((23em * 2)/ 3 - 1em);
@@ -60,6 +60,9 @@
     }
     .up .rigth > div {
         font-size: min(1.4em);
+    }
+    .up .rigth > div > .text {
+        padding-left: .5em ;
     }
 
 /* middle */

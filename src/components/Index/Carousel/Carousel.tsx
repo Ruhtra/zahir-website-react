@@ -91,8 +91,7 @@ export function Carousel() {
                                             {e.profile.promotion.active &&
                                                 <div className="promotion">
                                                     <div className="text">{e.profile.promotion.title}</div>
-                                                </div>
-                                            }
+                                            </div>}
 
                                             <div className="informations">
                                                 <span className="name">{e.profile.name}</span>
