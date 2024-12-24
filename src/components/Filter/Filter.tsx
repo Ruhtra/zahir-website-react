@@ -1,7 +1,6 @@
 import { useContext, useEffect, useMemo } from "react";
 import { Profile } from "../../models/model";
 import { FilterSearch } from "./FilterSearch";
-// import { FilterPromotion } from "./FilterPromotion";
 import { FilterCategory } from "./FilterCategory";
 import { FilterCategories } from "./FilterCategories";
 import { FilterUf } from "./FilterUf";
@@ -34,21 +33,15 @@ export function Filter() {
   const { data, isLoading, onFilter } = useContext(FilterContext);
 
   const filteredData: Profile[] = useMemo(() => {
-    if (!data) return;
-    let filteredData = data;
+    if (!data) return [];
+    let filteredData = [...data];
     const search = searchParams.get("search");
-    const promotion = searchParams.get("promotion") == "true" ? true : false;
+    const promotion = searchParams.get("promotion") === "true";
     const uf = searchParams.get("uf");
-    const category = searchParams.get("category")
-      ? searchParams.get("category").split(",")[0] != ""
-        ? searchParams.get("category").split(",")
-        : []
-      : [];
-    const categories = searchParams.get("categories")
-      ? searchParams.get("categories").split(",")[0] != ""
-        ? searchParams.get("categories").split(",")
-        : []
-      : [];
+    const category =
+      searchParams.get("category")?.split(",").filter(Boolean) || [];
+    const categories =
+      searchParams.get("categories")?.split(",").filter(Boolean) || [];
     const order = searchParams.get("order");
 
     if (search) {
@@ -60,37 +53,35 @@ export function Filter() {
       filteredData = filteredData.filter((e) => e.promotion.active);
     }
     if (uf) {
-      filteredData = filteredData.filter((e) => e.local.uf == uf);
+      filteredData = filteredData.filter((e) => e.local.uf === uf);
     }
-    if (order === "createdOrder") {
-      filteredData = filteredData.sort((a, b) => {
-        return (
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        );
+
+    const isAscending = !order?.startsWith("-");
+    const orderType = order?.replace("-", "") || "alphabetical";
+
+    if (orderType === "createdAt") {
+      filteredData.sort((a, b) => {
+        const comparison =
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        return isAscending ? comparison : -comparison;
       });
     } else {
       // Ordenado alfabeticamente por e.name
-      filteredData = filteredData.sort((a, b) => {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
+      filteredData.sort((a, b) => {
+        const comparison = a.name.localeCompare(b.name);
+        return isAscending ? comparison : -comparison;
       });
     }
 
     if (category.length > 0) {
-      // filteredData = filteredData.filter(e => e.category.type == category)
-      category.forEach((category) => {
-        filteredData = filteredData.filter((e) =>
-          e.category.type?.includes(category)
-        );
-      });
+      filteredData = filteredData.filter((e) =>
+        category.every((cat) => e.category.type?.includes(cat))
+      );
     }
     if (categories.length > 0) {
-      categories.forEach((category) => {
-        filteredData = filteredData.filter((e) =>
-          e.category.categories?.includes(category)
-        );
-      });
+      filteredData = filteredData.filter((e) =>
+        categories.every((cat) => e.category.categories?.includes(cat))
+      );
     }
 
     return filteredData;
@@ -99,8 +90,6 @@ export function Filter() {
   useEffect(() => {
     onFilter(filteredData);
   }, [filteredData, onFilter]);
-
-  // }
 
   return (
     <>
@@ -136,11 +125,7 @@ export function Filter() {
                         </label>
                         <Switch.Root
                           id="promotionCheck"
-                          checked={
-                            searchParams.get("promotion") == "true"
-                              ? true
-                              : false
-                          }
+                          checked={searchParams.get("promotion") === "true"}
                           onCheckedChange={(checked) =>
                             setSearchParams((params) => {
                               params.set("promotion", `${checked}`);
@@ -152,17 +137,10 @@ export function Filter() {
                           <Switch.Thumb className="SwitchThumb" />
                         </Switch.Root>
                       </section>
-                      {/* <section>
-                                            <h3>Organizaro por</h3>
-                                            <div className="itenss">
-                                                <button className="mybtn">preço u</button>
-                                                <button className="mybtn">preço d</button>
-                                            </div>
-                                        </section> */}
                       <section>
                         <h3>Ordenar Por</h3>
                         <FilterOrder
-                          order={searchParams.get("order")}
+                          order={searchParams.get("order") ?? ""}
                           onOrderChange={setSearchParams}
                         />
                       </section>
@@ -183,7 +161,7 @@ export function Filter() {
                       <section className="categories scroll-style">
                         <h3>Categorias</h3>
                         <FilterCategories
-                          categories={searchParams.get("categories")}
+                          categories={searchParams.get("categories") ?? ""}
                           onCategoriesChange={setSearchParams}
                         />
                       </section>
@@ -199,7 +177,7 @@ export function Filter() {
                           <Dialog.Close asChild>
                             <button
                               className="mybtn-2"
-                              onClick={() => console.log()}
+                              onClick={() => console.log("Aplicar clicked")}
                             >
                               Aplicar
                             </button>
@@ -213,8 +191,6 @@ export function Filter() {
             </ul>
           </div>
         </Skeleton>
-
-        {/* <FilterPromotion promotion={searchParams.get('promotion') == 'true'? true : false } onPromotionChange={setSearchParams} /> */}
       </div>
     </>
   );

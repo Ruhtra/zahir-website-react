@@ -1,164 +1,157 @@
 :root {
   --size-heigth: 1em;
   --size-width: 2.5em;
-  --padding: .3em;
+  --padding: 0.3em;
 }
 
 .search,
 .dropDown {
-    display: flex;
+  display: flex;
 
-    gap: .4em;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 1.5em;
+  gap: 0.4em;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5em;
 }
 .search .icon-lupa {
-    width: auto;
-    height: 1.5em;
-    aspect-ratio: 1;
-    background-color: f;
+  width: auto;
+  height: 1.5em;
+  aspect-ratio: 1;
+  background-color: f;
 }
-.search input[type=search] {
-    all: unset;
-    font-size: 1em;
-    line-height: 1.5em;
-    height: 1.5em;
-    width: 100%;
+.search input[type="search"] {
+  all: unset;
+  font-size: 1em;
+  line-height: 1.5em;
+  height: 1.5em;
+  width: 100%;
 }
-.search input[type=search]::placeholder {
-    color: var(--color-5);
+.search input[type="search"]::placeholder {
+  color: var(--color-5);
 }
 
 .dropDown .icon-filtro {
-    cursor: pointer;
-    width: auto;
-    height: 1.5em;
-    aspect-ratio: 1;
-    transition: .5s;
+  cursor: pointer;
+  width: auto;
+  height: 1.5em;
+  aspect-ratio: 1;
+  transition: 0.5s;
 }
 /* .dropDown[data-state="open"] .icon-filtro{
     transform: rotate(45deg);
 } */
 
-
 .NavigationMenuRoot {
-    width: 91%;
-    /* max-width: 960px; */
-    margin: 3em auto 0 auto;
-    background-color: var(--color-10);
-    color: var(--color-5);
-    border-radius: 30px;
-    font-size: min(1em, 3vw);
+  width: 91%;
+  /* max-width: 960px; */
+  margin: 3em auto 0 auto;
+  background-color: var(--color-10);
+  color: var(--color-5);
+  border-radius: 30px;
+  font-size: min(1em, 3vw);
 }
 .NavigationMenuList {
-    display: grid;
-    gap: .5em;
-    grid-template-columns: 1fr auto;
-    padding: .5em 1em; 
-    list-style: none;
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr auto;
+  padding: 0.5em 1em;
+  list-style: none;
 }
 
 .NavigationMenuRoot .content {
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    gap: 1.5em;
+  gap: 1.5em;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--color-10);
-    width: 100%;
-    padding: 1em 1em;
-    height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-10);
+  width: 100%;
+  padding: 1em 1em;
+  height: fit-content;
 }
 
 .ViewportPosition {
-    margin-top: 1em;
-    width: 100%;
-    position: relative;
-    transform-origin: top center;
-    text-align: center;
-    z-index: 1;
-
+  margin-top: 1em;
+  width: 100%;
+  position: relative;
+  transform-origin: top center;
+  text-align: center;
+  z-index: 1;
 }
 section {
-    width:100%;
+  width: 100%;
 }
 section.categories {
   overflow-y: scroll;
 }
 .itenss {
-    margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: .5em 1em;
-    width: 100%;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em 1em;
+  width: 100%;
 }
 .mybtn {
-    position: relative;
-    border: 0;
-    font-size: 1.25em;
-    border-radius: 10em;
+  position: relative;
+  border: 0;
+  font-size: 1.25em;
+  border-radius: 10em;
 }
 .mybtn label {
-    width: 100%;
-    height: 100%;
-    display: block;
-    padding: .2em 1em;
-    font-size: 1em;
-    text-wrap: nowrap;
-    transition: .2s;
-    color: var(--color-5);
-    background-color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-    border: .3em solid var(--color-5);
-    border-radius: inherit;
-    /* outline: .5em solid green; */
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0.2em 1em;
+  font-size: 1em;
+  text-wrap: nowrap;
+  transition: 0.2s;
+  color: var(--color-5);
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  border: 0.3em solid var(--color-5);
+  border-radius: inherit;
+  /* outline: .5em solid green; */
 }
-.mybtn input[type=checkbox] {
-    display: none;
+.mybtn input[type="checkbox"] {
+  display: none;
 }
 
-
-.mybtn input[type=checkbox]:checked ~ label,
+.mybtn input[type="checkbox"]:checked ~ label,
 .mybtn label:hover {
-    color: var(--color-10);
-    background-color: var(--color-5);
+  color: var(--color-10);
+  background-color: var(--color-5);
 }
-
-
 
 .mybtn-2 {
-    text-wrap: nowrap;
-    font-size: 1.25em;
-    padding: .5em 1em ;
-    border-radius: .75em;
-    border: 0;
-    transition: .2s linear;
-    cursor: pointer;
-    color: var(--color-5);
-    background-color: var(--color-6);
+  text-wrap: nowrap;
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+  border-radius: 0.75em;
+  border: 0;
+  transition: 0.2s linear;
+  cursor: pointer;
+  color: var(--color-5);
+  background-color: var(--color-6);
 }
 .mybtn-2:hover {
-    outline: .3em solid var(--color-5);
+  outline: 0.3em solid var(--color-5);
 }
-
 
 .options {
-    margin-top: 3em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-
 
 /* 
 .NavigationMenuViewport[data-state='open'] {
@@ -168,142 +161,137 @@ section.categories {
     animation: scaleOut .2s ease;
   } */
 
-
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: translateX(-50%) rotateX(-30deg) scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(-50%) rotateX(0deg) scale(1);
-    }
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) rotateX(-30deg) scale(0.9);
   }
-
-  @keyframes scaleInDesktop {
-    from {
-      opacity: 0;
-      transform: translate(-50%, -50%) rotateX(-30deg) scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) rotateX(0deg) scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) rotateX(0deg) scale(1);
   }
-  
+}
 
-
-
-  .DialogOverlay {
-    background-color: rgba(0, 0, 0, .5);
-    position: fixed;
-    inset: 0;
-    z-index: 2;
+@keyframes scaleInDesktop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateX(-30deg) scale(0.9);
   }
-
-
-  .DialogContent .promotion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotateX(0deg) scale(1);
   }
-  
-    .DialogContent h3, .DialogContent .promotion label {
-      text-align: center;
-      font-size: 1.3em;
-      font-weight: 900;
-      /* display: inline-block; */
-      cursor: pointer;
-    }
+}
 
-  
-  .DialogContent {
-    color: var(--color-5);
-    border-radius: 30px;
-    /* display: flex;
+.DialogOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+}
+
+.DialogContent .promotion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.DialogContent h3,
+.DialogContent .promotion label {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 900;
+  /* display: inline-block; */
+  cursor: pointer;
+}
+
+.DialogContent {
+  color: var(--color-5);
+  border-radius: 30px;
+  /* display: flex;
     flex-direction: column;
     align-items: center; */
 
+  display: grid;
+  grid-template-rows: repeat(5, min-content) auto min-content;
 
-    display: grid;
-    grid-template-rows: repeat(5, min-content) auto min-content;
+  width: 80vw;
+  /* max-height: 100svh; */
+  max-width: 960px;
 
-    width: 80vw;
-    /* max-height: 100svh; */
-    max-width: 960px;
+  gap: 1.5em;
 
-    gap: 1.5em;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-10);
+  padding: 1em 1em;
+  /* height: fit-content; */
+  box-shadow: 0 0 1em black;
+  animation: scaleInDesktop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+  font-size: min(1em, 3vw);
+  height: 100svh;
+}
 
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-10);
-    padding: 1em 1em;
-    /* height: fit-content; */
-    box-shadow: 0 0 1em black;
-    animation: scaleInDesktop .2s cubic-bezier(0.16, 1, 0.3, 1); 
-    z-index: 3;
-    font-size: min(1em, 3vw);
-    height: 100svh;
-  }
+.DialogContent section:last-child {
+  margin-top: auto;
+}
 
-  .DialogContent section:last-child {
-    margin-top: auto;
-  }
-
-  .DialogContent:focus {
-    outline: none;
-  }
+.DialogContent:focus {
+  outline: none;
+}
 
 /* switch */
 
-  /* reset */
-    button {
-      all: unset;
-    }
+/* reset */
+button {
+  all: unset;
+}
 
-    .SwitchRoot {
-      position: relative;
-      width: var(--size-width);
-      height: var(--size-heigth);
+.SwitchRoot {
+  position: relative;
+  width: var(--size-width);
+  height: var(--size-heigth);
 
-      font-size: 1.5em;
+  font-size: 1.5em;
 
-      background-color: var(--color-5);
-      border-radius: 100em;
-      
-      /* box-shadow: 0 2px 10px green; */
-      padding: var(--padding);
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      cursor: pointer;
-    }
-    .SwitchRoot[data-state='checked'] {
-      background-color: green;
-    }
+  background-color: var(--color-5);
+  border-radius: 100em;
 
-    .SwitchThumb {
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
+  /* box-shadow: 0 2px 10px green; */
+  padding: var(--padding);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+.SwitchRoot[data-state="checked"] {
+  background-color: green;
+}
 
-      display: block;
-      width: var(--size-heigth);
-      aspect-ratio: 1;
+.SwitchThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 
-      background-color: white;
-      border-radius: 9999px;
-      box-shadow: 0 2px 2px blue;
+  display: block;
+  width: var(--size-heigth);
+  aspect-ratio: 1;
 
-      transition: 100ms;
-      will-change: transform;
-    }
-    .SwitchThumb[data-state='checked'] {
-      transform: translate(calc(var(--size-width) - var(--padding)*3 - .1em), -50%);
-    }
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 2px 2px blue;
 
-
+  transition: 100ms;
+  will-change: transform;
+}
+.SwitchThumb[data-state="checked"] {
+  transform: translate(
+    calc(var(--size-width) - var(--padding) * 3 - 0.1em),
+    -50%
+  );
+}
 
 @media screen and (max-width: 800px) {
   .DialogContent {
@@ -312,6 +300,19 @@ section.categories {
     margin-top: 0;
     width: 100%;
     height: 100svh;
-    animation: scaleIn .2s cubic-bezier(0.16, 1, 0.3, 1); 
+    animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
+}
+
+.icon-order {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.mybtn label.marked {
+  color: var(--color-10);
+  background-color: var(--color-5);
 }

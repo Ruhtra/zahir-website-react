@@ -1,49 +1,79 @@
+"use client";
+
+import {
+  ArrowDownAZ,
+  ArrowDownWideNarrow,
+  ArrowUpAZ,
+  ArrowUpWideNarrow,
+} from "lucide-react";
 import { SetURLSearchParams } from "react-router-dom";
 
 interface OrderProps {
-    order: string
-    onOrderChange: SetURLSearchParams;
+  order: string;
+  onOrderChange: SetURLSearchParams;
 }
 
 export function FilterOrder({ order, onOrderChange }: OrderProps) {
-    // const [selected, setSelected]  = useState(order)
+  function handleOrderChange(newOrder: string) {
+    onOrderChange((params) => {
+      //default value
+      if (order == "" || order == null) order = "alphabetical";
 
-    function handleOption(e: React.ChangeEvent<HTMLInputElement>) {
-            onOrderChange((params) => {
-                // if (selected)
-                if (e.target.id == "createdOrder") {
-                    params.set('order', e.target.id)
-                }
-                if (e.target.id != "createdOrder") {
-                    params.set('order', '')
-                }
-                
-                return params
-            })
-    }
+      if (order === newOrder) {
+        // Toggle direction if the same order type is selected
+        params.set(
+          "order",
+          newOrder.startsWith("-") ? newOrder.slice(1) : `-${newOrder}`
+        );
+      } else {
+        // Set new order type
+        params.set("order", newOrder);
+      }
+      return params;
+    });
+  }
 
-    return (
-        <div className="itenss categories scroll-style">
-            <button className="mybtn">
-                <input
-                    type="checkbox"
-                id={"createdOrder"}
-                // name={category}
-                checked={order == "createdOrder" ? true : false}
-                onChange={handleOption}
-                />
-                <label htmlFor="createdOrder">Cronológica</label>
-            </button>
-            <button className="mybtn">
-                <input
-                    type="checkbox"
-                    id={"ncreatedOrder"}
-                    // name={category}
-                    checked={order != "createdOrder" ? true : false}
-                    onChange={handleOption}
-                    />
-                    <label htmlFor="ncreatedOrder">Alfabetica</label>
-            </button>
-        </div>
-    )
+  const isChronological = order === "createdAt" || order === "-createdAt";
+  const isAscending = !order.startsWith("-");
+
+  return (
+    <div className="itenss categories scroll-style">
+      <button
+        className={`mybtn`}
+        onClick={() => handleOrderChange("createdAt")}
+        aria-pressed={isChronological}
+      >
+        <label
+          htmlFor="createdOrder"
+          className={` ${isChronological ? "marked" : ""}`}
+        >
+          {isChronological &&
+            (isAscending ? (
+              <ArrowDownWideNarrow className="icon-order" />
+            ) : (
+              <ArrowUpWideNarrow className="icon-order" />
+            ))}
+          Cronológica
+        </label>
+      </button>
+      <button
+        className={`mybtn ${!isChronological ? "" : ""}`}
+        onClick={() => handleOrderChange("alphabetical")}
+        aria-pressed={!isChronological}
+      >
+        <label
+          htmlFor="alphabeticalOrder"
+          className={` ${isChronological ? "" : "marked"}`}
+        >
+          {!isChronological &&
+            (isAscending ? (
+              <ArrowDownAZ className="icon-order" />
+            ) : (
+              <ArrowUpAZ className="icon-order" />
+            ))}
+          Alfabética
+        </label>
+      </button>
+    </div>
+  );
 }
