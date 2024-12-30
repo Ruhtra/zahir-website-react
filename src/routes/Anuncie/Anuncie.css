@@ -87,6 +87,8 @@ input, textarea {
     }
     .formulario > .mensagem {
         grid-area: mensagem;
+    }
+    .formulario > .mensagem > .item {
         min-height: 5em;
         white-space: wrap;
         overflow-wrap: break-word;
@@ -96,7 +98,14 @@ input, textarea {
         padding: 1em;
     }
 
-    .formulario > .item {
+    .formulario div {
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .formulario  .item {
         display: block;
         padding: .5em;
         outline: .5em solid var(--color-6);
@@ -107,11 +116,11 @@ input, textarea {
         background-color: var(--color-7);
         /* background-color: green; */
     }
-    .formulario > .item::placeholder {
+    .formulario .item::placeholder {
         color: var(--color-8);
         opacity: .6;
     }
-    .formulario > .item[type="submit"] {
+    .formulario .item[type="submit"] {
         margin-top: .5em;
         color: var(--color-6);
         text-indent: 0;
@@ -122,7 +131,7 @@ input, textarea {
         cursor: pointer;
         transition: .5s;
     } 
-    .formulario > .item[type="submit"]:hover { scale: 1.1; }
+    .formulario .item[type="submit"]:hover { scale: 1.1; }
 
 
 
@@ -167,4 +176,11 @@ input, textarea {
             aspect-ratio: 1;
             object-fit: cover;
         }
+    }
+
+
+    .error {
+        color: red;
+        font-size: 0.9em;
+        margin-top: 0.5em;
     }
