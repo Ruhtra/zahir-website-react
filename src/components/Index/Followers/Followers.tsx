@@ -5,9 +5,32 @@ import { Skeleton } from "@radix-ui/themes"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CarouselContext } from "../CarouselContext"
+import { useFollwers } from "../../../services/Querys/Followers"
 
 export function Followers() {
-    const { isLoading } =  useContext(CarouselContext)
+    const { isLoading: isLoadingCarousel } =  useContext(CarouselContext)
+    const { data, isLoading: isLoadingFollower } = useFollwers();
+
+    const isLoading = isLoadingCarousel || isLoadingFollower
+
+    const formatFollowers = (number: number | null) => {
+        if (!number) return null;
+    
+        // Para valores maiores que 1 milhão
+        if (number >= 1000000) {
+            return (number / 1000000).toFixed(1).replace('.', ',') + 'M'; // Substituir '.' por ',' 
+        } 
+        // Para valores maiores que 1 mil
+        else if (number >= 1000) {
+            return (number / 1000).toFixed(1).replace('.', ',') + 'k'; // Substituir '.' por ',' 
+        } 
+        // Para valores menores que 1000
+        else {
+            return number.toString().replace('.', ','); // Substituir '.' por ',' se houver casa decimal
+        }
+    };
+    
+
     return (<>
     <div className="followers">
         {/* <div className="desktop">
@@ -44,7 +67,7 @@ export function Followers() {
         <Skeleton loading={isLoading}>
             <div className="bloco" >
                 <span>Olha só quantos já somos!</span> 
-                <p className="total">509,7k</p>
+                <p className="total">{formatFollowers(data?.total)}</p>
                 <ul className="icons">
                     <Link to={"https://www.tiktok.com/@dozahir"} target="_blank">
                         <li className="tiktok">
