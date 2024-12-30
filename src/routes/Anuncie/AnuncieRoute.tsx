@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Images from "../../assets/Images";
 import PageTitle from "../../components/PageTitle";
 import "./Anuncie.css";
 import { z } from "zod";
@@ -178,7 +177,7 @@ export function AnuncieRoute() {
 
       <div className="images">
         {[...Array(8).keys()].map((_e, index) => (
-          <img key={index} src={Images.backImageExample} alt="" />
+          <img key={index} src={`/images/anuncie/0${index+1}.jpg`} alt="" />
         ))}
       </div>
     </>

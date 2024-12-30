@@ -154,7 +154,7 @@ input, textarea {
 
 /* images */
     .images {
-        margin: 0 auto;
+        margin: 0 auto 1em auto;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -225,3 +225,17 @@ input, textarea {
         background: #45a049;
       }
       
+
+.images img {
+  border: 2px solid #ddd; /* Borda fina e discreta */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Suaviza transformações */
+  cursor: default; /* Mostra o cursor como uma mãozinha */
+}
+
+.images img:hover {
+  transform: scale(1.1); /* Aumenta a imagem em 10% */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
+  border-color: #aaa; /* Destaca a borda ao passar o mouse */
+}
