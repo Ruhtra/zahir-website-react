@@ -53,7 +53,7 @@ export function Filter() {
       filteredData = filteredData.filter((e) => e.promotion.active);
     }
     if (uf) {
-      filteredData = filteredData.filter((e) => e.local.uf === uf);
+      filteredData = filteredData.filter((e) => e.local?.uf === uf);
     }
 
     const isAscending = !order?.startsWith("-");

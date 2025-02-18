@@ -31,7 +31,7 @@ export interface Profile {
   category: Category;
   informations: string;
   telephones: Telephones;
-  local: Local;
+  local?: Local;
   movie: string;
   promotion: Promotion;
   picture: string;
