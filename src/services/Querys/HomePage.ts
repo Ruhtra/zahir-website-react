@@ -19,7 +19,7 @@ export function useCarousel(isShuffle: boolean | null = null) {
   return useQuery<HomePage[]>({
     queryKey: ["carousel"],
     queryFn: async () => {
-      const response = await api.get<HomePage[]>(`${PathUrl}/`);
+      const response = await api.get<HomePage[]>(`${PathUrl}`);
       if (isShuffle) return shuffleArray(response.data);
       return response.data;
     },

@@ -9,13 +9,11 @@ import { ProfileRoute } from "./routes/Profile/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";
-import { AuthContext, AuthProvider } from "./Contexts/AuthContext";
-import { useContext } from "react";
-
-
+// import { AuthContext, AuthProvider } from "./Contexts/AuthContext";
+// import { useContext } from "react";
 
 function Render() {
-  const { dataUser } = useContext(AuthContext)
+  // const { dataUser } = useContext(AuthContext)
 
   return (
     <>
@@ -26,33 +24,28 @@ function Render() {
         <Route path="/loja" element={<LojaRoute />} />
         <Route path="/anuncie" element={<AnuncieRoute />} />
 
-        {
-          dataUser != null
-            ? <>
-              <Route path="/config" element="" />
-            </>
-            : <></>
-
-        }
+        {/* {dataUser != null ? (
+          <>
+            <Route path="/config" element="" />
+          </>
+        ) : (
+          <></>
+        )} */}
       </Routes>
-
     </>
-  )
+  );
 }
 
 export function App() {
-
-
-
   return (
-    <AuthProvider>
-      <>
-        <NavBar />
+    // <AuthProvider>
+    <>
+      <NavBar />
 
-        <Render />
+      <Render />
 
-        <Footer />
-      </>
-    </AuthProvider>
-  )
+      <Footer />
+    </>
+    // </AuthProvider>
+  );
 }
