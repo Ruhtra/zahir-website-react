@@ -28,6 +28,11 @@ export function clearFilter(setSearchParams: SetURLSearchParams) {
   });
 }
 
+function removeDiacritcs(str:string) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  
+}
+
 export function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { data, isLoading, onFilter } = useContext(FilterContext);
@@ -46,7 +51,7 @@ export function Filter() {
 
     if (search) {
       filteredData = filteredData.filter((e) =>
-        e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        removeDiacritcs(e.name.toLocaleLowerCase()).includes(removeDiacritcs(search.toLocaleLowerCase()))
       );
     }
     if (promotion) {
@@ -117,7 +122,7 @@ export function Filter() {
                   <Dialog.Portal>
                     <Dialog.Overlay className="DialogOverlay" />
 
-                    <Dialog.Content className="DialogContent">
+                    <Dialog.Content className="DialogContent scroll-style">
                       <Dialog.Title>Filtro</Dialog.Title>
                       <section className="promotion">
                         <label htmlFor="promotionCheck">
@@ -137,19 +142,25 @@ export function Filter() {
                           <Switch.Thumb className="SwitchThumb" />
                         </Switch.Root>
                       </section>
-                      <section>
+                      <section className="mmiddle">
+                        <div>
+
                         <h3>Ordenar Por</h3>
                         <FilterOrder
                           order={searchParams.get("order") ?? ""}
                           onOrderChange={setSearchParams}
                         />
-                      </section>
-                      <section>
+                        </div>
+                        <div>
+
                         <h3>Região</h3>
                         <FilterUf
                           uf={searchParams.get("uf") ?? ""}
                           onUfChange={setSearchParams}
                         />
+                        </div>
+                        {/* </section>
+                          <section> */}
                       </section>
                       <section>
                         <h3>Locais</h3>

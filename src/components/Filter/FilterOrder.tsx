@@ -37,7 +37,7 @@ export function FilterOrder({ order, onOrderChange }: OrderProps) {
   const isAscending = !order.startsWith("-");
 
   return (
-    <div className="itenss categories scroll-style">
+    <div className="itenss categories scroll-style" style={{flexWrap: 'nowrap'}}>
       <button
         className={`mybtn`}
         onClick={() => handleOrderChange("createdAt")}
