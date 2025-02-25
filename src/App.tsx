@@ -7,6 +7,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { AnuncieRoute } from "./routes/Anuncie/AnuncieRoute";
 import { ProfileRoute } from "./routes/Profile/ProfileRoute";
 import { Footer } from "./components/Footer/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./App.css";
 // import { AuthContext, AuthProvider } from "./Contexts/AuthContext";
@@ -41,10 +42,9 @@ export function App() {
     // <AuthProvider>
     <>
       <NavBar />
-
       <Render />
-
       <Footer />
+      <Analytics />
     </>
     // </AuthProvider>
   );
