@@ -11,7 +11,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-      {/* <ReactQueryDevtools initialIsOpen={false} />; */}
     </QueryClientProvider>
   </GoogleOAuthProvider>
 );

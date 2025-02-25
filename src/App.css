@@ -19,7 +19,7 @@
 }
 
 body {
-  background-image: url("/https://btfhhwkwasgwxaphlfln.supabase.co/storage/v1/object/public/profileImages/static/bg.webp");
+  background-image: url("https://btfhhwkwasgwxaphlfln.supabase.co/storage/v1/object/public/profileImages/static/bg.webp");
   background-size: 50em;
   /* background-size: 50vw; */
 }

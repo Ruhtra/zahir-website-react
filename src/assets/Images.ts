@@ -1,4 +1,5 @@
-const awsBucket = "https://zahir-image.s3.sa-east-1.amazonaws.com";
+const awsBucket =
+  "https://btfhhwkwasgwxaphlfln.supabase.co/storage/v1/object/public/profileImages";
 
 export default {
   zahirImageIndex: awsBucket + "/static/zahir-image-index.webp",
