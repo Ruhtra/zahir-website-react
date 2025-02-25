@@ -18,7 +18,7 @@ export function Profiles() {
   const loadMoreProfiles = useCallback(() => {
     const startIndex = (page - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    setVisibleProfiles((prev) => [
+    setVisibleProfiles(() => [
       // ...prev,
       ...(filtrado?.slice(0, endIndex) || []),
     ]);
