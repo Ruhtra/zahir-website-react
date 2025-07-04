@@ -28,9 +28,9 @@ export function clearFilter(setSearchParams: SetURLSearchParams) {
   });
 }
 
-function removeDiacritcs(str:string) {
+function removeDiacritcs(str: string) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-  
+
 }
 
 export function Filter() {
@@ -50,9 +50,15 @@ export function Filter() {
     const order = searchParams.get("order");
 
     if (search) {
-      filteredData = filteredData.filter((e) =>
-        removeDiacritcs(e.name.toLocaleLowerCase()).includes(removeDiacritcs(search.toLocaleLowerCase()))
-      );
+      filteredData = filteredData.filter((e) => {
+        const nameMatch = removeDiacritcs(e.name.toLocaleLowerCase()).includes(removeDiacritcs(search.toLocaleLowerCase()));
+
+        const categoryMatch = e.category?.categories?.some(cat =>
+          removeDiacritcs(cat.toLocaleLowerCase()).includes(removeDiacritcs(search.toLocaleLowerCase()))
+        );
+
+        return nameMatch || categoryMatch;
+      });
     }
     if (promotion) {
       filteredData = filteredData.filter((e) => e.promotion.active);
@@ -145,19 +151,19 @@ export function Filter() {
                       <section className="mmiddle">
                         <div>
 
-                        <h3>Ordenar Por</h3>
-                        <FilterOrder
-                          order={searchParams.get("order") ?? ""}
-                          onOrderChange={setSearchParams}
-                        />
+                          <h3>Ordenar Por</h3>
+                          <FilterOrder
+                            order={searchParams.get("order") ?? ""}
+                            onOrderChange={setSearchParams}
+                          />
                         </div>
                         <div>
 
-                        <h3>Região</h3>
-                        <FilterUf
-                          uf={searchParams.get("uf") ?? ""}
-                          onUfChange={setSearchParams}
-                        />
+                          <h3>Região</h3>
+                          <FilterUf
+                            uf={searchParams.get("uf") ?? ""}
+                            onUfChange={setSearchParams}
+                          />
                         </div>
                         {/* </section>
                           <section> */}
