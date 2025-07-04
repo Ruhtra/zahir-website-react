@@ -2,7 +2,7 @@ import { useContext, useEffect, useMemo } from "react";
 import { Profile } from "../../models/model";
 import { FilterSearch } from "./FilterSearch";
 import { FilterCategory } from "./FilterCategory";
-import { FilterCategories } from "./FilterCategories";
+// import { FilterCategories } from "./FilterCategories";
 import { FilterUf } from "./FilterUf";
 import { SetURLSearchParams, useSearchParams } from "react-router-dom";
 
@@ -21,7 +21,7 @@ export function clearFilter(setSearchParams: SetURLSearchParams) {
     params.set("promotion", "");
     params.set("category", "");
     params.set("uf", "");
-    params.set("categories", "");
+    // params.set("categories", "");
     params.set("order", "");
 
     return params;
@@ -45,8 +45,8 @@ export function Filter() {
     const uf = searchParams.get("uf");
     const category =
       searchParams.get("category")?.split(",").filter(Boolean) || [];
-    const categories =
-      searchParams.get("categories")?.split(",").filter(Boolean) || [];
+    // const categories =
+    //   searchParams.get("categories")?.split(",").filter(Boolean) || [];
     const order = searchParams.get("order");
 
     if (search) {
@@ -89,11 +89,11 @@ export function Filter() {
         category.every((cat) => e.category.type?.includes(cat))
       );
     }
-    if (categories.length > 0) {
-      filteredData = filteredData.filter((e) =>
-        categories.every((cat) => e.category.categories?.includes(cat))
-      );
-    }
+    // if (categories.length > 0) {
+    //   filteredData = filteredData.filter((e) =>
+    //     categories.every((cat) => e.category.categories?.includes(cat))
+    //   );
+    // }
 
     return filteredData;
   }, [searchParams, data]);
@@ -175,13 +175,13 @@ export function Filter() {
                           onCategoryChange={setSearchParams}
                         />
                       </section>
-                      <section className="categories scroll-style">
+                      {/* <section className="categories scroll-style">
                         <h3>Categorias</h3>
                         <FilterCategories
                           categories={searchParams.get("categories") ?? ""}
                           onCategoriesChange={setSearchParams}
                         />
-                      </section>
+                      </section> */}
 
                       <section>
                         <div className="options">

@@ -88,7 +88,7 @@ section {
   width: 100%;
 }
 section.categories {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   min-height: 10em;
 }
@@ -236,7 +236,7 @@ section.categories {
   z-index: 3;
   font-size: min(1em, 3vw);
   height: 100svh;
-  overflow-y:  scroll;
+  /* overflow-y:  scroll; */
 }
 
 .DialogContent section:last-child {
@@ -306,11 +306,11 @@ button {
 }
 @media screen and (max-width: 800px) {
   .DialogContent {
-    transform: translateX(-50%);
-    top: 0;
+    transform: translate(-50%, -50%);
+    top: 50svh;
     margin-top: 0;
     width: 100%;
-    height: 100svh;
+    height: auto;
     animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
