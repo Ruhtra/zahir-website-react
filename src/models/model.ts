@@ -5,12 +5,13 @@ export interface Category {
 
 interface Local {
   uf: string;
-  city: string;
-  neighborhood: string;
-  street: string;
-  number: string;
-  lat: number;
-  lng: number;
+  country: string;
+  city?: string;
+  neighborhood?: string;
+  street?: string;
+  number?: string;
+  // lat: number;
+  // lng: number;
 }
 
 interface Promotion {
