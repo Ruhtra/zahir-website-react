@@ -18,7 +18,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./Carousel.css";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Arrow } from "../../../assets/Icons/Icons";
 import { Skeleton } from "@radix-ui/themes";
@@ -26,10 +26,26 @@ import { CarouselContext } from "../CarouselContext";
 
 import { Country, State } from "country-state-city";
 import { HomePage } from "../../../models/model";
-
 export function Carousel() {
   const swiperRef = useRef(null);
   const { data, isLoading } = useContext(CarouselContext);
+
+  // Estado para controlar se os dados estão realmente prontos
+  const [isSwiperReady, setIsSwiperReady] = useState(false);
+
+  // Efeito para monitorar quando os dados estão disponíveis
+  useEffect(() => {
+    if (data && data.length > 0) {
+      // Pequeno delay para garantir que o DOM foi atualizado
+      setTimeout(() => setIsSwiperReady(true), 100);
+    }
+  }, [data]);
+
+  // Calcular o slide inicial
+  const getInitialSlide = () => {
+    if (!data || data.length === 0) return 0;
+    return Math.floor(data.length / 2);
+  };
 
   const getCountryName = (isoCode?: string) => {
     if (!isoCode) return null;
@@ -61,8 +77,7 @@ export function Carousel() {
 
   return (
     <>
-      {
-        // isLoading ? <Loading /> :
+      {isLoading && (
         <Swiper
           effect={"coverflow"}
           loop={true}
@@ -82,12 +97,15 @@ export function Carousel() {
             disableOnInteraction: false,
           }}
           spaceBetween={0}
-          initialSlide={data ? Math.floor(data.length / 2) : 0}
-          // spaceBetween={-20}
+          initialSlide={getInitialSlide()} // Usar função calculada
           pagination={true}
           navigation={false}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
+          }}
+          onInit={(swiper) => {
+            // Forçar atualização após inicialização
+            swiper.update();
           }}
           keyboard={{
             enabled: true,
@@ -100,54 +118,28 @@ export function Carousel() {
             Autoplay,
           ]}
           className="mySwiper"
+          key={data?.length} // Forçar re-render quando dados mudarem
         >
-          {isLoading
-            ? Array(1, 2, 3, 4, 5).map((e) => {
-                return (
-                  <SwiperSlide className="swiper-slide" key={e}>
-                    <Link to={``} onClick={(e) => e.preventDefault()}>
-                      <Skeleton loading={true}>
-                        <div className="card">
-                          <div className="promotion">
-                            <div className="text"></div>
-                          </div>
-                          <div className="informations">
-                            <span className="name"></span>
-                            <span className="local"> - </span>
-                          </div>
-                          <img src={""} />
-                        </div>
-                      </Skeleton>
-                    </Link>
-                  </SwiperSlide>
-                );
-              })
-            : data?.map((e) => {
-                return (
-                  <SwiperSlide className="swiper-slide" key={e.profile._id}>
-                    <Link to={`/profile/${e.profile._id}`}>
-                      <div className="card">
-                        {e.profile.promotion.active && (
-                          <div className="promotion">
-                            <div className="text">
-                              {e.profile.promotion.title}
-                            </div>
-                          </div>
-                        )}
-
-                        <div className="informations">
-                          <span className="name">{e.profile.name}</span>
-                          <span className="local">
-                            {/* fix this code for "e.local" in backendreturn */}
-                            {getLocationString(e)}
-                          </span>
-                        </div>
-                        <img src={e.profile.picture} />
+          {Array(1, 2, 3, 4, 5).map((e) => {
+            return (
+              <SwiperSlide className="swiper-slide" key={e}>
+                <Link to={``} onClick={(e) => e.preventDefault()}>
+                  <Skeleton loading={true}>
+                    <div className="card">
+                      <div className="promotion">
+                        <div className="text"></div>
                       </div>
-                    </Link>
-                  </SwiperSlide>
-                );
-              })}
+                      <div className="informations">
+                        <span className="name"></span>
+                        <span className="local"> - </span>
+                      </div>
+                      <img src={""} />
+                    </div>
+                  </Skeleton>
+                </Link>
+              </SwiperSlide>
+            );
+          })}
 
           <div className="buttons">
             <Skeleton loading={isLoading}>
@@ -176,7 +168,104 @@ export function Carousel() {
             </Skeleton>
           </div>
         </Swiper>
-      }
+      )}
+
+      {isSwiperReady && (
+        <Swiper
+          effect={"coverflow"}
+          loop={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 150,
+            modifier: 1,
+            scale: 1,
+            slideShadows: false,
+          }}
+          watchSlidesProgress={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          spaceBetween={0}
+          initialSlide={getInitialSlide()} // Usar função calculada
+          pagination={true}
+          navigation={false}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onInit={(swiper) => {
+            // Forçar atualização após inicialização
+            swiper.update();
+          }}
+          keyboard={{
+            enabled: true,
+          }}
+          modules={[
+            Keyboard,
+            EffectCoverflow,
+            Pagination,
+            Navigation,
+            Autoplay,
+          ]}
+          className="mySwiper"
+          key={data?.length} // Forçar re-render quando dados mudarem
+        >
+          {data?.map((e) => {
+            return (
+              <SwiperSlide className="swiper-slide" key={e.profile._id}>
+                <Link to={`/profile/${e.profile._id}`}>
+                  <div className="card">
+                    {e.profile.promotion.active && (
+                      <div className="promotion">
+                        <div className="text">{e.profile.promotion.title}</div>
+                      </div>
+                    )}
+
+                    <div className="informations">
+                      <span className="name">{e.profile.name}</span>
+                      <span className="local">
+                        {/* fix this code for "e.local" in backendreturn */}
+                        {getLocationString(e)}
+                      </span>
+                    </div>
+                    <img src={e.profile.picture} />
+                  </div>
+                </Link>
+              </SwiperSlide>
+            );
+          })}
+
+          <div className="buttons">
+            <Skeleton loading={isLoading}>
+              <div
+                className="left"
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <Arrow
+                  className="icon icon-arrow"
+                  fillColor="purple"
+                  side="left"
+                />
+              </div>
+            </Skeleton>
+            <Skeleton loading={isLoading}>
+              <div
+                className="rigth"
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <Arrow
+                  className="icon icon-arrow"
+                  fillColor="purple"
+                  side="rigth"
+                />
+              </div>
+            </Skeleton>
+          </div>
+        </Swiper>
+      )}
     </>
   );
 }
