@@ -21,6 +21,7 @@
     "@tanstack/react-query-devtools": "^5.66.9",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.6.7",
+    "country-state-city": "^3.2.1",
     "lucide-react": "^0.469.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,7 +29,7 @@
     "react-query-devtools": "^2.6.3",
     "react-router-dom": "^6.22.1",
     "react-virtuoso": "^4.12.5",
-    "swiper": "^11.1.0",
+    "swiper": "^12.0.3",
     "vite-plugin-svgr": "^4.2.0",
     "zod": "^3.24.1"
   },

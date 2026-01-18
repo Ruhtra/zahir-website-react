@@ -6,6 +6,8 @@ import "@radix-ui/themes/styles.css";
 import { clearFilter } from "../Filter/Filter";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { FilterContext } from "../Filter/FilterContext";
+import { Country, State } from "country-state-city";
+import { Profile } from "../../models/model";
 
 export function Profiles() {
   const { filtrado, isLoading } = useContext(FilterContext);
@@ -30,6 +32,33 @@ export function Profiles() {
     setPage(1);
     loadMoreProfiles();
   }, [filtrado]);
+
+  const getCountryName = (isoCode?: string) => {
+    if (!isoCode) return null;
+    const country = Country.getCountryByCode(isoCode);
+    return country?.name || isoCode;
+  };
+
+  const getStateName = (countryCode?: string, stateCode?: string) => {
+    if (!countryCode || !stateCode) return null;
+    const state = State.getStateByCodeAndCountry(stateCode, countryCode);
+    return state?.name || stateCode;
+  };
+
+  const getLocationString = (profile: Profile) => {
+    const country = getCountryName(profile.local?.country);
+    const state = getStateName(profile.local?.country, profile.local?.uf);
+    const city = profile.local?.city;
+
+    if (!country) return null;
+
+    if (city && state) {
+      return `${country}, ${city}, ${state}`;
+    } else if (state) {
+      return `${country}, ${state}`;
+    }
+    return country;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,11 +124,7 @@ export function Profiles() {
                     <div className="">{e.name}</div>
                     <div className="">
                       {/* fix this code for "e.local" in backendreturn */}
-                      {!!e.local?.uf && (
-                        <>
-                          {e.local?.uf} - {e.local?.city}
-                        </>
-                      )}
+                      {getLocationString(e)}
                     </div>
                   </div>
                 </div>

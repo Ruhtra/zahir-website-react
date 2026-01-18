@@ -4,8 +4,8 @@ export interface Category {
 }
 
 interface Local {
-  uf: string;
-  country: string;
+  uf?: string;
+  country?: string;
   city?: string;
   neighborhood?: string;
   street?: string;
@@ -49,7 +49,7 @@ export interface HomePage {
   profile: Omit<
     Profile,
     "resume" | "informations" | "telephones" | "local" | "movie"
-  > & { local: Pick<Local, "uf" | "city"> };
+  > & { local?: undefined | Pick<Local, "uf" | "city" | "country"> };
 }
 
 export interface RecentsMovies {
