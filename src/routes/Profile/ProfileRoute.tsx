@@ -29,6 +29,21 @@ export function ProfileRoute() {
   return (
     <>
       <PageTitle title={"Perfil"} />
+
+      {/* Título do Perfil */}
+      <div className="profile-header">
+        <Skeleton loading={isLoading}>
+          <div className="profile-title-container">
+            <h1 className="profile-name">{data?.name || "Perfil"}</h1>
+            {data?.category?.type?.[0] && (
+              <div className="profile-category-tag">
+                {data.category.type[0]}
+              </div>
+            )}
+          </div>
+        </Skeleton>
+      </div>
+
       <div className="up">
         <Skeleton loading={isLoading}>
           <div className="left">
@@ -65,6 +80,7 @@ export function ProfileRoute() {
         </Skeleton>
       </div>
 
+      {/* Restante do código permanece igual... */}
       <div className={"bottom"}>
         <Skeleton loading={isLoading}>
           <div className="movie">

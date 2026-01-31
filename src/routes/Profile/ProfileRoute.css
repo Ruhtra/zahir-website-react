@@ -384,3 +384,143 @@
         text-align: left;
     }
 }
+
+
+
+/* Profile Header Styles */
+.profile-header {
+  width: 100%;
+  max-width: 960px;
+  margin: 1em auto 2em auto;
+  padding: 0 1em;
+  text-align: center;
+}
+
+.profile-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.profile-name {
+  color: var(--color-5);
+  font-size: 3em;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0.05em 0.05em 0 var(--color-6);
+  line-height: 1.2;
+  padding: 0.2em 0;
+  position: relative;
+}
+
+.profile-name::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4em;
+  height: 0.2em;
+  background-color: var(--color-5);
+  border-radius: 1em;
+}
+
+.profile-category-tag {
+  display: inline-block;
+  background-color: var(--color-5);
+  color: var(--color-10);
+  padding: 0.5em 1.5em;
+  border-radius: 10em;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 0.2em solid var(--color-6);
+  box-shadow: 0.2em 0.2em 0 var(--color-6);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Promotion styling */
+.up .rigth .promotion {
+  background-color: var(--color-5);
+  color: var(--color-10);
+  padding: 0.75em 1em;
+  border-radius: 0.75em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  border: 0.2em solid var(--color-6);
+}
+
+.up .rigth .promotion span {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+.up .rigth .promotion .text {
+  background-color: var(--color-10);
+  color: var(--color-5);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-weight: normal;
+  border: 0.15em solid var(--color-5);
+}
+
+/* Scrollbar styling for info section */
+.up .rigth .info-section .text::-webkit-scrollbar {
+  width: 8px;
+}
+
+.up .rigth .info-section .text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.up .rigth .info-section .text::-webkit-scrollbar-thumb {
+  background: var(--color-6);
+  border-radius: 4px;
+}
+
+/* Animation for profile title */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness for profile header */
+@media screen and (max-width: 800px) {
+  .profile-header {
+    margin: 0.5em auto 1.5em auto;
+    padding: 0 0.5em;
+  }
+  
+  .profile-name {
+    font-size: 2.2em;
+  }
+  
+  .profile-category-tag {
+    font-size: 1em;
+    padding: 0.4em 1.2em;
+  }
+  
+  .profile-name::after {
+    width: 3em;
+  }
+  
+  .up {
+    margin: 1em auto;
+  }
+}
+
+/* Tablet responsiveness */
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .profile-name {
+    font-size: 2.5em;
+  }
+}
