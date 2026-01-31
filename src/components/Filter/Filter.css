@@ -327,3 +327,226 @@ button {
   color: var(--color-10);
   background-color: var(--color-5);
 }
+
+
+
+
+
+
+/* Adicione estas regras ao seu CSS existente */
+
+.combobox-container {
+  position: relative;
+  width: 100%;
+}
+
+.combobox-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-10);
+  color: var(--color-5);
+  border: 2px solid var(--color-5);
+  border-radius: 0.75em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.combobox-trigger:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.combobox-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: var(--color-10);
+  border: 2px solid var(--color-5);
+  border-radius: 0.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.combobox-search {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-10);
+  color: var(--color-5);
+  border: none;
+  border-bottom: 1px solid var(--color-5);
+  font-size: 1em;
+  outline: none;
+}
+
+.combobox-search::placeholder {
+  color: var(--color-5);
+  opacity: 0.7;
+}
+
+.combobox-options {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.combobox-option {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 0.75rem;
+}
+
+.combobox-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.combobox-option.selected {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.combobox-check {
+  width: 1em;
+  height: 1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.combobox-check.visible {
+  opacity: 1;
+}
+
+.combobox-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--color-5);
+  gap: 0.5rem;
+}
+
+.combobox-action-btn {
+  padding: 0.4rem 0.75rem;
+  background-color: var(--color-6);
+  color: var(--color-5);
+  border: none;
+  border-radius: 0.5em;
+  font-size: 0.875em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.combobox-action-btn:hover {
+  background-color: var(--color-5);
+  color: var(--color-10);
+}
+
+.selected-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+}
+
+.selected-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--color-5);
+  color: var(--color-10);
+  border-radius: 1rem;
+  font-size: 0.875em;
+}
+
+.chip-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 0.8;
+  padding: 0;
+  margin-left: 0.25rem;
+}
+
+.chip-remove:hover {
+  opacity: 0.8;
+}
+
+/* Scrollbar styling */
+.combobox-options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.combobox-options::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.combobox-options::-webkit-scrollbar-thumb {
+  background: var(--color-5);
+  border-radius: 4px;
+}
+
+.combobox-options::-webkit-scrollbar-thumb:hover {
+  background: var(--color-6);
+}
+
+/* Mobile optimizations for FilterUf */
+@media screen and (max-width: 480px) {
+  .mybtn {
+    font-size: 1.1em !important;
+    padding: 0.875rem !important;
+    min-height: 3.25rem !important;
+  }
+  
+  .mybtn-2 {
+    font-size: 1.1em !important;
+    padding: 0.875rem !important;
+  }
+  
+  /* Melhorar scroll para mobile */
+  div[style*="overflowY"] {
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Aumentar área de toque para opções */
+  button[role="option"] {
+    min-height: 3.25rem !important;
+    padding: 0.875rem 1rem !important;
+  }
+  
+  /* Ajustar dropdown para não ultrapassar a tela */
+  div[style*="position: absolute"] {
+    max-height: 60vh !important;
+    border-radius: 0.75rem !important;
+  }
+}
+
+/* Animação para o indicador de seleção */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
