@@ -1,7 +1,7 @@
 import { useContext, useState, useRef, useEffect } from "react";
 import { SetURLSearchParams } from "react-router-dom";
 import { FilterContext } from "./FilterContext";
-import { Country, State } from "country-state-city";
+import { State } from "country-state-city";
 
 interface UfProps {
   uf: string;
@@ -124,11 +124,6 @@ export function FilterUf({ uf, onUfChange }: UfProps) {
   const allFilteredSelected =
     filteredUfs.length > 0 &&
     filteredUfs.every((item) => ufSelected.includes(item.uf));
-
-  // Verificar se algum estado filtrado está selecionado
-  const someFilteredSelected = filteredUfs.some((item) =>
-    ufSelected.includes(item.uf),
-  );
 
   // Close combobox when clicking outside
   useEffect(() => {
