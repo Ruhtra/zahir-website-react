@@ -366,9 +366,10 @@
         grid-column: 1;
     }
 
-    .bottom .resume-section {
+    /* .bottom .resume-section {
         grid-row: 4;
-    }
+        background-color: red;
+    } */
 
     .bottom .resume-categories-section {
         grid-row: 5;

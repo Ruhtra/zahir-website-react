@@ -35,11 +35,18 @@ export function ProfileRoute() {
         <Skeleton loading={isLoading}>
           <div className="profile-title-container">
             <h1 className="profile-name">{data?.name || "Perfil"}</h1>
-            {data?.category?.type?.[0] && (
-              <div className="profile-category-tag">
-                {data.category.type[0]}
-              </div>
-            )}
+            <div
+              style={{
+                display: "flex",
+                gap: "1em",
+              }}
+            >
+              {data?.category?.type &&
+                data?.category?.type.length > 0 &&
+                data.category.type.map((e) => (
+                  <div className="profile-category-tag">{e}</div>
+                ))}
+            </div>
           </div>
         </Skeleton>
       </div>
@@ -100,7 +107,7 @@ export function ProfileRoute() {
           </div>
         </Skeleton>
 
-        {data?.resume && (
+        {/* {data?.resume && (
           <Skeleton loading={isLoading}>
             <div className="resume-section">
               <div className="section-card">
@@ -118,34 +125,7 @@ export function ProfileRoute() {
               </div>
             </div>
           </Skeleton>
-        )}
-
-        {data?.category &&
-          (data?.category.categories?.length > 0 ||
-            data?.category.type?.length > 0) && (
-            <Skeleton loading={isLoading}>
-              <div className="categories-section">
-                <div className="section-card">
-                  <h3 className="section-title">Categorias</h3>
-                  <div className="tags-container">
-                    {data?.category.type?.map((type: string, index: number) => (
-                      <span key={index} className="tag tag-type">
-                        {type}
-                      </span>
-                    ))}
-                    {data?.category.categories?.map(
-                      (cat: string, index: number) => (
-                        <span key={index} className="tag tag-category">
-                          {cat}
-                        </span>
-                      ),
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Skeleton>
-          )}
-
+        )} */}
         <Skeleton loading={isLoading}>
           <div className="address-section">
             <div className="section-card">
@@ -176,6 +156,32 @@ export function ProfileRoute() {
             </div>
           </div>
         </Skeleton>
+
+        {data?.category &&
+          (data?.category.categories?.length > 0 ||
+            data?.category.type?.length > 0) && (
+            <Skeleton loading={isLoading}>
+              <div className="categories-section">
+                <div className="section-card">
+                  <h3 className="section-title">Categorias</h3>
+                  <div className="tags-container">
+                    {data?.category.type?.map((type: string, index: number) => (
+                      <span key={index} className="tag tag-type">
+                        {type}
+                      </span>
+                    ))}
+                    {data?.category.categories?.map(
+                      (cat: string, index: number) => (
+                        <span key={index} className="tag tag-category">
+                          {cat}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Skeleton>
+          )}
 
         {(data?.telephones?.whatsapp?.length > 0 ||
           data?.telephones?.telephone?.length > 0) && (
